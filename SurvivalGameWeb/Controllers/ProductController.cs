@@ -13,5 +13,9 @@ namespace SurvivalGameWeb.Controllers
         {
             return View();
         }
+        public ActionResult ShoppingCart()
+        {
+            return View();
+        }
     }
 }
