@@ -1,0 +1,241 @@
+﻿
+@{
+    ViewBag.Title = "MemberRegister";
+}
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');"
+         data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+            <div class="col-md-9 ftco-animate mb-5 text-center">
+                <p class="breadcrumbs mb-0">
+                    <span class="mr-2">
+                        <a href="index.html">
+                            Home <i class="fa fa-chevron-right"></i>
+                        </a>
+                    </span> <span>
+                        Register <i class="fa fa-chevron-right"></i>
+                    </span>
+                </p>
+                <h2 class="mb-0 bread">Register</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-10 ftco-animate">
+                <form action="#" class="billing-form">
+
+                    <div class="col-12 mb-3 text-right">
+                        <label>(<span class="need">*</span>為必填)</label>
+                    </div>
+
+                    <div class="row align-items-end">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="Name">Name <span class="need">*</span></label>
+                                <input type="text" class="form-control" id="Name" name="Name" placeholder="">
+                                <div class="invalid-feedback NameInvalid">限填中文、英文</div>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="Account">Account <span class="need">*</span></label>
+                                <input type="text" class="form-control" id="Account" name="Account" placeholder="">
+                                <div class="invalid-feedback AccountInvalid">開頭只能為大寫或小寫英文</div>
+                            </div>
+                        </div>
+
+                        <div class="w-100"></div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="Password">Password <span class="need">*</span></label>
+                                <input type="password" class="form-control" id="Password" name="Password" placeholder="">
+                                <div class="invalid-feedback PasswordInvalid">密碼長度介於8-35個大小寫英文數字</div>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="CheckPassword">Check Password <span class="need">*</span></label>
+                                <input type="password" class="form-control" id="CheckPassword" name="CheckPassword" placeholder="">
+                                <div class="invalid-feedback CheckPasswordInvalid">密碼不一致</div>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="Birthday">Birthday <span class="need">*</span></label>
+                                <div class="BirthdayBox">
+                                    <input type="date" class="form-control" name="Birth" id="Birth">
+                                    <div class="BirthdayText">
+                                        <p>※未滿18歲請勿購買玩具槍商品</p>
+                                        <div class="invalid-feedback BirthdayInvalid">請選擇生日</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="Phone">Phone <span class="need">*</span></label>
+                                <input type="text" class="form-control" id="Phone" name="Phone" placeholder="">
+                                <div class="invalid-feedback PhoneInvalid">請輸入09開頭的10位數字手機號碼</div>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="PostCode">Postcode / ZIP <span class="need">*</span></label>
+                                <input type="text" class="form-control" id="PostCode" name="PostCode" placeholder="">
+                                <div class="invalid-feedback PostCodeInvalid">請輸入3至6位數字</div>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="Address">Address <span class="need">*</span></label>
+                                <input type="text" class="form-control" id="Address" name="Address" placeholder="">
+                                <div class="invalid-feedback AddressInvalid">請輸入完整地址</div>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="EmailAddress">Email Address <span class="need">*</span></label>
+                                <input type="emailemail" class="form-control" id="Email" name="Email" placeholder="">
+                                <div class="invalid-feedback EmailInvalid">請輸入完整信箱地址</div>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+
+                        <div class="Check col-12">
+                            <label for="Look"><input type="checkbox" name="Look" id="Look">&nbsp;我已詳閱</label>&nbsp;
+                            <a href="" data-toggle="modal" data-target="#Law" class="MemberTerms">會員條款</a>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group mt-4">
+                                <div class="Submit">
+                                    <a href="#" class="btn btn-primary" id="LoginBtn">Log in</a>
+                                    <button class="btn btn-primary" id="RegisterBtn">Register</button>
+                                    <!-- <label class="mr-3"><input type="radio" name="optradio"> Login
+                                    </label>
+                                    <label><input type="radio" name="optradio"> Register </label> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form><!-- END -->
+
+            </div> <!-- .col-md-8 -->
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="Law" tabindex="-1" role="dialog" aria-labelledby="LawTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="LawLongTitle">會員條款</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                        style="color: #fff;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row LawArea">
+                        <div class="col-12 LawAreaTxt">
+                            <strong>
+                                購買本賣場玩具槍產品，請確認已滿18歲，且請詳細閱讀會員申請同意書，並按下同意鍵，表示您同意且願意遵守下列規範，您就可以馬上成為會員了!
+                            </strong>
+                        </div>
+                        <div class="LawContent">
+                            <hr />
+                            <div class="col-12">
+                                <p>為了保障您購買之後的權益，請您務必詳閱下列約定條款；當您按下〔我同意〕並確定結帳時，即視為已知悉、並且同意本約定條款的所有約定：</p>
+                                <p>
+                                    1. 為確保完成所有的交易程序，您必須保證在本站登記的個人資料與事實相符，如有變動，應即時通知網站服務台修正或是自行至會員管理介面修改。
+                                </p>
+                                <p>2. 您所登錄之個人資料，除了應提供廠商相關送貨與結帳資訊，本站應負相關之保密義務，不會任意洩漏貨提供給第三人。</p>
+                                <p>3. 您應妥善保管在本站登記之帳號與密碼，所有使用該帳號登入系統之任何行為，本站皆視為帳號與密碼持有人之行為。</p>
+                                <p>
+                                    4. 在下列情況下，本站有權查看或提供使用者的個人資料給有權機關、或主張其權利受侵害並提出適當證明之第三人：
+                                    <br>
+                                    ※ 依法令規定、或依司法機關或其他有權機關的命令；
+                                    <br>
+                                    ※ 為執行本約定條款、或使用者違反約定條款；
+                                    <br>
+                                    ※ 為維護本站系統之正常運作及安全；
+                                    <br>
+                                    ※ 為保護本站、其他使用者、或其他第三人的合法權益；
+                                </p>
+                                <p>5. 本站所有商品皆由協力廠商所提供，交易行為僅存在於廠商與使用者之間，本站僅提供廠商與使用者之間的交易平台與付款機制。</p>
+                                <p>
+                                    6.
+                                    相關商品或服務之品質、保固及售後服務，由提供各該商品或服務的廠商負責，但本站承諾全力協助使用者解決關於因為線上消費所產生之疑問或爭議。
+                                </p>
+                                <p>
+                                    7.
+                                    使用者一旦在本站進行線上消費，即表示願意購買該商品或服務並願遵守交易規則。使用者資料(如地址、電話)如有變更時，應立即上線修正其所留存之資料，且不得以資料不符為理由，否認其訂購行為或拒絕付款。
+                                    本站並保有接受您訂單與否的權利。
+                                </p>
+                                <p>
+                                    8.
+                                    所有在本站所進行的線上消費，使用者應同意以本站所紀錄之電子交易資料為準，如有糾紛，並以該電子交易資料為認定標準。使用者如果發現交易資料不正確，應立即通知本站服務台。
+                                </p>
+                                <p>
+                                    9. 本站在發生下列情形之一時，可以停止、中斷提供服務；停止或中斷服務時，原則上本站將先通知會員，惟緊急時刻不在此限：
+                                    <br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;1. 對本站的電子通信設備，進行必要的保養及施工
+                                    <br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;2. 發生突發性的電子通信設備故障；
+                                    由於本站所申請的電子通信服務被停止，致使提供服務發生困難；由於天災等不可抗力之因素，致使本站無法提供服務。
+                                </p>
+                                <p>
+                                    10. 本站保留隨時修改本使用條款之權利，修改後的使用條款將公佈在本網站上，不另外個別通知使用者。使用者應同意遵守修改後之約定條款。
+                                </p>
+                                <p>
+                                    11.
+                                    使用者應同意，本約定條款及所有在本站所進行的線上消費或交易，均以中華民國法令為準據法。因本約定條款所發生之糾紛，以台灣台北地方法院為第一審管轄。
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="col-12 RowLink">
+                            <a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?Pcode=I0050021&FLNO=8"
+                               target="_blank" class="LawLink">個人資料保護法</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section topCss{
+    <link href="~/Assets/css/MemberRegister/MemberRegistered.css" rel="stylesheet" />
+}
+
+@section bottomJs{
+    <script src="~/Assets/javaScript/MemberRegister/MemberRegistered.js"></script>
+}

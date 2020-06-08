@@ -1,0 +1,83 @@
+.Check,
+.RowLink {
+    text-align: center;
+}
+
+label,
+a {
+    font-size: large;
+    font-family: sans-serif;
+}
+
+.need {
+    color: rgb(207, 49, 49);
+}
+
+.modal-header {
+    background-color: rgb(56, 55, 55);
+}
+
+#LawLongTitle {
+    color: #fff;
+}
+
+.container-fluid .LawArea {
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.BirthdayBox {
+    position: relative;
+}
+
+.BirthdayText p {
+    font-size: 10px;
+    color: red;
+    text-align: right;
+    position: relative;
+    margin-top: 6px;
+}
+
+.MemberTerms,
+.LawLink {
+    text-decoration: none;
+    color: rgb(56, 168, 243);
+    font-size: 18px !important;
+}
+
+    .MemberTerms:hover,
+    .LawLink:hover {
+        text-decoration: none;
+        color: rgb(201, 162, 34);
+    }
+
+.LawAreaTxt {
+    margin: 10px 0 0;
+}
+
+hr {
+    border: 1px dashed #000;
+}
+
+.LawContent {
+    margin: 0 10px 0 10px;
+}
+
+.Submit {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.BirthdayInvalid {
+    position: absolute;
+    top: 57px;
+}
+
+
+.invalid-feedback {
+    display: block;
+}
+
+input {
+    max-width: 100%;
+}
