@@ -147,6 +147,7 @@
     <Content Include="Assets\css\MemberRegister\MemberRegistered.css" />
     <Content Include="Assets\css\owl.carousel.min.css" />
     <Content Include="Assets\css\owl.theme.default.min.css" />
+    <Content Include="Assets\css\ShoppingCart\ShoppingCart.Css" />
     <Content Include="Assets\css\style.css" />
     <Content Include="Assets\fonts\flaticon.css" />
     <Content Include="Assets\fonts\flaticon.html" />
@@ -254,8 +255,6 @@
     <Folder Include="Security\" />
     <Folder Include="Services\" />
     <Folder Include="ViewModels\" />
-    <Folder Include="Views\Member\" />
-    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -1,0 +1,40 @@
+.ftco-section .row img {
+    width: 100%;
+}
+
+.ftco-section .CartTitle {
+    background: #7b000c;
+    border: none;
+    padding: 30px;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+}
+
+.CartItem div {
+    margin: auto;
+}
+
+.CartContext {
+    display: flex;
+}
+
+@media screen and (max-width: 568px) {
+    .CartTitle {
+        display: none;
+    }
+
+    .CartContext {
+        display: block;
+    }
+
+    .CartItem {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    #CartName span:last-child {
+        display: none;
+    }
+}
