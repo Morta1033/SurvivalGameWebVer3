@@ -13,5 +13,13 @@ namespace SurvivalGameWeb.Controllers
         {
             return View();
         }
+        public ActionResult MemberRegister()
+        {
+            return View();
+        }
+        public ActionResult MemberCenter()
+        {
+            return View();
+        }
     }
 }

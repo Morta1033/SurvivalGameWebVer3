@@ -141,7 +141,10 @@
     <Content Include="Assets\css\animate.css" />
     <Content Include="Assets\css\bootstrap.min.css" />
     <Content Include="Assets\css\flaticon.css" />
+    <Content Include="Assets\css\LoginPartialView\LoginPartialView.css" />
     <Content Include="Assets\css\magnific-popup.css" />
+    <Content Include="Assets\css\MemberCenter\MemberCenter.css" />
+    <Content Include="Assets\css\MemberRegister\MemberRegistered.css" />
     <Content Include="Assets\css\owl.carousel.min.css" />
     <Content Include="Assets\css\owl.theme.default.min.css" />
     <Content Include="Assets\css\style.css" />
@@ -190,7 +193,10 @@
     <Content Include="Assets\javaScript\jquery.min.js" />
     <Content Include="Assets\javaScript\jquery.stellar.min.js" />
     <Content Include="Assets\javaScript\jquery.waypoints.min.js" />
+    <Content Include="Assets\javaScript\LoginPartialView\LoginPartialView.js" />
     <Content Include="Assets\javaScript\main.js" />
+    <Content Include="Assets\javaScript\MemberCenter\MemberCenter.js" />
+    <Content Include="Assets\javaScript\MemberRegister\MemberRegistered.js" />
     <Content Include="Assets\javaScript\owl.carousel.min.js" />
     <Content Include="Assets\javaScript\popper.min.js" />
     <Content Include="Assets\javaScript\scrollax.min.js" />
@@ -235,6 +241,9 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Product\ShoppingCart.cshtml" />
+    <Content Include="Views\Member\MemberRegister.cshtml" />
+    <Content Include="Views\Member\MemberCenter.cshtml" />
+    <Content Include="Views\Shared\LoginPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -246,6 +255,7 @@
     <Folder Include="Services\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Views\Member\" />
+    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

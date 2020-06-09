@@ -1,0 +1,190 @@
+﻿
+@{
+    ViewBag.Title = "MemberCenter";
+}
+
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');"
+         data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+            <div class="col-md-9 ftco-animate mb-5 text-center">
+                <p class="breadcrumbs mb-0">
+                    <span class="mr-2">
+                        <a href="index.html">
+                            Home <i class="fa fa-chevron-right"></i>
+                        </a>
+                    </span> <span>
+                        My Account <i class="fa fa-chevron-right"></i>
+                    </span>
+                </p>
+                <h2 class="mb-0 bread">My Account</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-10 ftco-animate">
+                <div class="billing-form">
+
+                    <div class="row">
+                        <div class="col-12 col-md-3 NavMember my-3">
+                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                                 aria-orientation="vertical">
+                                <a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill"
+                                   href="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
+                                   aria-selected="true">Profile</a>
+                                <a class="nav-link" id="v-pills-history-tab" data-toggle="pill"
+                                   href="#v-pills-history" role="tab" aria-controls="v-pills-history"
+                                   aria-selected="false">History</a>
+                                <!-- <a class="nav-link" id="v-pills-setting-tab" data-toggle="pill" href="#v-pills-setting" role="tab" aria-controls="v-pills-setting" aria-selected="false">Settings</a>
+                                <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a> -->
+                                <!-- <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill"
+                                    href="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
+                                    aria-selected="true">Profile</a>
+                                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill"
+                                    href="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
+                                    aria-selected="true">Profile</a> -->
+                            </div>
+                        </div>
+
+                        <!-- Profile內容 -->
+                        <div class="col-12 col-md-9">
+                            <div class="tab-content" id="v-pills-tabContent">
+                                <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel"
+                                     aria-labelledby="v-pills-profile-tab">
+
+                                    <div class="row">
+                                        <div class="col-12  mb-3 text-right">
+                                            <label id="ModifyLabel">修改會員資料</label>
+                                            <input type="checkbox" class="d-none" id="ModfiyMeber">
+                                            <div class="ModfiyLayout" data-toggle="tooltip" data-placement="bottom"
+                                                 title=" 修改後須按儲存">
+                                                <i class="ModfiyLayoutIOff"></i><em class="ModfiyEmOff">OFF</em>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <form action=" #" method="post" id="MemberForm" class="">
+
+
+                                        <div class="form-group col-md-12">
+                                            <label for="Name">Name</label>
+                                            <input type="text" class="form-control FromList" id="Name" name="Name"
+                                                   placeholder="" pattern="^[a-zA-Z\u2E80-\u9FFF]*$" minlength="2"
+                                                   title="限填中文、英文" required>
+                                            <div class="ErrorHint NameErrorHint">帳號開頭只能為大寫或小寫英文</div>
+
+                                        </div>
+
+                                        <div class="form-group col-md-12">
+                                            <label for="Account">Account</label>
+                                            <input type="text" class="form-control FromRead" id="Account"
+                                                   name="Account" placeholder="" disabled=”disabled”>
+                                            <p class="FromOff" style="display: none;">test</p>
+                                        </div>
+
+                                        <div class="form-group col-md-12">
+                                            <label for="Password">Password</label>
+                                            <input type="password" class="form-control FromList" id="Password"
+                                                   name="Password" placeholder=""
+                                                   pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,35}$"
+                                                   minlength="8" maxlength="35" title="密碼長度介於8-35個大小寫英文數字" required>
+                                            <div class="ErrorHint PasswordErrorHint">密碼長度介於8-35個大小寫英文數字</div>
+
+                                        </div>
+
+                                        <!-- <div class="form-group col-md-12">
+                                                <label for="CheckPassword">Check Password</label>
+                                                <input type="password" class="form-control FromList" id="CheckPassword"
+                                                    name="CheckPassword" placeholder="">
+                                                <div class="invalid-feedback CheckPasswordInvalid">密碼不一致</div>
+                                            </div> -->
+
+                                        <div class="form-group col-md-12">
+                                            <label class="Birthday">Birthday</label>
+                                            <div class="BirthdayBox">
+                                                <input type="date" class="form-control FromRead" name="Birth"
+                                                       id="Birth" disabled=”disabled”>
+                                                <p class="FromOff" style="display: none;">2019-05-20</p>
+                                                <div class="BirthdayText">
+                                                    <p>※未滿18歲請勿購買玩具槍商品</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-md-12">
+                                            <label for="Phone">Phone</label>
+                                            <input type="text" class="form-control FromList" id="Phone" name="Phone"
+                                                   placeholder="" pattern="^09\d{8}$" length="10"
+                                                   title="請輸入09開頭的10位數字手機號碼" required>
+                                            <div class="ErrorHint PhoneErrorHint">請輸入09開頭的10位數字手機號碼</div>
+
+                                        </div>
+
+                                        <div class="form-group col-md-12">
+                                            <label for="PostCode">Postcode / ZIP</label>
+                                            <input type="text" class="form-control FromList" id="PostCode"
+                                                   name="PostCode" placeholder="" pattern="^\d{3,6}$" minlength="3"
+                                                   maxlength="6" title="請最少輸入3-6位數字" required>
+                                            <div class="ErrorHint PostCodeErrorHint">請輸入3至6位數字</div>
+                                        </div>
+
+                                        <div class="form-group col-md-12">
+                                            <label for="Address">Address</label>
+                                            <input type="text" class="form-control FromList" id="Address"
+                                                   name="Address" placeholder=""
+                                                   pattern="^[a-zA-Z\u2E80-\u9FFF][\w*\u2E80-\u9FFF]{10,50}"
+                                                   minlength="10" maxlength="50" title="請輸入10字以上完整地址" required>
+                                            <div class="ErrorHint AddressErrorHint">請輸入完整地址</div>
+
+                                        </div>
+
+                                        <div class="form-group col-md-12">
+                                            <label for="EmailAddress">Email Address</label>
+                                            <input type="email" class="form-control FromList" id="Email"
+                                                   name="Email" placeholder="" pattern="" title="請輸入完整信箱地址" required>
+                                            <div class="ErrorHint EmailAddressErrorHint">請輸入完整信箱地址</div>
+
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="form-group col-12 row justify-content-end">
+                                    <div class="Edit">
+                                        <button class="btn btn-primary" id="ModifySave"
+                                                style="display: none;">
+                                            Submit
+                                        </button>
+                                        <!-- margin-right: -15px;
+                                        margin-left: -15px; -->
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+@section topCss{
+    <link href="~/Assets/css/MemberCenter/MemberCenter.css" rel="stylesheet" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+}
+
+@section bottomJs{
+    <script src="~/Assets/javaScript/MemberCenter/MemberCenter.js"></script>
+}
