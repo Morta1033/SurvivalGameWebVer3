@@ -259,7 +259,6 @@
     <Content Include="Views\Member\MemberCenter.cshtml" />
     <Content Include="Views\Shared\LoginPartialView.cshtml" />
     <Content Include="Views\Product\ProductMenu.cshtml" />
-    <Content Include="Views\Product\ProductDetails.cshtml" />
     <Content Include="Views\Product\CheckOut.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -270,8 +269,6 @@
     <Folder Include="Repository\" />
     <Folder Include="Security\" />
     <Folder Include="Services\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
