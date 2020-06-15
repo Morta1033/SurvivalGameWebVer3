@@ -136,6 +136,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\ProductDetails\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\animate.css" />
@@ -144,6 +145,7 @@
     <Content Include="Assets\css\magnific-popup.css" />
     <Content Include="Assets\css\owl.carousel.min.css" />
     <Content Include="Assets\css\owl.theme.default.min.css" />
+    <Content Include="Assets\css\ProductDetails\ProductDetails.css" />
     <Content Include="Assets\css\style.css" />
     <Content Include="Assets\fonts\flaticon.css" />
     <Content Include="Assets\fonts\flaticon.html" />
@@ -158,6 +160,7 @@
     <Content Include="Assets\images\image_4.jpg" />
     <Content Include="Assets\images\image_5.jpg" />
     <Content Include="Assets\images\image_6.jpg" />
+    <Content Include="Assets\images\KFC_Gun.gif" />
     <Content Include="Assets\images\kind-1.jpg" />
     <Content Include="Assets\images\kind-2.jpg" />
     <Content Include="Assets\images\kind-3.jpg" />
@@ -169,6 +172,7 @@
     <Content Include="Assets\images\person_2.jpg" />
     <Content Include="Assets\images\person_3.jpg" />
     <Content Include="Assets\images\person_4.jpg" />
+    <Content Include="Assets\images\PrD_img.jpg" />
     <Content Include="Assets\images\prod-1.jpg" />
     <Content Include="Assets\images\prod-10.jpg" />
     <Content Include="Assets\images\prod-11.jpg" />
@@ -181,6 +185,7 @@
     <Content Include="Assets\images\prod-7.jpg" />
     <Content Include="Assets\images\prod-8.jpg" />
     <Content Include="Assets\images\prod-9.jpg" />
+    <Content Include="Assets\images\santa_gun.gif" />
     <Content Include="Assets\javaScript\bootstrap.min.js" />
     <Content Include="Assets\javaScript\google-map.js" />
     <Content Include="Assets\javaScript\jquery-migrate-3.0.1.min.js" />
@@ -193,6 +198,7 @@
     <Content Include="Assets\javaScript\main.js" />
     <Content Include="Assets\javaScript\owl.carousel.min.js" />
     <Content Include="Assets\javaScript\popper.min.js" />
+    <Content Include="Assets\javaScript\ProductDetails\ProductDetails.js" />
     <Content Include="Assets\javaScript\scrollax.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -234,6 +240,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Product\ProductDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -243,9 +250,7 @@
     <Folder Include="Repository\" />
     <Folder Include="Security\" />
     <Folder Include="Services\" />
-    <Folder Include="ViewModels\" />
     <Folder Include="Views\Member\" />
-    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
