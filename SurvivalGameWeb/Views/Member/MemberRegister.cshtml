@@ -31,7 +31,7 @@
                 <form action="#" class="billing-form">
 
                     <div class="col-12 mb-3 text-right">
-                        <label>(<span class="need">*</span>為必填)</label>
+                        <label>(Fields marked <span class="need">*</span> are required.)</label>
                     </div>
 
                     <div class="row align-items-end">
@@ -39,26 +39,36 @@
                             <div class="form-group">
                                 <label for="Name">Name <span class="need">*</span></label>
                                 <input type="text" class="form-control" id="Name" name="Name" placeholder="">
-                                <div class="invalid-feedback NameInvalid">限填中文、英文</div>
+                                <div class="invalid-feedback NameInvalid">The name is between 2-25 Chinese or English characters</div>
                             </div>
                         </div>
                         <div class="w-100"></div>
+
+                        @*<div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="Account">Account <span class="need">*</span></label>
+                                    <input type="text" class="form-control" id="Account" name="Account" placeholder="">
+                                    <div class="invalid-feedback AccountInvalid">開頭只能為大寫或小寫英文</div>
+                                </div>
+                            </div>
+
+                            <div class="w-100"></div>*@
 
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="Account">Account <span class="need">*</span></label>
-                                <input type="text" class="form-control" id="Account" name="Account" placeholder="">
-                                <div class="invalid-feedback AccountInvalid">開頭只能為大寫或小寫英文</div>
+                                <label for="EmailAddress">Email Address <span class="need">*</span></label>
+                                <input type="email" class="form-control" id="Email" name="Email" placeholder="">
+                                <div class="invalid-feedback EmailInvalid">Please enter the complete email</div>
                             </div>
                         </div>
-
                         <div class="w-100"></div>
+
 
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="Password">Password <span class="need">*</span></label>
                                 <input type="password" class="form-control" id="Password" name="Password" placeholder="">
-                                <div class="invalid-feedback PasswordInvalid">密碼長度介於8-35個大小寫英文數字</div>
+                                <div class="invalid-feedback PasswordInvalid">Password length is between 8-35 uppercase and lowercase English digits</div>
                             </div>
                         </div>
                         <div class="w-100"></div>
@@ -67,7 +77,7 @@
                             <div class="form-group">
                                 <label for="CheckPassword">Check Password <span class="need">*</span></label>
                                 <input type="password" class="form-control" id="CheckPassword" name="CheckPassword" placeholder="">
-                                <div class="invalid-feedback CheckPasswordInvalid">密碼不一致</div>
+                                <div class="invalid-feedback CheckPasswordInvalid">Passwords are inconsistent</div>
                             </div>
                         </div>
                         <div class="w-100"></div>
@@ -78,8 +88,8 @@
                                 <div class="BirthdayBox">
                                     <input type="date" class="form-control" name="Birth" id="Birth">
                                     <div class="BirthdayText">
-                                        <p>※未滿18歲請勿購買玩具槍商品</p>
-                                        <div class="invalid-feedback BirthdayInvalid">請選擇生日</div>
+                                        <p>※Do not buy toy guns under the age of 18</p>
+                                        <div class="invalid-feedback BirthdayInvalid">Please select a birthday</div>
                                     </div>
                                 </div>
                             </div>
@@ -90,7 +100,7 @@
                             <div class="form-group">
                                 <label for="Phone">Phone <span class="need">*</span></label>
                                 <input type="text" class="form-control" id="Phone" name="Phone" placeholder="">
-                                <div class="invalid-feedback PhoneInvalid">請輸入09開頭的10位數字手機號碼</div>
+                                <div class="invalid-feedback PhoneInvalid">Please enter the 10-digit mobile phone number starting with 09</div>
                             </div>
                         </div>
                         <div class="w-100"></div>
@@ -99,7 +109,7 @@
                             <div class="form-group">
                                 <label for="PostCode">Postcode / ZIP <span class="need">*</span></label>
                                 <input type="text" class="form-control" id="PostCode" name="PostCode" placeholder="">
-                                <div class="invalid-feedback PostCodeInvalid">請輸入3至6位數字</div>
+                                <div class="invalid-feedback PostCodeInvalid">Please enter 3 to 6 digits</div>
                             </div>
                         </div>
                         <div class="w-100"></div>
@@ -108,23 +118,17 @@
                             <div class="form-group">
                                 <label for="Address">Address <span class="need">*</span></label>
                                 <input type="text" class="form-control" id="Address" name="Address" placeholder="">
-                                <div class="invalid-feedback AddressInvalid">請輸入完整地址</div>
-                            </div>
-                        </div>
-                        <div class="w-100"></div>
-
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="EmailAddress">Email Address <span class="need">*</span></label>
-                                <input type="emailemail" class="form-control" id="Email" name="Email" placeholder="">
-                                <div class="invalid-feedback EmailInvalid">請輸入完整信箱地址</div>
+                                <div class="invalid-feedback AddressInvalid">Please enter the complete address of more than 10 words</div>
                             </div>
                         </div>
                         <div class="w-100"></div>
 
                         <div class="Check col-12">
-                            <label for="Look"><input type="checkbox" name="Look" id="Look">&nbsp;我已詳閱</label>&nbsp;
-                            <a href="" data-toggle="modal" data-target="#Law" class="MemberTerms">會員條款</a>
+                            <label for="Look">
+                                <input type="checkbox" name="Look" id="Look">&nbsp;
+                                I have read
+                            </label>&nbsp;
+                            <a href="" data-toggle="modal" data-target="#Law" class="MemberTerms">the membership terms carefully</a>
                         </div>
 
                         <div class="col-md-12">
@@ -141,7 +145,7 @@
                     </div>
                 </form><!-- END -->
 
-            </div> <!-- .col-md-8 -->
+            </div>
         </div>
     </div>
 </section>
