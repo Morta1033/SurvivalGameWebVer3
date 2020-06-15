@@ -136,6 +136,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\MemberCenter\MemberCenterViewModel.cs" />
+    <Compile Include="ViewModels\MemberLogin\MemberLoginViewModel.cs" />
+    <Compile Include="ViewModels\MemberRegister\MemberRegisteredViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\animate.css" />
@@ -252,7 +255,6 @@
     <Folder Include="Repository\" />
     <Folder Include="Security\" />
     <Folder Include="Services\" />
-    <Folder Include="ViewModels\" />
     <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>

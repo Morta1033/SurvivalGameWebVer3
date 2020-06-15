@@ -1,38 +1,38 @@
 let Log_In = document.querySelector(".Log_In");
 
-let ModalAccount = document.getElementById("ModalAccount");
-let Modalrule_account = /^[a-zA-Z_]\w*$/;
+let ModalEmail = document.getElementById("ModalEmail");
+let Modalrule_email = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
 
 let ModalPassword = document.getElementById("ModalPassword");
 let Modalrule_password = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,35}$/;
 
-let ModalAccountInvalid = document.querySelector(".ModalAccountInvalid");
+let ModalEmailInvalid = document.querySelector(".ModalEmailInvalid");
 let ModalPasswordInvalid = document.querySelector(".ModalPasswordInvalid");
 
 let ModalLoginButton = document.querySelector(".login100-form-btn");
 
-// let localAc = localStorage.getItem('ModalAccount');
+// let localAc = localStorage.getItem('ModalEmail');
 // let localPa = localStorage.getItem('ModalPassword');
 
 
 Log_In.addEventListener("click", function () {
     
     // if(localAc){
-    //     $('#ModalAccount').val(localAc);
+    //     $('#ModalEmail').val(localAc);
         
-    //     ModalAccountInvalid.setAttribute("style", "display: none;");
+    //     ModalEmailInvalid.setAttribute("style", "display: none;");
     // }if(localPa){
     //     $('#ModalPassword').val(localPa);
 
     //     ModalPasswordInvalid.setAttribute("style", "display: none;");
     // }
 
-    ModalAccount.addEventListener("keyup", function () {
-        if (Modalrule_account.test(ModalAccount.value) === true && ModalAccount.value != "") {
-            ModalAccountInvalid.setAttribute("style", "display: none;");
+    ModalEmail.addEventListener("keyup", function () {
+        if (Modalrule_email.test(ModalEmail.value) === true && ModalEmail.value != "") {
+            ModalEmailInvalid.setAttribute("style", "display: none;");
             
         } else {
-            ModalAccountInvalid.setAttribute("style", "display: block;");
+            ModalEmailInvalid.setAttribute("style", "display: block;");
         }
     })
 
@@ -50,23 +50,23 @@ ModalLoginButton.onclick = function (e) {
     e.preventDefault();
     //alert("XDDD");
 
-    if ((ModalAccountInvalid.getAttribute("style") != "display: none;") && (ModalPasswordInvalid.getAttribute("style") != "display: none;")) {
+    if ((ModalEmailInvalid.getAttribute("style") != "display: none;") && (ModalPasswordInvalid.getAttribute("style") != "display: none;")) {
         alert("Data Not Full");
         return;
     }
     // if ($("#ckb1").prop('checked')) {
-    //     localStorage.setItem('ModalAccount', ModalAccount.value);
+    //     localStorage.setItem('ModalEmail', ModalEmail.value);
     //     localStorage.setItem('ModalPassword', ModalPassword.value);
 
     // }
     // if (!$("#ckb1").prop('checked')) {
-    //     localStorage.removeItem('ModalAccount', ModalAccount.value);
+    //     localStorage.removeItem('ModalEmail', ModalEmail.value);
     //     localStorage.removeItem('ModalPassword', ModalPassword.value);
 
     // }
     
     let ModalMemberItem = {
-        Account: ModalAccount.value,
+        Email: ModalEmail.value,
         Password: ModalPassword.value
     };
     console.log(JSON.stringify(ModalMemberItem));

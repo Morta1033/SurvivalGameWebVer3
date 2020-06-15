@@ -120,14 +120,6 @@ function checkchange() {
         });
 
         save.onclick = function (e) {
-            // if (edit_rule_name.test(editName.value) === true && editName.value != "" && return
-            //     edit_rule_password.test(editPassword.value) === true && editPassword.value != "" &&
-            //     edit_rule_postCode.test(editPostCode.value) === true && editPostCode.value != "" &&
-            //     edit_rule_address.test(editAddress.value) === true && editAddress.value != "" &&
-            //     edit_rule_phone.test(editPhone.value) === true && editPhone.value != "" &&
-            //     edit_rule_email.test(editEmail.value) === true && editEmail.value != "") {
-
-
 
             e.preventDefault();
 
@@ -184,21 +176,13 @@ window.onload = function () {
 
 let change_navLink = document.querySelectorAll(".NavMember .nav-link")
 
-// change_navLink[1].addEventListener('click',function(){
-//     let check = document.getElementById("ModfiyMeber")
-//     if  (check.checked){
-//         checkchange()
-//         return
-//     }
-// });
 
-
-//change_navLink.forEach(e => {
-//    e.addEventListener('click',function(){
-//        let check = document.getElementById("ModfiyMeber")
-//        if  (check.checked){
-//            checkchange()
-//            return
-//        }
-//    })
-//});
+change_navLink.forEach(e => {
+    e.addEventListener('click', function () {
+        let check = document.getElementById("ModfiyMeber")
+        if (check.checked) {
+            checkchange()
+            return
+        }
+    })
+});
