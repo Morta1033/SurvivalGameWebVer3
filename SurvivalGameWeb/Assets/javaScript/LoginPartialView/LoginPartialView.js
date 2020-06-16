@@ -1,5 +1,5 @@
-let Log_In = document.querySelector(".Log_In");
-
+let Log_In = document.querySelectorAll(".Log_In");
+console.log(Log_In)
 let ModalEmail = document.getElementById("ModalEmail");
 let Modalrule_email = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
 
@@ -15,35 +15,37 @@ let ModalLoginButton = document.querySelector(".login100-form-btn");
 // let localPa = localStorage.getItem('ModalPassword');
 
 
-Log_In.addEventListener("click", function () {
-    
-    // if(localAc){
-    //     $('#ModalEmail').val(localAc);
-        
-    //     ModalEmailInvalid.setAttribute("style", "display: none;");
-    // }if(localPa){
-    //     $('#ModalPassword').val(localPa);
+Log_In.forEach(el => {
+    el.addEventListener("click", function () {
+        $("#LoginModal").modal('show');
+        // if(localAc){
+        //     $('#ModalEmail').val(localAc);
 
-    //     ModalPasswordInvalid.setAttribute("style", "display: none;");
-    // }
+        //     ModalEmailInvalid.setAttribute("style", "display: none;");
+        // }if(localPa){
+        //     $('#ModalPassword').val(localPa);
 
-    ModalEmail.addEventListener("keyup", function () {
-        if (Modalrule_email.test(ModalEmail.value) === true && ModalEmail.value != "") {
-            ModalEmailInvalid.setAttribute("style", "display: none;");
-            
-        } else {
-            ModalEmailInvalid.setAttribute("style", "display: block;");
-        }
+        //     ModalPasswordInvalid.setAttribute("style", "display: none;");
+        // }
+
+        ModalEmail.addEventListener("keyup", function () {
+            if (Modalrule_email.test(ModalEmail.value) === true && ModalEmail.value != "") {
+                ModalEmailInvalid.setAttribute("style", "display: none;");
+
+            } else {
+                ModalEmailInvalid.setAttribute("style", "display: block;");
+            }
+        })
+
+        ModalPassword.addEventListener("keyup", function () {
+            if (Modalrule_password.test(ModalPassword.value) === true && ModalPassword.value != "") {
+                ModalPasswordInvalid.setAttribute("style", "display: none;");
+            } else {
+                ModalPasswordInvalid.setAttribute("style", "display: block;");
+            }
+        })
+
     })
-
-    ModalPassword.addEventListener("keyup", function () {
-        if (Modalrule_password.test(ModalPassword.value) === true && ModalPassword.value != "") {
-            ModalPasswordInvalid.setAttribute("style", "display: none;");
-        } else {
-            ModalPasswordInvalid.setAttribute("style", "display: block;");
-        }
-    })
-
 })
 
 ModalLoginButton.onclick = function (e) {

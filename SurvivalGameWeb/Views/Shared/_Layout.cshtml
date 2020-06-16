@@ -17,7 +17,7 @@
     <link href="~/Assets/css/flaticon.css" rel="stylesheet" />
     <link href="~/Assets/css/style.css" rel="stylesheet" />
     @RenderSection("topCss", required: false)
-
+    <link href="~/Assets/css/LoginPartialView/LoginPartialView.css" rel="stylesheet" />
 </head>
 
 
@@ -50,7 +50,7 @@
                         </p>
                     </div>
                     <div class="reg">
-                        <p class="mb-0"><a href="@Url.Action("MemberRegister","Member")" class="mr-2">Sign Up</a> <a href="#">Log In</a></p>
+                        <p class="mb-0"><a href="#" class="mr-2">Sign Up</a> <a href="#" class="Log_In">Log In</a></p>
                     </div>
                 </div>
             </div>
@@ -231,6 +231,9 @@
             </div>
         </div>
     </footer>
+
+    @Html.Partial("LoginPartialView")
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     <script src="~/Assets/javaScript/jquery.min.js"></script>
@@ -248,6 +251,6 @@
     <script src="~/Assets/javaScript/main.js"></script>
     @RenderSection("scripts", required: false)
     @RenderSection("bottomJs", required: false)
-
+    <script src="~/Assets/javaScript/LoginPartialView/LoginPartialView.js"></script>
 </body>
 </html>
