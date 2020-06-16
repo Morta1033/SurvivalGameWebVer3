@@ -91,7 +91,7 @@ outline: none !important;
 a:hover {
 text-decoration: none;
 /* color: #d33f8d; */
-color: #b7472a;
+color: #5A4D4C;
 }
 
 /*---------------------------------------------*/
@@ -179,7 +179,7 @@ border-bottom: 1px solid #999999;
 
 .hov1:hover {
 /* border-color: #d33f8d; */
-border-color: #b7472a;
+border-color: #5A4D4C;
 }
 
 
@@ -345,7 +345,7 @@ cursor: pointer;
 }
 
 .label-checkbox100:hover{
-color: #b7472a;
+color: #5A4D4C;
 }
 
 .label-checkbox100::before {
@@ -403,7 +403,7 @@ justify-content: center;
   width: 100%;
   height: 62px;
   border-radius: 3px;
-  background: #b7472a;
+  background: #5A4D4C;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -473,7 +473,7 @@ padding-bottom: 1px;
 
 .btn-face:hover,
 .btn-google:hover {
-border-color: #b7472a;
+border-color: #5A4D4C;
 }
 
 
