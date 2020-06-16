@@ -158,6 +158,7 @@
     <Content Include="Assets\images\bg_1.jpg" />
     <Content Include="Assets\images\bg_2.jpg" />
     <Content Include="Assets\images\bg_4.jpg" />
+    <Content Include="Assets\images\icon-google.png" />
     <Content Include="Assets\images\image_1.jpg" />
     <Content Include="Assets\images\image_2.jpg" />
     <Content Include="Assets\images\image_3.jpg" />
@@ -218,6 +219,11 @@
     <Content Include="Assets\fonts\Flaticon.woff" />
     <Content Include="Assets\fonts\Flaticon.woff2" />
     <Content Include="Assets\fonts\_flaticon.scss" />
+    <Content Include="Assets\css\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="Assets\css\fonts\raleway\Raleway-Black.ttf" />
+    <Content Include="Assets\css\fonts\raleway\Raleway-Bold.ttf" />
+    <Content Include="Assets\css\fonts\raleway\Raleway-Regular.ttf" />
+    <Content Include="Assets\css\fonts\raleway\Raleway-SemiBold.ttf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
