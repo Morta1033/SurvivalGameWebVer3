@@ -1,9 +1,23 @@
-﻿<section class="hero-wrap hero-wrap-2" style="background-image: url('../../Assets/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+﻿@{
+    ViewBag.Title = "Contact";
+}
+
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg1.jpg');"
+         data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-end justify-content-center">
             <div class="col-md-9 ftco-animate mb-5 text-center">
-                <p class="breadcrumbs mb-0"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Contact Us <i class="fa fa-chevron-right"></i></span></p>
+                <p class="breadcrumbs mb-0">
+                    <span class="mr-2">
+                        <a href="index.html">
+                            Home <i class="fa fa-chevron-right"></i>
+                        </a>
+                    </span> <span>
+                        Contact Us <i class="fa fa-chevron-right"></i>
+                    </span>
+                </p>
                 <h2 class="mb-0 bread">Contact Us</h2>
             </div>
         </div>
@@ -22,17 +36,18 @@
                                     <span class="fa fa-map-marker"></span>
                                 </div>
                                 <div class="text">
-                                    <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+                                    <p><span>Address: </span><br>707, Sec.2, WuFu Rd., Hsinchu, 30012 Taiwan</p>
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-3">
                             <div class="dbox w-100 text-center">
                                 <div class="icon d-flex align-items-center justify-content-center">
                                     <span class="fa fa-phone"></span>
                                 </div>
                                 <div class="text">
-                                    <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+                                    <p><span>Phone: </span><br><a href="tel://+88636666666">+ 886 3-666-6666</a></p>
                                 </div>
                             </div>
                         </div>
@@ -42,7 +57,9 @@
                                     <span class="fa fa-paper-plane"></span>
                                 </div>
                                 <div class="text">
-                                    <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+                                    <p>
+                                        <span>Email: </span><br><a href="mailto:SurvivalGame@gmail.com">SurvivalGame@gmail.com</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -52,53 +69,57 @@
                                     <span class="fa fa-globe"></span>
                                 </div>
                                 <div class="text">
-                                    <p><span>Website</span> <a href="#">yoursite.com</a></p>
+                                    <p><span>Business hours: </span><br>Monday to Saturday<br>2:30 P.M. to 10:00 P.M.</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row no-gutters">
-                        <div class="col-md-7">
-                            <div class="contact-wrap w-100 p-md-5 p-4">
-                                <h3 class="mb-4">Contact Us</h3>
-                                <form method="POST" id="contactForm" name="contactForm" class="contactForm">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="label" for="name">Full Name</label>
-                                                <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                        <div class="row no-gutters">
+                            <div class="col-md-7">
+                                <div class="contact-wrap w-100 p-md-5 p-4">
+                                    <h3 class="mb-4">Contact Us</h3>
+                                    <form method="POST" id="contactForm" name="contactForm" class="contactForm">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="label" for="name">Full Name</label>
+                                                    <input type="text" class="form-control" name="name" id="name"
+                                                           placeholder="Name">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="label" for="email">Email Address</label>
+                                                    <input type="email" class="form-control" name="email" id="email"
+                                                           placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="label" for="subject">Subject</label>
+                                                    <input type="text" class="form-control" name="subject" id="subject"
+                                                           placeholder="Subject">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="label" for="#">Message</label>
+                                                    <textarea name="message" class="form-control" id="message" cols="30"
+                                                              rows="4" placeholder="Message"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input type="submit" value="Send Message" class="btn btn-primary">
+                                                    <div class="submitting"></div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="label" for="email">Email Address</label>
-                                                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label class="label" for="subject">Subject</label>
-                                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label class="label" for="#">Message</label>
-                                                <textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <input type="submit" value="Send Message" class="btn btn-primary">
-                                                <div class="submitting"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-5 order-md-first d-flex align-items-stretch">
-                            <div id="map" class="map"></div>
+                            <div class="col-md-5 order-md-first d-flex align-items-stretch">
+                                <div id="map" class="map"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -106,3 +127,178 @@
         </div>
     </div>
 </section>
+
+
+<section class="ftco-section testimony-section img" style="background-image: url(images/bg2.jpg);">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+                <span class="subheading">Group Four</span>
+                <h2 class="mb-3">Team Member</h2>
+            </div>
+        </div>
+        <div class="row ftco-animate">
+            <div class="col-md-12">
+                <div class="carousel-testimony owl-carousel ftco-owl">
+                    <div class="item">
+                        <div class="testimony-wrap py-4">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <span class="fa fa-quote-left"></span>
+                            </div>
+                            <div class="text">
+                                <p class="mb-4">
+                                    Far far away, behind the word mountains, far from the countries
+                                    Vokalia and Consonantia, there live the blind texts.
+                                </p>
+                                <div class="d-flex align-items-center">
+                                    <div class="user-img" style="background-image: url(images/p1.jpg)"></div>
+                                    <div class="pl-3">
+                                        <p class="name">Roger Scott</p>
+                                        <span class="position">Marketing Manager</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimony-wrap py-4">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <span class="fa fa-quote-left"></span>
+                            </div>
+                            <div class="text">
+                                <p class="mb-4">
+                                    Far far away, behind the word mountains, far from the countries
+                                    Vokalia and Consonantia, there live the blind texts.
+                                </p>
+                                <div class="d-flex align-items-center">
+                                    <div class="user-img" style="background-image: url(images/p2.jpg)"></div>
+                                    <div class="pl-3">
+                                        <p class="name">Roger Scott</p>
+                                        <span class="position">Marketing Manager</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimony-wrap py-4">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <span class="fa fa-quote-left"></span>
+                            </div>
+                            <div class="text">
+                                <p class="mb-4">
+                                    Far far away, behind the word mountains, far from the countries
+                                    Vokalia and Consonantia, there live the blind texts.
+                                </p>
+                                <div class="d-flex align-items-center">
+                                    <div class="user-img" style="background-image: url(images/p3.jpg)"></div>
+                                    <div class="pl-3">
+                                        <p class="name">Roger Scott</p>
+                                        <span class="position">Marketing Manager</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimony-wrap py-4">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <span class="fa fa-quote-left"></span>
+                            </div>
+                            <div class="text">
+                                <p class="mb-4">
+                                    Far far away, behind the word mountains, far from the countries
+                                    Vokalia and Consonantia, there live the blind texts.
+                                </p>
+                                <div class="d-flex align-items-center">
+                                    <div class="user-img" style="background-image: url(images/p4.jpg)"></div>
+                                    <div class="pl-3">
+                                        <p class="name">Roger Scott</p>
+                                        <span class="position">Marketing Manager</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimony-wrap py-4">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <span class="fa fa-quote-left"></span>
+                            </div>
+                            <div class="text">
+                                <p class="mb-4">
+                                    Far far away, behind the word mountains, far from the countries
+                                    Vokalia and Consonantia, there live the blind texts.
+                                </p>
+                                <div class="d-flex align-items-center">
+                                    <div class="user-img" style="background-image: url(images/p5.jpg)"></div>
+                                    <div class="pl-3">
+                                        <p class="name">Roger Scott</p>
+                                        <span class="position">Marketing Manager</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimony-wrap py-4">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <span class="fa fa-quote-left"></span>
+                            </div>
+                            <div class="text">
+                                <p class="mb-4">
+                                    Far far away, behind the word mountains, far from the countries
+                                    Vokalia and Consonantia, there live the blind texts.
+                                </p>
+                                <div class="d-flex align-items-center">
+                                    <div class="user-img" style="background-image: url(images/p6.jpg)"></div>
+                                    <div class="pl-3">
+                                        <p class="name">Roger Scott</p>
+                                        <span class="position">Marketing Manager</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimony-wrap py-4">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <span class="fa fa-quote-left"></span>
+                            </div>
+                            <div class="text">
+                                <p class="mb-4">
+                                    Far far away, behind the word mountains, far from the countries
+                                    Vokalia and Consonantia, there live the blind texts.
+                                </p>
+                                <div class="d-flex align-items-center">
+                                    <div class="user-img" style="background-image: url(images/p7.jpg)"></div>
+                                    <div class="pl-3">
+                                        <p class="name">Roger Scott</p>
+                                        <span class="position">Marketing Manager</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section topCSS
+{
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="css/animate.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/style.css">
+}
