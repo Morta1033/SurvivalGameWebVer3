@@ -58,7 +58,7 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light py-3" id="ftco-navbar">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><img src="~/Assets/images/Logo.png" alt="" style="max-height:50px;"></a>
+            <a class="navbar-brand" href="@Url.Action("Index","home")"><img src="~/Assets/images/Logo.png" alt="" style="max-height:50px;"></a>
             <div class="order-lg-last btn-group">
                 <a href="#" class="btn-cart dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
@@ -67,7 +67,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <div class="dropdown-item d-flex align-items-start" href="#">
-                        <div class="img" style="background-image: url(images/prod-1.jpg);"></div>
+                        <div class="img" style="background-image: url(../../Assets/images/prod-1.jpg);"></div>
                         <div class="text pl-3">
                             <h4>Bacardi 151</h4>
                             <p class="mb-0">
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                     <div class="dropdown-item d-flex align-items-start" href="#">
-                        <div class="img" style="background-image: url(images/prod-2.jpg);"></div>
+                        <div class="img" style="background-image: url(../../Assets/images/prod-2.jpg);"></div>
                         <div class="text pl-3">
                             <h4>Jim Beam Kentucky Straight</h4>
                             <p class="mb-0">
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                     <div class="dropdown-item d-flex align-items-start" href="#">
-                        <div class="img" style="background-image: url(images/prod-3.jpg);"></div>
+                        <div class="img" style="background-image: url(../../Assets/images/prod-3.jpg);"></div>
                         <div class="text pl-3">
                             <h4>Citadelle</h4>
                             <p class="mb-0">
@@ -138,7 +138,7 @@
             <div class="row mb-5">
                 <div class="col-sm-12 col-md">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2 logo"><a href="#"><img src="~/Assets/images/LogoSmall.png" alt=""></a></h2>
+                        <h2 class="ftco-heading-2 logo"><a href="@Url.Action("Index","home")"><img src="~/Assets/images/LogoSmall.png" alt=""></a></h2>
                         <p>Far far away, behind the word mountains, far from the countries.</p>
                         <ul class="ftco-footer-social list-unstyled mt-2">
                             <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
@@ -187,21 +187,19 @@
                             <ul>
                                 <li>
                                     <span class="icon fa fa-map marker"></span><span class="text">
-                                        203 Fake St. Mountain
-                                        View, San Francisco, California, USA
+                                        707, Sec.2, WuFu Rd., Hsinchu, 30012 Taiwan
                                     </span>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <span class="icon fa fa-phone"></span><span class="text">
-                                            +2 392 3929
-                                            210
+                                            + 886 3-666-6666
                                         </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <span class="icon fa fa-paper-plane pr-4"></span><span class="text">info@yourdomain.com</span>
+                                        <span class="icon fa fa-paper-plane pr-4"></span><span class="text">SurvivalGame@gmail.com</span>
                                     </a>
                                 </li>
                             </ul>
@@ -244,7 +242,7 @@
     <script src="~/Assets/javaScript/jquery.magnific-popup.min.js"></script>
     <script src="~/Assets/javaScript/jquery.animateNumber.min.js"></script>
     <script src="~/Assets/javaScript/scrollax.min.js"></script>
-    @*<script src="~/Assets/javaScript/google-map.js"></script>*@
+    <script src="~/Assets/javaScript/google-map.js"></script>
     <script src="~/Assets/javaScript/main.js"></script>
     @RenderSection("scripts", required: false)
     @RenderSection("bottomJs", required: false)
