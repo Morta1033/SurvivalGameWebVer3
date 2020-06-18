@@ -136,7 +136,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\MemberCenter\HistoryItems.cs" />
     <Compile Include="ViewModels\MemberCenter\MemberCenterViewModel.cs" />
+    <Compile Include="ViewModels\MemberCenter\WishlistItems.cs" />
     <Compile Include="ViewModels\MemberLogin\MemberLoginViewModel.cs" />
     <Compile Include="ViewModels\MemberRegister\MemberRegisteredViewModel.cs" />
     <Compile Include="ViewModels\CheckOut\UserCheckOutViewModel.cs" />
@@ -178,6 +180,7 @@
     <Content Include="Assets\images\kind-5.jpg" />
     <Content Include="Assets\images\kind-6.jpg" />
     <Content Include="Assets\images\loc.png" />
+    <Content Include="Assets\images\Member_BG.jpg" />
     <Content Include="Assets\images\person_1.jpg" />
     <Content Include="Assets\images\person_2.jpg" />
     <Content Include="Assets\images\person_3.jpg" />
@@ -278,9 +281,6 @@
     <Folder Include="Repository\" />
     <Folder Include="Security\" />
     <Folder Include="Services\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\Member\" />
-    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
