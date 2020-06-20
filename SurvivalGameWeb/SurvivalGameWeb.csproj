@@ -224,6 +224,7 @@
     <Content Include="Assets\javaScript\owl.carousel.min.js" />
     <Content Include="Assets\javaScript\popper.min.js" />
     <Content Include="Assets\javaScript\ProductDetails\ProductDetails.js" />
+    <Content Include="Assets\javaScript\Products\Products.js" />
     <Content Include="Assets\javaScript\scrollax.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -290,9 +291,6 @@
     <Folder Include="Repository\" />
     <Folder Include="Security\" />
     <Folder Include="Services\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\Member\" />
-    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
