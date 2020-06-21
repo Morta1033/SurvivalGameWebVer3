@@ -30,7 +30,7 @@ namespace SurvivalGameWeb.Controllers
         {
             HttpClient client = new HttpClient();
             string endpoint = "http://survivalgameweb.azurewebsites.net/api/Product/GetProductDetail/";
-            string uri = endpoint + "PD002";
+            string uri = endpoint + ID;
             var content = new StringContent("", System.Text.Encoding.UTF8, "application/json");
             var response = client.PostAsync(uri, content).Result;
             var JSON = response.Content.ReadAsStringAsync().Result;

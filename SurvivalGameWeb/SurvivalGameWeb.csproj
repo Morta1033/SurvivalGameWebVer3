@@ -224,8 +224,7 @@
     <Content Include="Assets\javaScript\MemberRegister\MemberRegistered.js" />
     <Content Include="Assets\javaScript\owl.carousel.min.js" />
     <Content Include="Assets\javaScript\popper.min.js" />
-    <Content Include="Assets\javaScript\ProductDetails\GetProductDetails.js" />
-    <Content Include="Assets\javaScript\ProductDetails\product-single.js" />
+    <Content Include="Assets\javaScript\ProductDetails\GetDetail.js" />
     <Content Include="Assets\javaScript\ProductDetails\ProductDetails.js" />
     <Content Include="Assets\javaScript\scrollax.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
