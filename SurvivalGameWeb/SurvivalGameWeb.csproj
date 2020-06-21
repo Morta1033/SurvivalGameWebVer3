@@ -141,6 +141,7 @@
     <Compile Include="ViewModels\MemberRegister\MemberRegisteredViewModel.cs" />
     <Compile Include="ViewModels\CheckOut\UserCheckOutViewModel.cs" />
     <Compile Include="ViewModels\ShoppingCart\CartItemViewModel.cs" />
+    <Compile Include="ViewModel\Index\IndexViewModel.cs" />
     <Compile Include="ViewModel\ProductDetails\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -160,11 +161,16 @@
     <Content Include="Assets\fonts\flaticon.html" />
     <Content Include="Assets\fonts\Flaticon.svg" />
     <Content Include="Assets\images\about.jpg" />
+    <Content Include="Assets\images\about_historybg1.jpg" />
+    <Content Include="Assets\images\about_historybg2.jpg" />
+    <Content Include="Assets\images\A_1.jpg" />
     <Content Include="Assets\images\bg1.jpg" />
     <Content Include="Assets\images\bg2.jpg" />
     <Content Include="Assets\images\bg_1.jpg" />
     <Content Include="Assets\images\bg_2.jpg" />
     <Content Include="Assets\images\bg_4.jpg" />
+    <Content Include="Assets\images\C_1.jpg" />
+    <Content Include="Assets\images\G_1.jpg" />
     <Content Include="Assets\images\home.jpg" />
     <Content Include="Assets\images\icon-google.png" />
     <Content Include="Assets\images\image_1.jpg" />
@@ -183,6 +189,7 @@
     <Content Include="Assets\images\loc.png" />
     <Content Include="Assets\images\Logo.png" />
     <Content Include="Assets\images\LogoSmall.png" />
+    <Content Include="Assets\images\M_1.jpg" />
     <Content Include="Assets\images\p1.jpg" />
     <Content Include="Assets\images\p2.jpg" />
     <Content Include="Assets\images\p3.jpg" />
@@ -290,9 +297,6 @@
     <Folder Include="Repository\" />
     <Folder Include="Security\" />
     <Folder Include="Services\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\Member\" />
-    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
