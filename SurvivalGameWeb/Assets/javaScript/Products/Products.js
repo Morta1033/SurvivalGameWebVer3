@@ -8,18 +8,20 @@
         typeDirSelected: '',
         IsReverse: false,
         orderTypes: [
-            { Name: 'Default', Value: 'Default'},
-            { Name: 'Name', Value: 'Name'},
-            { Name: 'Price', Value: 'Price'},
-            { Name: 'Newest', Value: 'PurchasingDay'},
-            { Name: 'Most Popular', Value: 'OrderAmount'}
+            { Name: 'Default', Value: 'Default' },
+            { Name: 'Name', Value: 'Name' },
+            { Name: 'Price', Value: 'Price' },
+            { Name: 'Newest', Value: 'PurchasingDay' },
+            { Name: 'Most Popular', Value: 'OrderAmount' }
         ],
         orderDirs: [
             'Ascending', 'Descending'
         ],
+        originData : [],
         items: [
             { ID: 'PD001', Name: 'Bacardi 151', Price: '69.00', img: 'https://imgur.com/UoTEHoW.jpg' }],
-        showItems: []
+        showItems: [],
+        catagoryList: []
     },
     computed: {
         rows() {
@@ -74,6 +76,19 @@
                 this.pageChange(this.currentPage);
                 this.IsReverse = false;
             }
+        },
+        catagoryClick: function (e) {
+            e.preventDefault();
+            console.log("catagory click!!", e.currentTarget.getAttribute('data-caID'));
+            let caID = e.currentTarget.getAttribute('data-caID');
+            if (caID) {
+                this.items = this.originData.filter(x => x.CatagoryID == caID);
+            }
+            else {
+                this.items = this.originData;
+            }
+
+            this.pageChange(this.currentPage);
         }
     },
     mounted: function () {
@@ -85,7 +100,9 @@
             success: function (datas) {
                 if (datas.IsSuccess) {
                     console.log(datas.Data);
+                    self.originData = datas.Data;
                     self.items = datas.Data;
+
                     self.pageChange(1);
                     contentWayPoint();
 
@@ -93,7 +110,16 @@
                 }
             }
         });
-
+        $.ajax({
+            type: 'POST',
+            url: 'https://survivalgameweb.azurewebsites.net/api/Product/GetAllCatagory',
+            dataType: 'json',
+            success: function (datas) {
+                if (datas.IsSuccess) {
+                    self.catagoryList = datas.Data;
+                }
+            }
+        });
     },
     updated: function () {
         console.log('products updated');
@@ -101,4 +127,70 @@
 
         $('.selectpicker').selectpicker('refresh');
     }
-})
+});
+
+
+//var sideBar_frank = new Vue(
+//    {
+//        el: '#sideArea',
+//        data: {
+//            catagoryList: [
+//                {
+//                    "ID": "CG001     ",
+//                    "Name": "Gun",
+//                    "SubCatagoryList": [
+//                        {
+//                            "ID": null,
+//                            "Name": "All"
+//                        },
+//                        {
+//                            "ID": "CL001     ",
+//                            "Name": "Pistol"
+//                        },
+//                        {
+//                            "ID": "CL002     ",
+//                            "Name": "Rifle"
+//                        },
+//                        {
+//                            "ID": "CL003     ",
+//                            "Name": "Submachine Gun"
+//                        },
+//                        {
+//                            "ID": "CL004     ",
+//                            "Name": "Sniper Rifle"
+//                        },
+//                        {
+//                            "ID": "CL005     ",
+//                            "Name": "Grenade Gun"
+//                        },
+//                        {
+//                            "ID": "CL006     ",
+//                            "Name": "Machine Gun"
+//                        }
+//                    ]
+//                }
+//            ]
+//        },
+//        methods: {
+//            catagoryClick: function (e) {
+//                e.preventDefault();
+//                console.log("catagory click!!", e.currentTarget.getAttribute('data-caID'));
+//                console.log(pagination_frank.data);
+//            }
+//        },
+//        mounted: function () {
+//            let self = this;
+//            $.ajax({
+//                type: 'POST',
+//                url: 'https://survivalgameweb.azurewebsites.net/api/Product/GetAllCatagory',
+//                dataType: 'json',
+//                success: function (datas) {
+//                    if (datas.IsSuccess) {
+//                        self.catagoryList = datas.Data;
+//                    }
+//                }
+//            });
+
+//        },
+//    }
+//);
