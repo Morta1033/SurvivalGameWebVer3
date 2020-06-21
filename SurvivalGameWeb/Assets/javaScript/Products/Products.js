@@ -1,7 +1,8 @@
 ﻿var pagination_frank = new Vue({
     el: '#productsArea',
     data: {
-        pDetailRoot: 'http://survivalgameweb.azurewebsites.net/api',
+        //pDetailRoot: 'http://survivalgameweb.azurewebsites.net/api',
+        pDetailRoot: 'https://localhost:44336/product/ProductDetails/',
         perPage: 10,
         currentPage: 1,
         orderTyoe: 0,
