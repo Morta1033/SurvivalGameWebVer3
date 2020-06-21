@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewBag.Title = "ShoppingCart";
+}
+@section topCss{
+
+    <link href="~/Assets/css/ShoppingCart/ShoppingCart.Css" rel="stylesheet" />
+}
+<section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');"
+         data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+            <div class="col-md-9 ftco-animate mb-5 text-center">
+                <p class="breadcrumbs mb-0">
+                    <span class="mr-2">
+                        <a href="index.html">
+                            Home <i class="fa fa-chevron-right"></i>
+                        </a>
+                    </span> <span>
+                        Cart <i class="fa fa-chevron-right"></i>
+                    </span>
+                </p>
+                <h2 class="mb-0 bread">My Cart</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row text-center CartTitle">
+            <div class="col-3"></div>
+            <div class="col-2">Product</div>
+            <div class="col-2">Price</div>
+            <div class="col-2">Quantity</div>
+            <div class="col-2">Total</div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row CartList">
+            <!-- <div class="CartItem d-flex my-3 text-center alert" role="alert">
+                <div class="col-2" id="CartImg"><img src="/liquorstore/images/prod-1.jpg" alt=""></div>
+                <div class="CartName col-3"> <span class="d-block">Jim Beam Kentucky Straight</span>
+                    <span>Fugiat voluptates quasi nemo, ipsa perferendis</span></div>
+                <div class="col-2">$44.99</div>
+                <div class="col-2">
+                    <div class="input-group">
+                        <input type="text" name="quantity" class="quantity form-control input-number" value="2"
+                            min="1" max="100">
+                    </div>
+                </div>
+                <div class="col-2">$89.98</div>
+                <div class="col-1"><button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                    </button></div>
+            </div> -->
+            <div class="CartItem d-flex my-3 text-center alert" role="alert">
+                <div class="col-5 col-md-2" id="CartImg"><img src="../Assets/images/prod-1.jpg" alt=""></div>
+                <div class="col-7 col-md-10 CartContext ">
+                    <div class=" col-md-3" id="CartName">
+                        <span class="d-block">Jim Beam Kentucky Straight</span>
+                        <span>Fugiat voluptates quasi nemo, ipsa perferendis</span>
+                    </div>
+                    <div class="col-md-2" id="CartPrice">$44.99</div>
+                    <div class="col-md-2" id="Cartquantity">
+                        <div class="input-group">
+                            <input type="number" name="quantity" class="form-control input-number" value="2" min="1"
+                                   max="100" oninput="value=value.replace(/[^\d]/g,'')">
+                        </div>
+                    </div>
+                    <div class="col-md-2" id="CartTotal">$89.98</div>
+                    <div class="col-md-1">
+                        <button type="button" class="close" data-dismiss="alert"
+                                aria-label="Close">
+                            <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
+                <div class="cart-total mb-3">
+                    <h3>Cart Totals</h3>
+                    <p class="d-flex">
+                        <span>Subtotal</span>
+                        <span>$20.60</span>
+                    </p>
+                    <p class="d-flex">
+                        <span>Delivery</span>
+                        <span>$0.00</span>
+                    </p>
+                    <p class="d-flex">
+                        <span>Discount</span>
+                        <span>$3.00</span>
+                    </p>
+                    <hr>
+                    <p class="d-flex total-price">
+                        <span>Total</span>
+                        <span>$17.60</span>
+                    </p>
+                </div>
+                <p class="text-center">
+                    <a href="checkout.html" class="btn btn-primary py-3 px-4">
+                        Proceed to
+                        Checkout
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<template id="CartItem">
+    <div class="dropdown-item d-flex align-items-start alert" role="alert">
+        <div class="img" style="background-image: url(images/prod-3.jpg);"></div>
+        <div class="text pl-3">
+            <h4>Citadelle</h4>
+            <p class="mb-0">
+                <a href="#" class="price">$22.50</a><span class="quantity ml-3">
+                    Quantity:
+                    01
+                </span>
+            </p>
+        </div>
+        <div class="col-md-1">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true"><i class="fa fa-close"></i></span>
+            </button>
+        </div>
+    </div>
+</template>

@@ -9,7 +9,21 @@ namespace SurvivalGameWeb.Controllers
     public class ProductController : Controller
     {
         // GET: Product
-        public ActionResult Index()
+        public ActionResult ProductMenu()
+        {
+            return View();
+        }
+        public ActionResult ShoppingCart()
+        {
+            return View();
+        }
+
+        public ActionResult CheckOut()
+        {
+            return View();
+        }
+
+        public ActionResult ProductDetails()
         {
             return View();
         }

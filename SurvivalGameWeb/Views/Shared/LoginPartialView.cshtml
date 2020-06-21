@@ -1,0 +1,108 @@
+﻿
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+
+            @*<button class="Log_In" data-toggle="modal" data-target="#LoginModal">Log In</button>*@
+
+            <!-- Modal -->
+            <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginTitle"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                    style="color: rgb(0, 0, 0);">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <form action="#" method="post" class="login100-form validate-form">
+                                        <span class="login100-form-title p-b-55">
+                                            Login
+                                        </span>
+
+                                        <div class="wrap-input100 validate-input"
+                                             data-validate="Valid email is required: ex@abc.com">
+                                            <input class="input100 ModalEmail" type="text" name="ModalEmail"
+                                                   id="ModalEmail" placeholder="Email">
+                                            <span class="focus-input100"></span>
+                                            <span class="symbol-input100">
+                                                <span class="lnr lnr-envelope"></span>
+                                            </span>
+                                        </div>
+                                        <div class="invalid-feedback ModalEmailInvalid">Please enter the complete email</div>
+
+                                        <div class="wrap-input100 validate-input m-t-16"
+                                             data-validate="Password is required">
+                                            <input class="input100 ModalPassword" type="Password"
+                                                   name="ModalPassword" id="ModalPassword" placeholder="Password">
+                                            <span class="focus-input100"></span>
+                                            <span class="symbol-input100">
+                                                <span class="lnr lnr-lock"></span>
+                                            </span>
+                                        </div>
+                                        <div class="invalid-feedback ModalPasswordInvalid">Length is between 8-35 uppercase and lowercase English digits</div>
+
+                                        <div class="contact100-form-checkbox m-l-4 m-t-25">
+                                            <input class="input-checkbox100" id="ckb1" type="checkbox"
+                                                   name="remember-me">
+                                            <label class="label-checkbox100" for="ckb1">
+                                                Remember me
+                                            </label>
+                                        </div>
+
+                                        <div class="container-login100-form-btn p-t-25">
+                                            <button class="login100-form-btn">
+                                                Login
+                                            </button>
+                                        </div>
+
+                                        <div class="text-center w-full br">
+                                            <span class="txt1">
+                                                Not a member?
+                                            </span>
+
+                                            <a class="txt1 bo1 hov1" href="MemberRegistered.html">
+                                                Sign up now
+                                            </a>
+                                        </div>
+
+                                        <div class="text-center w-full br">
+                                            <span class="txt1">
+                                                Or login with
+                                            </span>
+                                        </div>
+
+                                        <a href="#" class="btn-face m-b-10">
+                                            <i class="fa fa-facebook-official"></i>
+                                            Facebook
+                                        </a>
+
+                                        <a href="#" class="btn-google m-b-10">
+                                            <img src="~/Assets/images/icon-google.png" alt="GOOGLE"/>
+                                            Google
+                                        </a>
+
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+@section topCss{
+    <link href="~/Assets/css/LoginPartialView/LoginPartialView.css" rel="stylesheet" />
+}
+
+@section bottomJs{
+    <script src="~/Assets/javaScript/LoginPartialView/LoginPartialView.js"></script>
+}

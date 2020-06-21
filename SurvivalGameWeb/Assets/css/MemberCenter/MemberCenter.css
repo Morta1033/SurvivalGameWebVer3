@@ -1,0 +1,82 @@
+.tab-content .tab-pane input {
+    max-width: 100%;
+}
+
+#ModifyLabel {
+    padding: 9px 15px;
+    cursor: pointer;
+}
+
+.ModfiyLayout {
+    display: inline-flex;
+    position: relative;
+    height: 22px;
+    line-height: 22px;
+    min-width: 35px;
+    padding: 0 5px;
+    margin-top: 8px;
+    border: 1px solid #d2d2d2;
+    border-radius: 20px;
+    background-color: #fff;
+    transition: .1s linear;
+    cursor: pointer;
+}
+
+.ModfiyLayoutOn {
+    background-color: rgba(255, 0, 0, 0.7);
+    border-color: rgba(255, 0, 0, 0.7);
+    transition: linear .1s;
+
+}
+
+.ModfiyLayoutIOff {
+    position: absolute;
+    background-color: #d2d2d2;
+    width: 16px;
+    height: 16px;
+    border-radius: 20px;
+    left: 5px;
+    top: 2px;
+}
+
+.ModfiyEmOff {
+    position: relative;
+    top: 0;
+    width: 25px;
+    margin-left: 25px;
+    text-align: center;
+    color: #999;
+    font-style: normal;
+    font-size: 12px;
+}
+
+.ModfiyLayoutEmOn {
+    color: #fff;
+    margin-right: 25px;
+    margin-left: 0px;
+    transition: linear .1s;
+
+}
+
+.ModfiyLayoutIOn {
+    background-color: #fff;
+    left: 40px;
+    transition: linear .1s;
+}
+
+.BirthdayText p {
+    font-size: 10px;
+    color: red;
+    position: relative;
+    margin-top: 6px;
+}
+
+.NameErrorHint, .PasswordErrorHint, .PhoneErrorHint, .PostCodeErrorHint, .AddressErrorHint, .EmailAddressErrorHint {
+    display: none;
+    color: red;
+    font-size: 10px;
+}
+
+.HistoryImg{
+    width:100%
+}

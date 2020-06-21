@@ -1,0 +1,274 @@
+﻿
+@{
+    ViewBag.Title = "MemberCenter";
+}
+
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');"
+         data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+            <div class="col-md-9 ftco-animate mb-5 text-center">
+                <p class="breadcrumbs mb-0">
+                    <span class="mr-2">
+                        <a href="index.html">
+                            Home <i class="fa fa-chevron-right"></i>
+                        </a>
+                    </span> <span>
+                        My Account <i class="fa fa-chevron-right"></i>
+                    </span>
+                </p>
+                <h2 class="mb-0 bread">My Account</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-10 ftco-animate">
+                <div class="billing-form">
+
+                    <div class="row">
+                        <div class="col-12 col-md-3 NavMember my-3">
+                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                                 aria-orientation="vertical">
+                                <a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill"
+                                   href="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
+                                   aria-selected="true">Profile</a>
+                                <a class="nav-link" id="v-pills-history-tab" data-toggle="pill"
+                                   href="#v-pills-history" role="tab" aria-controls="v-pills-history"
+                                   aria-selected="false">History</a>
+                                <a class="nav-link" id="v-pills-wishlist-tab" data-toggle="pill" href="#v-pills-wishlist" role="tab" aria-controls="v-pills-wishlist" aria-selected="false">Wishlist</a>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-12 col-md-9">
+                            <div class="tab-content" id="v-pills-tabContent">
+
+                                <!-- Profile內容 -->
+                                <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel"
+                                     aria-labelledby="v-pills-profile-tab">
+
+                                    <div class="row">
+                                        <div class="col-12  mb-3 text-right">
+                                            <label id="ModifyLabel">Modify member information</label>
+                                            <input type="checkbox" class="d-none" id="ModfiyMeber">
+                                            <div class="ModfiyLayout" data-toggle="tooltip" data-placement="bottom"
+                                                 title="After modification, press save">
+                                                <i class="ModfiyLayoutIOff"></i><em class="ModfiyEmOff">OFF</em>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <form action=" #" method="post" id="MemberForm" class="">
+                                        <div class="form-group col-md-12">
+                                            <label for="Name">Name</label>
+                                            <input type="text" class="form-control FromList" id="Name" name="Name"
+                                                   placeholder="" pattern="^[a-zA-Z\u2E80-\u9FFF]*$" minlength="2"
+                                                   title="Chinese or English only" required>
+                                            <div class="ErrorHint NameErrorHint">The name is between 2-25 Chinese or English characters</div>
+
+                                        </div>
+
+                                        @*<div class="form-group col-md-12">
+                                                <label for="Account">Account</label>
+                                                <input type="text" class="form-control FromRead" id="Account"
+                                                       name="Account" placeholder="" disabled=”disabled”>
+                                                <p class="FromOff" style="display: none;">test</p>
+                                            </div>*@
+
+                                        <div class="form-group col-md-12">
+                                            <label for="EmailAddress">Email Address</label>
+                                            <input type="email" class="form-control FromList" id="Email"
+                                                   name="Email" placeholder="" pattern="" title="Please enter the complete email" required>
+                                            <div class="ErrorHint EmailAddressErrorHint">Please enter the complete email</div>
+
+                                        </div>
+
+                                        <div class="form-group col-md-12">
+                                            <label for="Password">Password</label>
+                                            <input type="password" class="form-control FromList" id="Password"
+                                                   name="Password" placeholder=""
+                                                   pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,35}$"
+                                                   minlength="8" maxlength="35" title="Password length is between 8-35 uppercase and lowercase English digits" required>
+                                            <div class="ErrorHint PasswordErrorHint">Password length is between 8-35 uppercase and lowercase English digits</div>
+
+                                        </div>
+
+                                        <!-- <div class="form-group col-md-12">
+                                            <label for="CheckPassword">Check Password</label>
+                                            <input type="password" class="form-control FromList" id="CheckPassword"
+                                                name="CheckPassword" placeholder="">
+                                            <div class="invalid-feedback CheckPasswordInvalid">密碼不一致</div>
+                                        </div> -->
+
+                                        <div class="form-group col-md-12">
+                                            <label class="Birthday">Birthday</label>
+                                            <div class="BirthdayBox">
+                                                <input type="date" class="form-control FromRead" name="Birth"
+                                                       id="Birth" disabled=”disabled”>
+                                                <p class="FromOff" style="display: none;">2019-05-20</p>
+                                                <div class="BirthdayText">
+                                                    <p>※Do not buy toy guns under the age of 18</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-md-12">
+                                            <label for="Phone">Phone</label>
+                                            <input type="text" class="form-control FromList" id="Phone" name="Phone"
+                                                   placeholder="" pattern="^09\d{8}$" length="10"
+                                                   title="Please enter the 10-digit mobile phone number starting with 09" required>
+                                            <div class="ErrorHint PhoneErrorHint">Please enter the 10-digit mobile phone number starting with 09</div>
+
+                                        </div>
+
+                                        <div class="form-group col-md-12">
+                                            <label for="PostCode">Postcode / ZIP</label>
+                                            <input type="text" class="form-control FromList" id="PostCode"
+                                                   name="PostCode" placeholder="" pattern="^\d{3,6}$" minlength="3"
+                                                   maxlength="6" title="請最少輸入3-6位數字" required>
+                                            <div class="ErrorHint PostCodeErrorHint">Please enter 3 to 6 digits</div>
+                                        </div>
+
+                                        <div class="form-group col-md-12">
+                                            <label for="Address">Address</label>
+                                            <input type="text" class="form-control FromList" id="Address"
+                                                   name="Address" placeholder=""
+                                                   pattern="^[a-zA-Z\u2E80-\u9FFF][\w*\u2E80-\u9FFF]{10,50}"
+                                                   minlength="10" maxlength="50" title="Please enter the complete address of more than 10 words" required>
+                                            <div class="ErrorHint AddressErrorHint">Please enter the complete address of more than 10 words</div>
+
+                                        </div>
+                                    </form>
+
+                                </div>
+
+                                <div class="form-group col-12 row justify-content-end">
+                                    <div class="Edit">
+                                        <button class="btn btn-primary" id="ModifySave"
+                                                style="display: none;">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </div>
+
+
+                                <!-- History 內容 -->
+                                <div class="tab-pane fade" id="v-pills-history" role="tabpanel"
+                                     aria-labelledby="v-pills-history-tab">
+                                    <div class="HistoryHeader container mt-3 alert  text-center alert-dark">
+                                        <div class="row">
+                                            <div class="HistoryImg col-3">商品照片</div>
+                                            <div class="HistoryName col-3">商品名稱</div>
+                                            <div class="HistoryPrice col-3">價格</div>
+                                            <div class="HistoryOperating col-3"></div>
+                                        </div>
+                                    </div>
+                                    <!-- ---------------------------------------------------------------------------------------- -->
+                                    <div class="HistoryList container mb-5">
+                                        <div class="HistorySingle row mb-3 text-center">
+                                            <div class="HistoryPicWarp col-3">
+                                                <div class="HistoryImg ">
+                                                    <img src="https://picsum.photos/100/100/?random=21">
+                                                </div>
+                                            </div>
+                                            <div class="HistoryName col-3 my-auto">
+                                                <a href="##" data-toggle="modal" data-target="#HistoryChange">
+                                                    台灣製造 銀色 HFC 112
+                                                    P8 6mm
+                                                    ABS 手拉空氣槍
+                                                </a>
+                                            </div>
+                                            <div class="HistoryPrice  col-3 my-auto">
+                                                <span>
+                                                    單價：
+                                                </span>
+                                                <span>
+                                                    $430
+                                                </span>
+                                            </div>
+                                            <div class="HistoryRemove my-auto col-3 ">
+                                                <a href="##">
+                                                    <i class="fas fa-trash-alt fa-4x mx-3"></i><i class="fas fa-shopping-cart fa-4x"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+                                <!-- Wishlist 內容 -->
+                                <div class="tab-pane fade" id="v-pills-wishlist" role="tabpanel"
+                                     aria-labelledby="v-pills-wishlist-tab">
+                                    <div class="WishlistHeader container mt-3 alert  text-center alert-dark">
+                                        <div class="row">
+                                            <div class="WishlistImg col-3">商品照片</div>
+                                            <div class="WishlistName col-3">商品名稱</div>
+                                            <div class="WishlistPrice col-3">價格</div>
+                                            <div class="WishlistOperating col-3"></div>
+                                        </div>
+                                    </div>
+                                    <!-- ---------------------------------------------------------------------------------------- -->
+                                    <div class="WishlistList container mb-5">
+                                        <div class="WishlistSingle row mb-3 text-center">
+                                            <div class="WishlistPicWarp col-3">
+                                                <div class="WishlistImg ">
+                                                    <img src="https://picsum.photos/100/100/?random=21">
+                                                </div>
+                                            </div>
+                                            <div class="WishlistName col-3 my-auto">
+                                                <a href="##" data-toggle="modal" data-target="#WishlistChange">
+                                                    台灣製造 銀色 HFC 112
+                                                    P8 6mm
+                                                    ABS 手拉空氣槍
+                                                </a>
+                                            </div>
+                                            <div class="WishlistPrice  col-3 my-auto">
+                                                <span>
+                                                    單價：
+                                                </span>
+                                                <span>
+                                                    $430
+                                                </span>
+                                            </div>
+                                            <div class="WishlistRemove my-auto col-3 ">
+                                                <a href="##">
+                                                    <i class="fas fa-trash-alt fa-4x mx-3"></i><i class="fas fa-shopping-cart fa-4x"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+@section topCss{
+    <link href="~/Assets/css/MemberCenter/MemberCenter.css" rel="stylesheet" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+}
+
+@section bottomJs{
+    <script src="~/Assets/javaScript/MemberCenter/MemberCenter.js"></script>
+}
