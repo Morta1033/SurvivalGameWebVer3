@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Ajax.Utilities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -41,13 +42,10 @@ namespace SurvivalGameWeb.ViewModels.MemberCenter
         public string Phone { get; set; }
 
         // History 內容
-        public string HistoryImg { get; set; }
-        public string HistoryName { get; set; }
-        public decimal HistoryPrice { get; set; }
+        public IEnumerable<HistoryItems> HistoryItemList { get; set; }
 
         // Wishlist 內容
-        public string WishlistImg { get; set; }
-        public string WishlistName { get; set; }
-        public decimal WishlistPrice { get; set; }
+        public IEnumerable<WishlistItems> WishlistItemsList { get; set; }
+
     }
 }
