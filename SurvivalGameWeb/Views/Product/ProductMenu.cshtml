@@ -48,10 +48,14 @@
                             <div class="img d-flex align-items-center justify-content-center" :style="{backgroundImage: 'url(' + item.ImgList[0] + ')'}">
                                 <div class="desc">
                                     <p class="meta-prod d-flex">
-                                        <a href="#" class="d-flex align-items-center justify-content-center"><span class="flaticon-shopping-bag"></span></a>
+                                        <a href="#" class="d-flex align-items-center justify-content-center" @@click="gotoCart" :data-id="item.ID">
+                                            <span class="flaticon-shopping-bag"></span>
+                                        </a>
                                         <a href="#" class="d-flex align-items-center justify-content-center"><span class="flaticon-heart"></span></a>
                                         @*<a :href="pDetailRoot + '/Product/GetProductDetail/' + item.ID" class="d-flex align-items-center justify-content-center"><span class="flaticon-visibility"></span></a>*@
-                                        <a :href="pDetailRoot + item.ID" class="d-flex align-items-center justify-content-center"><span class="flaticon-visibility"></span></a>
+                                        <a :href="pDetailRoot + item.ID" class="d-flex align-items-center justify-content-center">
+                                            <span class="flaticon-visibility"></span>
+                                        </a>
                                     </p>
                                 </div>
                             </div>

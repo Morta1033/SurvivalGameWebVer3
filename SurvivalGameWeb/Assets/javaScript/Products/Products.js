@@ -90,6 +90,19 @@
             }
 
             this.pageChange(this.currentPage);
+        },
+        gotoCart: function (e) {
+            e.preventDefault();
+            let selectID = e.currentTarget.getAttribute('data-id');
+            let selectProduct = this.items.find(x => x.ID == selectID);
+            let cartsObj = 
+            {
+                ItemName: selectProduct.Name,
+                ItemPrice: selectProduct.Price,
+                ItemCount: selectProduct.InvetoryQuantity,
+                ItemImg: (selectProduct.ImgList[0] ? selectProduct.ImgList[0] : undefined)
+            }
+            console.log("gorto carts", cartsObj);
         }
     },
     mounted: function () {
