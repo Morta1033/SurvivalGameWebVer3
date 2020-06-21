@@ -90,9 +90,6 @@ namespace SurvivalGameWeb.Controllers
             var response = client.PostAsync(endpointurl, content).Result;
             var resultJSON = response.Content.ReadAsStringAsync().Result;
 
-            return RedirectToAction("Index", "Home");
-
-
 
             //var repository = new SGRepository<Members>(new SGModel());
             //var result = repository.GetAll().Where(x => x.Name == loginVM.Account && x.Password == loginVM.Password).FirstOrDefault();
@@ -112,6 +109,8 @@ namespace SurvivalGameWeb.Controllers
             //    status = true,
             //    token = jwtToken
             //});
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
