@@ -1,5 +1,4 @@
 let Log_In = document.querySelectorAll(".Log_In");
-console.log(Log_In)
 let ModalEmail = document.getElementById("ModalEmail");
 let Modalrule_email = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
 

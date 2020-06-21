@@ -5,11 +5,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Net.Http;
+using System.Web.Security;
+using SurvivalGameWeb.Services;
+using Newtonsoft.Json;
+using SurvivalGameWeb.ViewModels;
 
 namespace SurvivalGameWeb.Controllers
 {
     public class MemberController : Controller
     {
+        static string endpoint = "http://survivalgameweb.azurewebsites.net/api";
         // GET: Member
         public ActionResult Index()
         {
@@ -27,13 +33,37 @@ namespace SurvivalGameWeb.Controllers
         [HttpPost]
         public ActionResult GetRegistered([Bind(Include = "Name, Password, CheckPassword, Birth, Postcode, Address, Phone, Email")] MemberRegisteredViewModel registeredVM)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                //db.Accounts.Add(registeredVM);
-                //db.SaveChanges();
                 return RedirectToAction("Index", "Home");
             }
-            return View(registeredVM);
+
+            //call http get
+            var client = new HttpClient();
+            var endpointurl = endpoint + "/Member/CheckRedister";
+
+            registeredVM.Name = HttpUtility.HtmlEncode(registeredVM.Name);
+            registeredVM.Email = HttpUtility.HtmlEncode(registeredVM.Email);
+            registeredVM.Password = HttpUtility.HtmlEncode(registeredVM.Password).MD5Hash();
+            registeredVM.Birth = DateTime.Parse(HttpUtility.HtmlEncode(registeredVM.Birth));
+            registeredVM.PostCode = HttpUtility.HtmlEncode(registeredVM.PostCode);
+            registeredVM.Address = HttpUtility.HtmlEncode(registeredVM.Address);
+            registeredVM.Phone = HttpUtility.HtmlEncode(registeredVM.Phone);
+
+            var reqJson = JsonConvert.SerializeObject(registeredVM);
+            var content = new StringContent(reqJson, System.Text.Encoding.UTF8, "application/json");
+            var response = client.PostAsync(endpointurl, content).Result;
+            var resultJSON = response.Content.ReadAsStringAsync().Result;
+
+            var Result = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(resultJSON);
+            if(Result == false)
+            {
+                
+            }
+            //return Result;
+
+            return RedirectToAction("Index", "Home");
+
         }
 
         [HttpPost]
@@ -47,7 +77,23 @@ namespace SurvivalGameWeb.Controllers
                     token = "Email Or Password is not Valid"
                 });
             }
-            return View();
+
+            //call http get
+            var client = new HttpClient();
+            var endpointurl = endpoint + "/Member/CheckLogin";
+
+            loginVM.Email = HttpUtility.HtmlEncode(loginVM.Email);
+            loginVM.Password = HttpUtility.HtmlEncode(loginVM.Password).MD5Hash();
+
+            var reqJson = JsonConvert.SerializeObject(loginVM);
+            var content = new StringContent(reqJson, System.Text.Encoding.UTF8, "application/json");
+            var response = client.PostAsync(endpointurl, content).Result;
+            var resultJSON = response.Content.ReadAsStringAsync().Result;
+
+            return RedirectToAction("Index", "Home");
+
+
+
             //var repository = new SGRepository<Members>(new SGModel());
             //var result = repository.GetAll().Where(x => x.Name == loginVM.Account && x.Password == loginVM.Password).FirstOrDefault();
             //if (result == null)
