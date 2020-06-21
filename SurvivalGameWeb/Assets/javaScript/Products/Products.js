@@ -81,15 +81,36 @@
         catagoryClick: function (e) {
             e.preventDefault();
             console.log("catagory click!!", e.currentTarget.getAttribute('data-caID'));
-            let caID = e.currentTarget.getAttribute('data-caID');
-            if (caID) {
-                this.items = this.originData.filter(x => x.CatagoryID == caID);
-            }
-            else {
-                this.items = this.originData;
-            }
+            caID = e.currentTarget.getAttribute('data-caID');
+            //if (caID) {
+            //    this.items = this.originData.filter(x => x.CatagoryID == caID);
+            //}
+            //else {
+            //    this.items = this.originData;
+            //}
+            //let url = root + (caID ? '/' + caID : '')
+            let sendData = { caID: caID };
+            let self = this;
+            $.ajax({
+                type: 'POST',
+                url: 'https://survivalgameweb.azurewebsites.net/api/Product/GetSortableProductByCatagory/' + caID,
+                dataType: 'json',
+                data: sendData,
+                success: function (datas) {
+                    if (datas.IsSuccess) {
+                        console.log(datas.Data);
+                        self.originData = datas.Data;
+                        self.items = datas.Data;
 
-            this.pageChange(this.currentPage);
+                        self.pageChange(1);
+                        contentWayPoint();
+
+                        self.typeDirSelected = self.orderDirs[0];
+                    }
+                }
+            });
+
+            //this.pageChange(this.currentPage);
         },
         gotoCart: function (e) {
             e.preventDefault();
@@ -107,10 +128,12 @@
     },
     mounted: function () {
         let self = this;
+        let sendData = { caID : caID };
         $.ajax({
             type: 'POST',
             url: 'https://survivalgameweb.azurewebsites.net/api/Product/GetSortableProductByCatagory',
             dataType: 'json',
+            data: sendData,
             success: function (datas) {
                 if (datas.IsSuccess) {
                     console.log(datas.Data);

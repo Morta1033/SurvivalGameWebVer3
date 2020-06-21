@@ -120,10 +120,10 @@
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">Products</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
-                            <a class="dropdown-item" href="#" )">Gun</a>
-                            <a class="dropdown-item" href="#" )">Clothes</a>
-                            <a class="dropdown-item" href="#">Accessories</a>
-                            <a class="dropdown-item" href="#">Magazine</a>
+                            <a class="dropdown-item" href="@Url.Action("ProductMenu","Product" ,new { ID = "CG001"})" )">Gun</a>
+                            <a class="dropdown-item" href="@Url.Action("ProductMenu","Product" ,new { id = "CG002"})" )">Clothes</a>
+                            <a class="dropdown-item" href="@Url.Action("ProductMenu","Product" ,new { id = "CG003"})">Accessories</a>
+                            <a class="dropdown-item" href="@Url.Action("ProductMenu","Product" ,new { id = "CG004"})">Magazine</a>
                             <a class="dropdown-item" href="@Url.Action("ProductMenu" ,"product")">Products</a>
                             <a class="dropdown-item" href="@Url.Action("ProductDetails" ,"product")">Single Product</a>
                             <a class="dropdown-item" href="@Url.Action("ShoppingCart" ,"product")">Cart</a>
@@ -177,10 +177,10 @@
                     <div class="ftco-footer-widget mb-4">
                         <h2 class="ftco-heading-2">Shopping</h2>
                         <ul class="list-unstyled">
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Gun</a></li>
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Clothes</a></li>
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Accessories</a></li>
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Magazine</a></li>
+                            <li><a href="@Url.Action("ProductMenu","Product" ,new { id = "CG001"})"><span class="fa fa-chevron-right mr-2"></span>Gun</a></li>
+                            <li><a href="@Url.Action("ProductMenu","Product" ,new { id = "CG002"})"><span class="fa fa-chevron-right mr-2"></span>Clothes</a></li>
+                            <li><a href="@Url.Action("ProductMenu","Product" ,new { id = "CG003"})"><span class="fa fa-chevron-right mr-2"></span>Accessories</a></li>
+                            <li><a href="@Url.Action("ProductMenu","Product" ,new { id = "CG004"})"><span class="fa fa-chevron-right mr-2"></span>Magazine</a></li>
                         </ul>
                     </div>
                 </div>

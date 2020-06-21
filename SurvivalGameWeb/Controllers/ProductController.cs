@@ -12,8 +12,9 @@ namespace SurvivalGameWeb.Controllers
     public class ProductController : Controller
     {
         // GET: Product
-        public ActionResult ProductMenu()
+        public ActionResult ProductMenu(string ID)
         {
+            ViewData["caID"] = ID;
             return View();
         }
         public ActionResult ShoppingCart()
