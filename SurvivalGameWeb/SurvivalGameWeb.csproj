@@ -140,8 +140,8 @@
     <Compile Include="ViewModels\MemberLogin\MemberLoginViewModel.cs" />
     <Compile Include="ViewModels\MemberRegister\MemberRegisteredViewModel.cs" />
     <Compile Include="ViewModels\CheckOut\UserCheckOutViewModel.cs" />
+    <Compile Include="ViewModels\ProductDetails\Data.cs" />
     <Compile Include="ViewModels\ShoppingCart\CartItemViewModel.cs" />
-    <Compile Include="ViewModel\ProductDetails\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\animate.css" />
@@ -190,6 +190,7 @@
     <Content Include="Assets\images\p5.jpg" />
     <Content Include="Assets\images\p6.jpg" />
     <Content Include="Assets\images\p7.jpg" />
+    <Content Include="Assets\images\PD_BG2.jpg" />
     <Content Include="Assets\images\person_1.jpg" />
     <Content Include="Assets\images\person_2.jpg" />
     <Content Include="Assets\images\person_3.jpg" />
@@ -223,6 +224,8 @@
     <Content Include="Assets\javaScript\MemberRegister\MemberRegistered.js" />
     <Content Include="Assets\javaScript\owl.carousel.min.js" />
     <Content Include="Assets\javaScript\popper.min.js" />
+    <Content Include="Assets\javaScript\ProductDetails\GetProductDetails.js" />
+    <Content Include="Assets\javaScript\ProductDetails\product-single.js" />
     <Content Include="Assets\javaScript\ProductDetails\ProductDetails.js" />
     <Content Include="Assets\javaScript\Products\Products.js" />
     <Content Include="Assets\javaScript\scrollax.min.js" />
