@@ -10,6 +10,10 @@ using System.Web.Security;
 using SurvivalGameWeb.Services;
 using Newtonsoft.Json;
 using SurvivalGameWeb.ViewModels;
+using SurvivalGame.Security;
+using SurvivalGame.Filter;
+using System.Text;
+using Jose;
 
 namespace SurvivalGameWeb.Controllers
 {
@@ -25,6 +29,8 @@ namespace SurvivalGameWeb.Controllers
         {
             return View();
         }
+
+        [JwtAuthActionFilter]
         public ActionResult MemberCenter()
         {
             return View();
@@ -55,14 +61,7 @@ namespace SurvivalGameWeb.Controllers
             var response = client.PostAsync(endpointurl, content).Result;
             var resultJSON = response.Content.ReadAsStringAsync().Result;
 
-            var Result = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(resultJSON);
-            if(Result == false)
-            {
-                
-            }
-            //return Result;
-
-            return RedirectToAction("Index", "Home");
+            return Json(JsonConvert.DeserializeObject<APIResult>(resultJSON));
 
         }
 
@@ -89,28 +88,60 @@ namespace SurvivalGameWeb.Controllers
             var content = new StringContent(reqJson, System.Text.Encoding.UTF8, "application/json");
             var response = client.PostAsync(endpointurl, content).Result;
             var resultJSON = response.Content.ReadAsStringAsync().Result;
+            var result = JsonConvert.DeserializeObject<APIResult>(resultJSON);
 
+            if(result.IsSuccess)
+            {
+                JwtAuthUtil jwtAuthUtil = new JwtAuthUtil();
+                string jwtToken = jwtAuthUtil.GenerateToken((string)result.Data , loginVM.Email);
+                return Json(new
+                {
+                    status = true,
+                    ID = (string)result.Data,
+                    Name = loginVM.Email ,
+                    token = jwtToken
+                });
+            }
+            else
+            {
+                return Json(new
+                {
+                    status = false,
+                    ExceptionString = result.ExceptionString
+                });
+            }
+        }
 
-            //var repository = new SGRepository<Members>(new SGModel());
-            //var result = repository.GetAll().Where(x => x.Name == loginVM.Account && x.Password == loginVM.Password).FirstOrDefault();
-            //if (result == null)
-            //{
-            //    return Json(new
-            //    {
-            //        status = false ,
-            //        token = "Email Or Password Error"
-            //    });
-            //}
+        [HttpPost]
+        public ActionResult CheckLoginStatus()
+        {
+            if (Request.Headers["Authorization"] == null)
+            {
+                return Json(new
+                {
+                    Status = false
+                });
+            }
+            string secret = "bs2020SurvivalGameProjectOneJwtAuth";//加解密的key,如果不一樣會無法成功解密
+                                                                  //解密後會回傳Json格式的物件(即加密前的資料)
+            var jwtObject = Jose.JWT.Decode<Dictionary<string, Object>>(
+            Request.Headers["Authorization"], Encoding.UTF8.GetBytes(secret), JwsAlgorithm.HS512);
 
-            //JwtAuthUtil jwtAuthUtil = new JwtAuthUtil();
-            //string jwtToken = jwtAuthUtil.GenerateToken(loginVM.Email);
-            //return Json(new
-            //{
-            //    status = true,
-            //    token = jwtToken
-            //});
+            if (JwtAuthActionFilter.IsTokenExpired(jwtObject["Exp"].ToString()))
+            {
+                return Json(new
+                {
+                    Status = false
+                });
+            }
 
-            return RedirectToAction("Index", "Home");
+            return Json(new
+            {
+                Status = true,
+                ID = jwtObject["MemID"].ToString(),
+                Name = jwtObject["Mail"].ToString(),
+                Token = JwtAuthActionFilter.ReGenerateToken(jwtObject["Exp"].ToString(), jwtObject["MemID"].ToString() , jwtObject["Mail"].ToString())
+            });
         }
     }
 }

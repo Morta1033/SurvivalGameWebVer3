@@ -17,8 +17,8 @@
   margin-bottom: 10px;
 }
 
-.invalid-feedback {
-  display: block;
+#LoginModal .invalid-feedback {
+    display: block;
 }
 
 @font-face {

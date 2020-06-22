@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "MemberLogin";
+}
+
+<div class="limiter">
+    <div class="container-login100">
+
+        <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30 mt-50">
+            <form action="##" method="post" class="login100-form validate-form">
+                <span class="login100-form-title p-b-55">
+                    Login
+                </span>
+
+                <div class="wrap-input100 validate-input"
+                     data-validate="Valid email is required: ex@abc.com">
+                    <input class="input100" type="text" name="LoginEmail" id="LoginEmail" placeholder="Email">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <span class="lnr lnr-envelope"></span>
+                    </span>
+                </div>
+                <div class="invalid-feedback LoginEmailInvalid">Please enter the complete email</div>
+
+                <div class="wrap-input100 validate-input m-t-16"
+                     data-validate="Password is required">
+                    <input class="input100" type="Password" name="LoginPassword" id="LoginPassword" placeholder="Password">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <span class="lnr lnr-lock"></span>
+                    </span>
+                </div>
+                <div class="invalid-feedback PasswordInvalid">Length is between 8-35 uppercase and lowercase English digits</div>
+
+                <div class="contact100-form-checkbox m-l-4  m-t-25">
+                    <input class="input-checkbox100" id="ckb" type="checkbox"
+                           name="remember-me">
+                    <label class="label-checkbox100" for="ckb">
+                        Remember me
+                    </label>
+                </div>
+
+                <div class="container-login100-form-btn p-t-25">
+                    <button class="LoginBtn">
+                        Login
+                    </button>
+                </div>
+
+                <div class="text-center w-full p-t-30 p-b-50">
+                    <span class="txt1">
+                        Not a member?
+                    </span>
+
+                    <a class="txt1 bo1 hov1" href="#">
+                        Sign up now
+                    </a>
+                </div>
+
+                <div class="text-center w-full p-t-30 p-b-22">
+                    <span class="txt1">
+                        Or login with
+                    </span>
+                </div>
+
+                <a href="#" class="btn-face m-b-10">
+                    <i class="fa fa-facebook-official"></i>
+                    Facebook
+                </a>
+
+                <a href="#" class="btn-google m-b-10">
+                    <img src="~/Assets/images/icon-google.png" alt="GOOGLE" />
+                    Google
+                </a>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+@section topCss{
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="~/Assets/css/MemberLogin/icon-font.min.css" rel="stylesheet" />
+    <link href="~/Assets/css/MemberLogin/MemberLogin.css" rel="stylesheet" />
+    <link href="~/Assets/css/MemberLogin/util.css" rel="stylesheet" />
+    <link href="~/Assets/css/animate.css" rel="stylesheet" />
+}
+
+@section bottomJs{
+    <script src="~/Assets/javaScript/MemberLogin/MemberLogin.js"></script>
+}

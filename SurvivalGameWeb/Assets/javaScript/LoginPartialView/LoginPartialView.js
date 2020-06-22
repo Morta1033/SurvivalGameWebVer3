@@ -10,22 +10,9 @@ let ModalPasswordInvalid = document.querySelector(".ModalPasswordInvalid");
 
 let ModalLoginButton = document.querySelector(".login100-form-btn");
 
-// let localAc = localStorage.getItem('ModalEmail');
-// let localPa = localStorage.getItem('ModalPassword');
-
-
 Log_In.forEach(el => {
     el.addEventListener("click", function () {
         $("#LoginModal").modal('show');
-        // if(localAc){
-        //     $('#ModalEmail').val(localAc);
-
-        //     ModalEmailInvalid.setAttribute("style", "display: none;");
-        // }if(localPa){
-        //     $('#ModalPassword').val(localPa);
-
-        //     ModalPasswordInvalid.setAttribute("style", "display: none;");
-        // }
 
         ModalEmail.addEventListener("keyup", function () {
             if (Modalrule_email.test(ModalEmail.value) === true && ModalEmail.value != "") {
@@ -49,22 +36,11 @@ Log_In.forEach(el => {
 
 ModalLoginButton.onclick = function (e) {
     e.preventDefault();
-    //alert("XDDD");
 
     if ((ModalEmailInvalid.getAttribute("style") != "display: none;") && (ModalPasswordInvalid.getAttribute("style") != "display: none;")) {
         alert("Data Not Full");
         return;
     }
-    // if ($("#ckb1").prop('checked')) {
-    //     localStorage.setItem('ModalEmail', ModalEmail.value);
-    //     localStorage.setItem('ModalPassword', ModalPassword.value);
-
-    // }
-    // if (!$("#ckb1").prop('checked')) {
-    //     localStorage.removeItem('ModalEmail', ModalEmail.value);
-    //     localStorage.removeItem('ModalPassword', ModalPassword.value);
-
-    // }
     
     let ModalMemberItem = {
         Email: ModalEmail.value,
@@ -76,8 +52,15 @@ ModalLoginButton.onclick = function (e) {
         method: "post",
         contentType: 'application/json',
         data: JSON.stringify(ModalMemberItem),
-        success: function () {
+        success: function (data) {
             //window.location.href = '/Home/Index';
+            if (data.status) {
+                localStorage.setItem('MemberID', data.ID);
+                localStorage.setItem('MemberName', data.Name);
+                localStorage.setItem('Authorization', data.token);
+                $('#LoginModal').modal('hide');
+                location.reload();
+            }
         }
     });
 }

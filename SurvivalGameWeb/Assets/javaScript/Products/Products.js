@@ -118,12 +118,14 @@
             let selectProduct = this.items.find(x => x.ID == selectID);
             let cartsObj = 
             {
+                ItemId: selectProduct.ID,
                 ItemName: selectProduct.Name,
                 ItemPrice: selectProduct.Price,
-                ItemCount: selectProduct.InvetoryQuantity,
+                ItemCount: 1,
                 ItemImg: (selectProduct.ImgList[0] ? selectProduct.ImgList[0] : undefined)
             }
             console.log("gorto carts", cartsObj);
+            LocalCart(cartsObj);
         }
     },
     mounted: function () {

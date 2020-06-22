@@ -1,9 +1,6 @@
 let inputName = document.getElementById("Name");
 let rule_name = /^[a-zA-Z\u2E80-\u9FFF]{2,25}$/;
 
-//let inputAccount = document.getElementById("Account");
-//let rule_account = /^[a-zA-Z_][\w*\u2E80-\u9FFF]*$/;
-
 let inputPassword = document.getElementById("Password");
 let rule_password = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,35}$/;
 
@@ -24,7 +21,6 @@ let inputEmail = document.getElementById("Email");
 let rule_email = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
 
 let NameInvalid = document.querySelector(".NameInvalid");
-//let AccountInvalid = document.querySelector(".AccountInvalid");
 let PasswordInvalid = document.querySelector(".PasswordInvalid");
 let CheckPasswordInvalid = document.querySelector(".CheckPasswordInvalid");
 let BirthdayInvalid = document.querySelector(".BirthdayInvalid");
@@ -39,19 +35,18 @@ let RegisterBtn = document.getElementById("RegisterBtn");
 RegisterBtn.addEventListener("click", function (e) {
     for (let i = 0; i < InvalidFeedback.length; i++) {
         if (InvalidFeedback[i].getAttribute("style") != "display: none;") {
-            alert("資料不完整");
+            alert("Data Not Full");
             return;
         }
     }
 
     if (!$("#Look").prop('checked')) {
-        alert("請勾選會員條款");
+        alert("Please check the membership terms.");
         return;
     }
 
     let MemberItem = {
         Name: inputName.value,
-        //Account: inputAccount.value,
         Password: inputPassword.value,
         CheckPassword: inputCheckPassword.value,
         Birth: inputBirth["value"],
@@ -66,8 +61,13 @@ RegisterBtn.addEventListener("click", function (e) {
         method: "POST",
         contentType: 'application/json',
         data: JSON.stringify(MemberItem),
-        success: function () {
-            //window.location.href = '/Member/CheckRedister';
+        success: function (r) {
+            if (!r.IsSuccess) {
+                alert(r.ExceptionString);
+            }
+            else {
+                window.location.href = "https://localhost:44336";
+            }
         }
     });
     e.preventDefault();
@@ -81,14 +81,6 @@ inputName.addEventListener("keyup", function () {
         NameInvalid.setAttribute("style", "display: block;");
     }
 })
-
-//inputAccount.addEventListener("keyup", function () {
-//    if (rule_account.test(inputAccount.value) === true && inputAccount.value != "") {
-//        AccountInvalid.setAttribute("style", "display: none;");
-//    } else {
-//        AccountInvalid.setAttribute("style", "display: block;");
-//    }
-//})
 
 inputPassword.addEventListener("keyup", function () {
     if (rule_password.test(inputPassword.value) === true && inputPassword.value != "") {

@@ -16,6 +16,7 @@
     <link href="~/Assets/css/magnific-popup.css" rel="stylesheet" />
     <link href="~/Assets/css/flaticon.css" rel="stylesheet" />
     <link href="~/Assets/css/style.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
     @RenderSection("topCss", required: false)
     <link href="~/Assets/css/LoginPartialView/LoginPartialView.css" rel="stylesheet" />
 </head>
@@ -49,8 +50,15 @@
                             </a>
                         </p>
                     </div>
-                    <div class="reg">
-                        <p class="mb-0"><a href="#" class="mr-2">Sign Up</a> <a href="#" class="Log_In">Log In</a></p>
+                    <div class="reg" id="memberArea">
+                        <p class="mb-0" v-if="needLogin">
+                            <a href="@Url.Action("MemberRegister","Member")" class="mr-2">Sign Up</a>
+                            <a href="#" class="Log_In">Log In</a>
+                        </p>
+                        <p class="mb-0" v-if="!needLogin">
+                            <a href="#" class="mr-1" >{{memMail}}</a>
+                            <a href="#" @@click="onLogOutClick">(LogOut)</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -124,10 +132,10 @@
                             <a class="dropdown-item" href="@Url.Action("ProductMenu","Product" ,new { id = "CG002"})" )">Clothes</a>
                             <a class="dropdown-item" href="@Url.Action("ProductMenu","Product" ,new { id = "CG003"})">Accessories</a>
                             <a class="dropdown-item" href="@Url.Action("ProductMenu","Product" ,new { id = "CG004"})">Magazine</a>
-                            <a class="dropdown-item" href="@Url.Action("ProductMenu" ,"product")">Products</a>
+                            @*<a class="dropdown-item" href="@Url.Action("ProductMenu" ,"product")">Products</a>
                             <a class="dropdown-item" href="@Url.Action("ProductDetails" ,"product")">Single Product</a>
                             <a class="dropdown-item" href="@Url.Action("ShoppingCart" ,"product")">Cart</a>
-                            <a class="dropdown-item" href="@Url.Action("CheckOut" ,"product")">Checkout</a>
+                            <a class="dropdown-item" href="@Url.Action("CheckOut" ,"product")">Checkout</a>*@
                         </div>
                     </li>
                     @*<li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>*@
@@ -268,6 +276,23 @@
     <script src="~/Assets/javaScript/scrollax.min.js"></script>
     <script src="~/Assets/javaScript/google-map.js"></script>
     <script src="~/Assets/javaScript/main.js"></script>
+
+
+    <!-- Load polyfills to support older browsers -->
+    <script src="//polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver" crossorigin="anonymous"></script>
+
+    <!-- Load Vue followed by BootstrapVue -->
+    <script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
+    <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+
+    <!-- Load the following for BootstrapVueIcons support -->
+    <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
+
+    <script>
+        var checkLoginUrl = "@Url.Action("CheckLoginStatus" ,"Member")";
+    </script>
+    <script src="~/Assets/javaScript/login.js"></script>
+
     @RenderSection("scripts", required: false)
     @RenderSection("bottomJs", required: false)
     <script src="~/Assets/javaScript/LoginPartialView/LoginPartialView.js"></script>
