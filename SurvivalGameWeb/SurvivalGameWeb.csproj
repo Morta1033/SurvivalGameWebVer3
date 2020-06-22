@@ -147,7 +147,6 @@
     <Compile Include="ViewModels\ProductDetails\Data.cs" />
     <Compile Include="ViewModels\ShoppingCart\CartItemViewModel.cs" />
     <Compile Include="ViewModel\Index\IndexViewModel.cs" />
-    <Compile Include="ViewModel\ProductDetails\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\animate.css" />
@@ -304,7 +303,6 @@
     <Folder Include="Models\" />
     <Folder Include="Repository\" />
     <Folder Include="Security\" />
-    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
