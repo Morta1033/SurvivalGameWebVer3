@@ -25,6 +25,10 @@ namespace SurvivalGameWeb.Controllers
         {
             return View();
         }
+        public ActionResult MemberLogin()
+        {
+            return View();
+        }
         public ActionResult MemberCenter()
         {
             return View();
@@ -55,14 +59,7 @@ namespace SurvivalGameWeb.Controllers
             var response = client.PostAsync(endpointurl, content).Result;
             var resultJSON = response.Content.ReadAsStringAsync().Result;
 
-            var Result = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(resultJSON);
-            if(Result == false)
-            {
-                
-            }
-            //return Result;
-
-            return RedirectToAction("Index", "Home");
+            return Json(JsonConvert.DeserializeObject<APIResult>(resultJSON));
 
         }
 
@@ -90,7 +87,8 @@ namespace SurvivalGameWeb.Controllers
             var response = client.PostAsync(endpointurl, content).Result;
             var resultJSON = response.Content.ReadAsStringAsync().Result;
 
-            return RedirectToAction("Index", "Home");
+            return Json(JsonConvert.DeserializeObject<APIResult>(resultJSON));
+
 
 
 
