@@ -26,10 +26,9 @@
                         <span class="flaticon-support"></span>
                     </div>
                     <div class="text">
-                        <h2>Online Support 24/7</h2>
+                        <h2>Online Support</h2>
                         <p>
-                            A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia.
+                            24-hour free service hotline: 03-5374281~5
                         </p>
                     </div>
                 </div>
@@ -42,8 +41,7 @@
                     <div class="text">
                         <h2>Money Back Guarantee</h2>
                         <p>
-                            A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia.
+                            Received product doesn't match the order or are defective.
                         </p>
                     </div>
                 </div>
@@ -54,10 +52,9 @@
                         <span class="flaticon-free-delivery"></span>
                     </div>
                     <div class="text">
-                        <h2>Free Shipping &amp; Return</h2>
+                        <h2>Free Shipping</h2>
                         <p>
-                            A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia.
+                            When spending over TWD 1,000.
                         </p>
                     </div>
                 </div>
@@ -74,22 +71,18 @@
             </div>
             <div class="col-md-6 wrap-about pl-md-5 ftco-animate py-5">
                 <div class="heading-section">
-                    <span class="subheading">Since 1905</span>
-                    <h2 class="mb-4">Desire Meets A New Taste</h2>
+                    @*<span class="subheading">Since 1905</span>*@
+                    <h2 class="mb-4">Early as in the 1950s</h2>
 
                     <p>
-                        A small river named Duden flows by their place and supplies it with the necessary regelialia.
-                        It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+                        Survival game was originally from Midwest of United States in early 50's.
                     </p>
                     <p>
-                        On her way she met a copy. The copy warned the Little Blind Text, that where it came from it
-                        would have been rewritten a thousand times and everything that was left from its origin
-                        would be the word "and" and the Little Blind Text should turn around and return to its own,
-                        safe country.
+                        It’s a tactical game of module military with similarity to play paintballs.  Easily shoot the opponents to win this game. Let’s unlock the missions and have fun in the modern first personal shooting game. It’s particular to the tactics, retains and fast reaction. It’s affectionate to everyone who loves challenging and military games.
                     </p>
                     <p class="year">
-                        <strong class="number" data-number="115">0</strong>
-                        <span>Years of Experience In Business</span>
+                        <strong class="number" data-number="70">0</strong>
+                        <span>Years of History</span>
                     </p>
                 </div>
 
@@ -417,7 +410,8 @@
                         let product_price = cloneContent.querySelector('.producttext .productprice');
                         product_img.setAttribute("style", `background-image: url(${el.ImgList[0]});`)
                         product_text.innerHTML = el.Name;
-                        product_price.inerText = el.Price;
+                        product_price.innerHTML =`$`+`${el.Price}`;
+
 
                         product_items.appendChild(cloneContent);
                         console.log(product_items);
