@@ -232,6 +232,7 @@
     <Content Include="Assets\javaScript\jquery.stellar.min.js" />
     <Content Include="Assets\javaScript\jquery.waypoints.min.js" />
     <Content Include="Assets\javaScript\login.js" />
+    <Content Include="Assets\javaScript\Local.js" />
     <Content Include="Assets\javaScript\LoginPartialView\LoginPartialView.js" />
     <Content Include="Assets\javaScript\main.js" />
     <Content Include="Assets\javaScript\MemberCenter\MemberCenter.js" />
