@@ -35,13 +35,13 @@ let RegisterBtn = document.getElementById("RegisterBtn");
 RegisterBtn.addEventListener("click", function (e) {
     for (let i = 0; i < InvalidFeedback.length; i++) {
         if (InvalidFeedback[i].getAttribute("style") != "display: none;") {
-            alert("資料不完整");
+            alert("Data Not Full");
             return;
         }
     }
 
     if (!$("#Look").prop('checked')) {
-        alert("請勾選會員條款");
+        alert("Please check the membership terms.");
         return;
     }
 
