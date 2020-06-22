@@ -193,6 +193,7 @@
     <Content Include="Assets\images\loc.png" />
     <Content Include="Assets\images\Logo.png" />
     <Content Include="Assets\images\LogoSmall.png" />
+    <Content Include="Assets\images\Member_BG.jpg" />
     <Content Include="Assets\images\M_1.jpg" />
     <Content Include="Assets\images\p1.jpg" />
     <Content Include="Assets\images\p2.jpg" />
@@ -206,6 +207,7 @@
     <Content Include="Assets\images\person_2.jpg" />
     <Content Include="Assets\images\person_3.jpg" />
     <Content Include="Assets\images\person_4.jpg" />
+    <Content Include="Assets\images\PMBG2.jpg" />
     <Content Include="Assets\images\PrD_img.jpg" />
     <Content Include="Assets\images\prod-1.jpg" />
     <Content Include="Assets\images\prod-10.jpg" />
