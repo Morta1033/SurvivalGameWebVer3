@@ -2,11 +2,12 @@
 ItemAdd.addEventListener("click", function (e) {
     e.preventDefault();
     let data = GetDetail();
-    console.log(data);
+    LocalCart(data);
+    //console.log(data);
 })
 
 function GetDetail() {
-    //let ID = document.getElementById('ProductID').innerText;
+    let ID = document.getElementById('ProductID').innerText;
     let Name = document.querySelector('h3').innerText;
     let Price = document.querySelector('.price span').innerText;
     let Count = document.getElementById('quantity').value;
@@ -14,6 +15,7 @@ function GetDetail() {
 
     let data =
     {
+        ItemId: ID,
         ItemName: Name,
         ItemPrice: Price,
         ItemCount: Count,
