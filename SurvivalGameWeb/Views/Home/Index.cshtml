@@ -392,6 +392,14 @@
 
     <script>
         window.onload = function () {
+            if (JSON.parse(localStorage.getItem('Cart')) != null) {
+                let items = JSON.parse(localStorage.getItem('Cart'))
+                items.detail.forEach(element => {
+                    ItemAddCart(element)
+                })
+                RemoveLocal()
+                LoadCartCount();
+            }
             let product_items = document.querySelector('.product_items');
             $.ajax({
                 url: "https://survivalgameweb.azurewebsites.net/api/Product/GetNewestSimpleProduct/8",
@@ -407,7 +415,7 @@
                         let product_img = cloneContent.querySelector('.productimg');
                         let product_text = cloneContent.querySelector('.producttext h4');
                         let product_price = cloneContent.querySelector('.producttext .productprice');
-                        debugger;
+                        //debugger;
                         product_img.setAttribute("style", `background-image: url(${el.ImgList[0]});`)
                         product_text.innerHTML = el.Name;
                         product_price.inerText = el.Price;
