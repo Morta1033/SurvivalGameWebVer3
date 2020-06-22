@@ -11,9 +11,9 @@
 </section>
 
 <section class="ftco-section">
-    <div class="container">
+    <div class="container" id="productsArea">
         <div class="row">
-            <div class="col-md-9" id="productsArea">
+            <div class="col-md-9" id="productsAreaPre">
                 <div class="row my-5">
                     <div class="col text-center">
                         <div class="block-27">
@@ -35,8 +35,8 @@
                             <option v-for="ot in orderTypes">{{ot.Name}}</option>
                         </select>
                         <select class="selectpicker" @@change="onOrderDieChange" v-model="typeDirSelected">
-                                <option v-for="od in orderDirs">{{od}}</option>
-                            </select>
+                            <option v-for="od in orderDirs">{{od}}</option>
+                        </select>
                     </div>
                 </div>
 
@@ -48,9 +48,14 @@
                             <div class="img d-flex align-items-center justify-content-center" :style="{backgroundImage: 'url(' + item.ImgList[0] + ')'}">
                                 <div class="desc">
                                     <p class="meta-prod d-flex">
-                                        <a href="#" class="d-flex align-items-center justify-content-center"><span class="flaticon-shopping-bag"></span></a>
+                                        <a href="#" class="d-flex align-items-center justify-content-center" @@click="gotoCart" :data-id="item.ID">
+                                            <span class="flaticon-shopping-bag"></span>
+                                        </a>
                                         <a href="#" class="d-flex align-items-center justify-content-center"><span class="flaticon-heart"></span></a>
-                                        <a :href="pDetailRoot + '/Product/GetProductDetail/' + item.ID" class="d-flex align-items-center justify-content-center"><span class="flaticon-visibility"></span></a>
+                                        @*<a :href="pDetailRoot + '/Product/GetProductDetail/' + item.ID" class="d-flex align-items-center justify-content-center"><span class="flaticon-visibility"></span></a>*@
+                                        <a :href="pDetailRoot + item.ID" class="d-flex align-items-center justify-content-center">
+                                            <span class="flaticon-visibility"></span>
+                                        </a>
                                     </p>
                                 </div>
                             </div>
@@ -83,17 +88,23 @@
 
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3" id="sideArea">
                 <div class="sidebar-box ftco-animate">
                     <div class="categories">
-                        <h3>Product Types</h3>
+                        <h3>Product Catagory</h3>
                         <ul class="p-0">
-                            <li><a href="#">Brandy <span class="fa fa-chevron-right"></span></a></li>
-                            <li><a href="#">Gin <span class="fa fa-chevron-right"></span></a></li>
-                            <li><a href="#">Rum <span class="fa fa-chevron-right"></span></a></li>
-                            <li><a href="#">Tequila <span class="fa fa-chevron-right"></span></a></li>
-                            <li><a href="#">Vodka <span class="fa fa-chevron-right"></span></a></li>
-                            <li><a href="#">Whiskey <span class="fa fa-chevron-right"></span></a></li>
+                            <li v-for="ca in catagoryList">
+                                <a href="#" v-on:click="catagoryClick" :data-caID="ca.ID">
+                                    {{ca.Name}}
+                                    <span class="fa fa-chevron-right">
+                                    </span>
+                                </a>
+                            </li>
+                            @*<li><a href="#">Gin <span class="fa fa-chevron-right"></span></a></li>
+                                <li><a href="#">Rum <span class="fa fa-chevron-right"></span></a></li>
+                                <li><a href="#">Tequila <span class="fa fa-chevron-right"></span></a></li>
+                                <li><a href="#">Vodka <span class="fa fa-chevron-right"></span></a></li>
+                                <li><a href="#">Whiskey <span class="fa fa-chevron-right"></span></a></li>*@
                         </ul>
                     </div>
                 </div>
@@ -147,5 +158,8 @@
 
     <!-- Load the following for BootstrapVueIcons support -->
     <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
+    <script>
+        var caID = "@ViewData["caID"]";
+    </script>
     <script src="~/Assets/javaScript/Products/Products.js"></script>
 }

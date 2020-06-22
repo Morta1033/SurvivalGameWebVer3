@@ -36,7 +36,7 @@ let EmailInvalid = document.querySelector(".EmailInvalid");
 let InvalidFeedback = document.querySelector(".billing-form").querySelectorAll(".invalid-feedback");
 let RegisterBtn = document.getElementById("RegisterBtn");
 
-RegisterBtn.addEventListener("click", function () {
+RegisterBtn.addEventListener("click", function (e) {
     for (let i = 0; i < InvalidFeedback.length; i++) {
         if (InvalidFeedback[i].getAttribute("style") != "display: none;") {
             alert("資料不完整");
@@ -67,9 +67,10 @@ RegisterBtn.addEventListener("click", function () {
         contentType: 'application/json',
         data: JSON.stringify(MemberItem),
         success: function () {
-            //window.location.href = '/Home/Index';
+            //window.location.href = '/Member/CheckRedister';
         }
     });
+    e.preventDefault();
 })
 
 

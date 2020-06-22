@@ -32,7 +32,6 @@ var contentWayPoint = function () {
 
 	}, { offset: '95%' });
 };
-
 (function ($) {
 
 	"use strict";
@@ -183,8 +182,6 @@ var contentWayPoint = function () {
 
 	}
 	counter();
-
-
 	contentWayPoint();
 
 

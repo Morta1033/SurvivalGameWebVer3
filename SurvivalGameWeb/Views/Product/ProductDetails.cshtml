@@ -41,7 +41,7 @@
                 <h3>@Model.Data.Name</h3>
                 <div class="rating d-flex">
                     <p class="text-left mr-4">
-                        <a href="#" class="mr-2">@Model.Data.ID</a>
+                        <a href="#" class="mr-2" id="ProductID">@Model.Data.ID</a>
                     </p>
                     @*<p class="text-left mr-4">
                             <a href="#" class="mr-2" style="color: #000;">100 <span style="color: #bbb;">Rating</span></a>
@@ -50,7 +50,7 @@
                             <a href="#" class="mr-2" style="color: #000;">500 <span style="color: #bbb;">Sold</span></a>
                         </p>*@
                 </div>
-                <p class="price"><span>$@Model.Data.Price</span></p>
+                <p class="price"><span>@Model.Data.Price</span></p>
                 <p>@Model.Data.Depiction</p>
                 @*<p>
                         On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.
@@ -80,7 +80,7 @@
                         <p style="color: #000;">@Model.Data.InvetoryQuantity piece available</p>
                     </div>
                 </div>
-                <p><a href="#" class="btn btn-primary py-3 px-5 mr-2">Add to Cart</a><a href="ShoppingCart" class="btn btn-primary py-3 px-5">Buy now</a></p>
+                <p><a href="#" class="btn btn-primary py-3 px-5 mr-2" id="AddCartBtn">Add to Cart</a><a href="ShoppingCart" class="btn btn-primary py-3 px-5">Buy now</a></p>
             </div>
         </div>
 
@@ -101,13 +101,14 @@
 
                     <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="day-1-tab">
                         <div class="p-4">
-                            <h3 class="mb-4">@Model.Data.ManufacturerName</h3>
+                            <h3 class="mb-4">manufacturer: @Model.Data.ManufacturerName
+                            </h3>
                             <p>
                                 @foreach (var i in Model.Data.PAttributeList)
                                 {
-                                    <span>@i.Name</span>
-                                    <span>@i.value</span>
-                                    <br>
+                                    <ul>
+                                        <li>@i.Name : @i.value</li>
+                                     </ul>
                                 }
                             </p>
                         </div>
@@ -133,6 +134,7 @@
 @section bottomJs{
     <script src="~/Assets/javaScript/ProductDetails/ProductDetails.js"></script>
     <script src="~/Assets/javaScript/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/Assets/javaScript/ProductDetails/GetDetail.js"></script>
     <script>
         let img_activate = document.querySelector('.carousel-item:first-child');
         img_activate.classList.add('active');
