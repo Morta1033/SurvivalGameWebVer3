@@ -1,36 +1,33 @@
 ﻿let CartDetail = document.querySelector('a.dropdown-item')
 var CartList = document.querySelector('.dropdown-menu ')
-
 // 判定LOCAL裡面是否有東西
 function LocalCart(el) {
     var list = {
-        ItemId: el.ItemId,
+        ItemId: el.ItemId.trim(),
         ItemName: el.ItemName,
         ItemPrice: el.ItemPrice,
         ItemCount: el.ItemCount,
         ItemImg: el.ItemImg
     }
+    var items = JSON.parse(localStorage.getItem('Cart'))
     if (localStorage.getItem('Cart') == null) {
-        let CartData = {
-            detail: []
-        }
-        CartData.detail.push(list)
-        localStorage.setItem('Cart', JSON.stringify(CartData))
+        let detail = [];
+        detail.push(list)
+        localStorage.setItem('Cart', JSON.stringify(detail))
         return;
-    }
-    let items = JSON.parse(localStorage.getItem('Cart'))
-    items.detail.forEach((el, index) => {
-        if (el.ItemId === list.ItemId) {
-            items.detail.splice(index, 1, list);
-            localStorage.setItem('Cart', JSON.stringify(items));
-            return;
-        }
-        if (el.ItemId.indexOf(list.ItemId) == -1) {
-            items.detail.push(list)
+    } else {
+        var result = $.map(items, function (item, index) {
+            return item.ItemId;
+        }).indexOf(list.ItemId);
+        if (result === -1) {
+            items.push(list)
             localStorage.setItem('Cart', JSON.stringify(items))
-            return
         }
-    });
+        else {
+            items.splice(result, 1, list);
+            localStorage.setItem('Cart', JSON.stringify(items))
+        }
+    }
     ItemAddCart(el)
     LoadCartCount();
     CartListDetail();
@@ -45,7 +42,7 @@ function ItemAddCart(el) {
     let ItemCount = clonecontent.querySelector('.quantity')
     let ItemImg = clonecontent.querySelector('.img')
     ItemName.textContent = el.ItemName
-    ItemPrice.textContent = `${el.ItemPrice}`
+    ItemPrice.textContent = `$${el.ItemPrice}`
     ItemCount.textContent = `Quantity:${el.ItemCount}`
 
     ItemImg.style.backgroundImage = `url(${el.ItemImg})`
@@ -53,9 +50,9 @@ function ItemAddCart(el) {
 }
 // 計算購物車數量
 function LoadCartCount() {
-    let CartBag = document.querySelector('small')
+    let CartBag = document.querySelector('.align-items-center small')
     if (JSON.parse(localStorage.getItem('Cart')) != null) {
-        let count = JSON.parse(localStorage.getItem('Cart')).detail.length
+        let count = JSON.parse(localStorage.getItem('Cart')).length
         CartBag.innerText = count;
         return;
     }
@@ -70,7 +67,7 @@ window.addEventListener('storage', function () {
 window.onload = function () {
     if (JSON.parse(localStorage.getItem('Cart')) != null) {
         let items = JSON.parse(localStorage.getItem('Cart'))
-        items.detail.forEach(element => {
+        items.forEach(element => {
             ItemAddCart(element)
         })
         RemoveLocal()
@@ -85,7 +82,7 @@ function CartListDetail() {
     });
     if (JSON.parse(localStorage.getItem('Cart')) != null) {
         let items = JSON.parse(localStorage.getItem('Cart'))
-        items.detail.forEach(element => {
+        items.forEach(element => {
             ItemAddCart(element)
         })
         RemoveLocal()
@@ -101,9 +98,9 @@ function RemoveLocal() {
             let key = el.getAttribute('data-key')
             if (JSON.parse(localStorage.getItem('Cart')) != null) {
                 let items = JSON.parse(localStorage.getItem('Cart'))
-                items.detail.splice(key, 1)
+                items.splice(key, 1)
                 localStorage.setItem('Cart', JSON.stringify(items))
-                if (items.detail.length < 1) {
+                if (items.length < 1) {
                     localStorage.clear();
                 }
                 LoadCartCount()
