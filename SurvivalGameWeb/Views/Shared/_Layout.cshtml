@@ -16,6 +16,7 @@
     <link href="~/Assets/css/magnific-popup.css" rel="stylesheet" />
     <link href="~/Assets/css/flaticon.css" rel="stylesheet" />
     <link href="~/Assets/css/style.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
     @RenderSection("topCss", required: false)
     <link href="~/Assets/css/LoginPartialView/LoginPartialView.css" rel="stylesheet" />
 </head>
@@ -28,8 +29,8 @@
             <div class="row">
                 <div class="col-md-6 d-flex align-items-center">
                     <p class="mb-0 phone pl-md-2">
-                        <a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span> +00 1234 567</a>
-                        <a href="#"><span class="fa fa-paper-plane mr-1"></span> youremail@email.com</a>
+                        <a href="tel://+03-5374281~5" class="mr-2"><span class="fa fa-phone mr-1"></span> 03-5374281~5</a>
+                        <a href="mailto:Uberleben@chu.edu.tw"><span class="fa fa-paper-plane mr-1"></span> Uberleben@chu.edu.tw</a>
                     </p>
                 </div>
                 <div class="col-md-6 d-flex justify-content-md-end">
@@ -49,17 +50,23 @@
                             </a>
                         </p>
                     </div>
-                    <div class="reg">
-                        <p class="mb-0"><a href="#" class="mr-2">Sign Up</a> <a href="#" class="Log_In">Log In</a></p>
+                    <div class="reg" id="memberArea">
+                        <p class="mb-0" v-if="needLogin">
+                            <a href="@Url.Action("MemberRegister","Member")" class="mr-2">Sign Up</a>
+                            <a href="#" class="Log_In">Log In</a>
+                        </p>
+                        <p class="mb-0" v-if="!needLogin">
+                            <a href="#" class="mr-1" >{{memMail}}</a>
+                            <a href="#" @@click="onLogOutClick">(LogOut)</a>
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light py-3" id="ftco-navbar">
         <div class="container">
-            <a class="navbar-brand" href="@Url.Action("Index","home")">Liquor <span>store</span></a>
+            <a class="navbar-brand" href=@Url.Action("Index" ,"Home")><img src="~/Assets/images/Logo.png" alt="" style="max-height:50px;"></a>
             <div class="order-lg-last btn-group">
                 <a href="#" class="btn-cart dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
@@ -67,54 +74,52 @@
                     <div class="d-flex justify-content-center align-items-center"><small>3</small></div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <div class="dropdown-item d-flex align-items-start" href="#">
-                        <div class="img" style="background-image: url(../../Assets/images/prod-1.jpg);"></div>
-                        <div class="text pl-3">
-                            <h4>Bacardi 151</h4>
-                            <p class="mb-0">
-                                <a href="#" class="price">$25.99</a><span class="quantity ml-3">
-                                    Quantity:
-                                    01
-                                </span>
-                            </p>
+                    @*<div class="dropdown-item d-flex align-items-start" href="#">
+                            <div class="img" style="background-image: url(../../Assets/images/prod-1.jpg);"></div>
+                            <div class="text pl-3">
+                                <h4>Bacardi 151</h4>
+                                <p class="mb-0">
+                                    <a href="#" class="price">$25.99</a><span class="quantity ml-3">
+                                        Quantity:
+                                        01
+                                    </span>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="dropdown-item d-flex align-items-start" href="#">
-                        <div class="img" style="background-image: url(../../Assets/images/prod-2.jpg);"></div>
-                        <div class="text pl-3">
-                            <h4>Jim Beam Kentucky Straight</h4>
-                            <p class="mb-0">
-                                <a href="#" class="price">$30.89</a><span class="quantity ml-3">
-                                    Quantity:
-                                    02
-                                </span>
-                            </p>
+                        <div class="dropdown-item d-flex align-items-start" href="#">
+                            <div class="img" style="background-image: url(../../Assets/images/prod-2.jpg);"></div>
+                            <div class="text pl-3">
+                                <h4>Jim Beam Kentucky Straight</h4>
+                                <p class="mb-0">
+                                    <a href="#" class="price">$30.89</a><span class="quantity ml-3">
+                                        Quantity:
+                                        02
+                                    </span>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="dropdown-item d-flex align-items-start" href="#">
-                        <div class="img" style="background-image: url(../../Assets/images/prod-3.jpg);"></div>
-                        <div class="text pl-3">
-                            <h4>Citadelle</h4>
-                            <p class="mb-0">
-                                <a href="#" class="price">$22.50</a><span class="quantity ml-3">
-                                    Quantity:
-                                    01
-                                </span>
-                            </p>
-                        </div>
-                    </div>
+                        <div class="dropdown-item d-flex align-items-start" href="#">
+                            <div class="img" style="background-image: url(../../Assets/images/prod-3.jpg);"></div>
+                            <div class="text pl-3">
+                                <h4>Citadelle</h4>
+                                <p class="mb-0">
+                                    <a href="#" class="price">$22.50</a><span class="quantity ml-3">
+                                        Quantity:
+                                        01
+                                    </span>
+                                </p>
+                            </div>
+                        </div>*@
                     <a class="dropdown-item text-center btn-link d-block w-100" href="cart.html">
                         View All
                         <span class="ion-ios-arrow-round-forward"></span>
                     </a>
                 </div>
             </div>
-
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                     aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
             </button>
-
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active"><a href="@Url.Action("Index","home")" class="nav-link">Home</a></li>
@@ -123,10 +128,14 @@
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">Products</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
-                            <a class="dropdown-item" href="@Url.Action("ProductMenu" ,"product")">Products</a>
+                            <a class="dropdown-item" href="@Url.Action("ProductMenu","Product" ,new { ID = "CG001"})" )">Gun</a>
+                            <a class="dropdown-item" href="@Url.Action("ProductMenu","Product" ,new { id = "CG002"})" )">Clothes</a>
+                            <a class="dropdown-item" href="@Url.Action("ProductMenu","Product" ,new { id = "CG003"})">Accessories</a>
+                            <a class="dropdown-item" href="@Url.Action("ProductMenu","Product" ,new { id = "CG004"})">Magazine</a>
+                            @*<a class="dropdown-item" href="@Url.Action("ProductMenu" ,"product")">Products</a>
                             <a class="dropdown-item" href="@Url.Action("ProductDetails" ,"product")">Single Product</a>
                             <a class="dropdown-item" href="@Url.Action("ShoppingCart" ,"product")">Cart</a>
-                            <a class="dropdown-item" href="@Url.Action("CheckOut" ,"product")">Checkout</a>
+                            <a class="dropdown-item" href="@Url.Action("CheckOut" ,"product")">Checkout</a>*@
                         </div>
                     </li>
                     @*<li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>*@
@@ -141,7 +150,7 @@
             <div class="row mb-5">
                 <div class="col-sm-12 col-md">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2 logo"><a href="#">Liquor <span>Store</span></a></h2>
+                        <h2 class="ftco-heading-2 logo"><a href="@Url.Action("About","Home")"><img src="~/Assets/images/LogoSmall.png" alt=""></a></h2>
                         <p>Far far away, behind the word mountains, far from the countries.</p>
                         <ul class="ftco-footer-social list-unstyled mt-2">
                             <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
@@ -152,12 +161,12 @@
                 </div>
                 <div class="col-sm-12 col-md">
                     <div class="ftco-footer-widget mb-4 ml-md-4">
-                        <h2 class="ftco-heading-2">My Accounts</h2>
+                        <h2 class="ftco-heading-2">Member Center</h2>
                         <ul class="list-unstyled">
                             <li><a href="@Url.Action("MemberCenter","Member")"><span class="fa fa-chevron-right mr-2"></span>My Account</a></li>
                             <li><a href="@Url.Action("MemberRegister","Member")"><span class="fa fa-chevron-right mr-2"></span>Register</a></li>
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Log In</a></li>
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>My Order</a></li>
+                            <li><a href="##" class="Log_In"><span class="fa fa-chevron-right mr-2"></span>Log In</a></li>
+                            @*<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>My Order</a></li>*@
                         </ul>
                     </div>
                 </div>
@@ -166,20 +175,20 @@
                         <h2 class="ftco-heading-2">Information</h2>
                         <ul class="list-unstyled">
                             <li><a href="@Url.Action("About","home")"><span class="fa fa-chevron-right mr-2"></span>About us</a></li>
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Catalog</a></li>
+                            @*<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Catalog</a></li>*@
                             <li><a href="@Url.Action("Contact","home")"><span class="fa fa-chevron-right mr-2"></span>Contact us</a></li>
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Term &amp; Conditions</a></li>
+                            @*<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Term &amp; Conditions</a></li>*@
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">Quick Link</h2>
+                        <h2 class="ftco-heading-2">Shopping</h2>
                         <ul class="list-unstyled">
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>New User</a></li>
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Help Center</a></li>
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Report Spam</a></li>
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Faq's</a></li>
+                            <li><a href="@Url.Action("ProductMenu","Product" ,new { id = "CG001"})"><span class="fa fa-chevron-right mr-2"></span>Gun</a></li>
+                            <li><a href="@Url.Action("ProductMenu","Product" ,new { id = "CG002"})"><span class="fa fa-chevron-right mr-2"></span>Clothes</a></li>
+                            <li><a href="@Url.Action("ProductMenu","Product" ,new { id = "CG003"})"><span class="fa fa-chevron-right mr-2"></span>Accessories</a></li>
+                            <li><a href="@Url.Action("ProductMenu","Product" ,new { id = "CG004"})"><span class="fa fa-chevron-right mr-2"></span>Magazine</a></li>
                         </ul>
                     </div>
                 </div>
@@ -190,21 +199,19 @@
                             <ul>
                                 <li>
                                     <span class="icon fa fa-map marker"></span><span class="text">
-                                        203 Fake St. Mountain
-                                        View, San Francisco, California, USA
+                                        707, Sec.2, WuFu Rd., Hsinchu, Taiwan 30012, R.O.C.
                                     </span>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="tel://+03-5374281~5">
                                         <span class="icon fa fa-phone"></span><span class="text">
-                                            +2 392 3929
-                                            210
+                                            03-5374281~5
                                         </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <span class="icon fa fa-paper-plane pr-4"></span><span class="text">info@yourdomain.com</span>
+                                        <span class="icon fa fa-paper-plane pr-4"></span><span class="text">SurvivalGame@gmail.com</span>
                                     </a>
                                 </li>
                             </ul>
@@ -231,11 +238,31 @@
             </div>
         </div>
     </footer>
+    <template id="CartItem">
+        <div class="dropdown-item d-flex align-items-start alert" role="alert">
+            <div class="img" style="background-image: url(images/prod-3.jpg);"></div>
+            <div class="text pl-3">
+                <h4>Citadelle</h4>
+                <p class="mb-0">
+                    <a href="#" class="price">$22.50</a><span class="quantity ml-3">
+                        Quantity:
+                        01
+                    </span>
+                </p>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                </button>
+            </div>
+        </div>
+    </template>
 
     @Html.Partial("LoginPartialView")
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Assets/javaScript/Local.js"></script>
     <script src="~/Assets/javaScript/jquery.min.js"></script>
     <script src="~/Assets/javaScript/jquery-migrate-3.0.1.min.js"></script>
     <script src="~/Assets/javaScript/popper.min.js"></script>
@@ -247,10 +274,35 @@
     <script src="~/Assets/javaScript/jquery.magnific-popup.min.js"></script>
     <script src="~/Assets/javaScript/jquery.animateNumber.min.js"></script>
     <script src="~/Assets/javaScript/scrollax.min.js"></script>
-    @*<script src="~/Assets/javaScript/google-map.js"></script>*@
+    <script src="~/Assets/javaScript/google-map.js"></script>
     <script src="~/Assets/javaScript/main.js"></script>
+
+
+    <!-- Load polyfills to support older browsers -->
+    <script src="//polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver" crossorigin="anonymous"></script>
+
+    <!-- Load Vue followed by BootstrapVue -->
+    <script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
+    <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+
+    <!-- Load the following for BootstrapVueIcons support -->
+    <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
+
+    <script>
+        var checkLoginUrl = "@Url.Action("CheckLoginStatus" ,"Member")";
+    </script>
+    <script src="~/Assets/javaScript/login.js"></script>
+
     @RenderSection("scripts", required: false)
     @RenderSection("bottomJs", required: false)
     <script src="~/Assets/javaScript/LoginPartialView/LoginPartialView.js"></script>
 </body>
 </html>
+@section topCSS
+{
+    <style>
+        #ftco-navbar {
+            margin-bottom: 0px;
+        }
+    </style>
+}

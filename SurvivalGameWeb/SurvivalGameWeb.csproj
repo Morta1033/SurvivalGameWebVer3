@@ -132,10 +132,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Filter\JwtAuthActionFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\JwtAuthUtil.cs" />
     <Compile Include="Services\HashService.cs" />
     <Compile Include="ViewModels\APIResult.cs" />
     <Compile Include="ViewModels\MemberCenter\HistoryItems.cs" />
@@ -145,8 +147,9 @@
     <Compile Include="ViewModels\MemberLogin\MemberLoginViewModel.cs" />
     <Compile Include="ViewModels\MemberRegister\MemberRegisteredViewModel.cs" />
     <Compile Include="ViewModels\CheckOut\UserCheckOutViewModel.cs" />
+    <Compile Include="ViewModels\ProductDetails\Data.cs" />
     <Compile Include="ViewModels\ShoppingCart\CartItemViewModel.cs" />
-    <Compile Include="ViewModel\ProductDetails\ProductViewModel.cs" />
+    <Compile Include="ViewModel\Index\IndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\animate.css" />
@@ -168,9 +171,17 @@
     <Content Include="Assets\fonts\flaticon.html" />
     <Content Include="Assets\fonts\Flaticon.svg" />
     <Content Include="Assets\images\about.jpg" />
+    <Content Include="Assets\images\about_historybg1.jpg" />
+    <Content Include="Assets\images\about_historybg2.jpg" />
+    <Content Include="Assets\images\A_1.jpg" />
+    <Content Include="Assets\images\bg1.jpg" />
+    <Content Include="Assets\images\bg2.jpg" />
     <Content Include="Assets\images\bg_1.jpg" />
     <Content Include="Assets\images\bg_2.jpg" />
     <Content Include="Assets\images\bg_4.jpg" />
+    <Content Include="Assets\images\C_1.jpg" />
+    <Content Include="Assets\images\G_1.jpg" />
+    <Content Include="Assets\images\home.jpg" />
     <Content Include="Assets\images\icon-google.png" />
     <Content Include="Assets\images\image_1.jpg" />
     <Content Include="Assets\images\image_2.jpg" />
@@ -186,10 +197,23 @@
     <Content Include="Assets\images\kind-5.jpg" />
     <Content Include="Assets\images\kind-6.jpg" />
     <Content Include="Assets\images\loc.png" />
+    <Content Include="Assets\images\Logo.png" />
+    <Content Include="Assets\images\LogoSmall.png" />
+    <Content Include="Assets\images\Member_BG.jpg" />
+    <Content Include="Assets\images\M_1.jpg" />
+    <Content Include="Assets\images\p1.jpg" />
+    <Content Include="Assets\images\p2.jpg" />
+    <Content Include="Assets\images\p3.jpg" />
+    <Content Include="Assets\images\p4.jpg" />
+    <Content Include="Assets\images\p5.jpg" />
+    <Content Include="Assets\images\p6.jpg" />
+    <Content Include="Assets\images\p7.jpg" />
+    <Content Include="Assets\images\PD_BG2.jpg" />
     <Content Include="Assets\images\person_1.jpg" />
     <Content Include="Assets\images\person_2.jpg" />
     <Content Include="Assets\images\person_3.jpg" />
     <Content Include="Assets\images\person_4.jpg" />
+    <Content Include="Assets\images\PMBG2.jpg" />
     <Content Include="Assets\images\PrD_img.jpg" />
     <Content Include="Assets\images\prod-1.jpg" />
     <Content Include="Assets\images\prod-10.jpg" />
@@ -213,6 +237,8 @@
     <Content Include="Assets\javaScript\jquery.min.js" />
     <Content Include="Assets\javaScript\jquery.stellar.min.js" />
     <Content Include="Assets\javaScript\jquery.waypoints.min.js" />
+    <Content Include="Assets\javaScript\login.js" />
+    <Content Include="Assets\javaScript\Local.js" />
     <Content Include="Assets\javaScript\LoginPartialView\LoginPartialView.js" />
     <Content Include="Assets\javaScript\main.js" />
     <Content Include="Assets\javaScript\MemberCenter\MemberCenter.js" />
@@ -220,7 +246,9 @@
     <Content Include="Assets\javaScript\MemberRegister\MemberRegistered.js" />
     <Content Include="Assets\javaScript\owl.carousel.min.js" />
     <Content Include="Assets\javaScript\popper.min.js" />
+    <Content Include="Assets\javaScript\ProductDetails\GetDetail.js" />
     <Content Include="Assets\javaScript\ProductDetails\ProductDetails.js" />
+    <Content Include="Assets\javaScript\Products\Products.js" />
     <Content Include="Assets\javaScript\scrollax.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -283,10 +311,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Assets\xlsxData\" />
-    <Folder Include="Filter\" />
     <Folder Include="Models\" />
     <Folder Include="Repository\" />
-    <Folder Include="Security\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

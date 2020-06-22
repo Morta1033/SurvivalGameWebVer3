@@ -1,9 +1,23 @@
-﻿<section class="hero-wrap hero-wrap-2" style="background-image: url('../../Assets/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+﻿@{
+    ViewBag.Title = "Contact";
+}
+
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url(../../Assets/images/bg1.jpg);"
+         data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-end justify-content-center">
             <div class="col-md-9 ftco-animate mb-5 text-center">
-                <p class="breadcrumbs mb-0"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Contact Us <i class="fa fa-chevron-right"></i></span></p>
+                <p class="breadcrumbs mb-0">
+                    <span class="mr-2">
+                        <a href="index.html">
+                            Home <i class="fa fa-chevron-right"></i>
+                        </a>
+                    </span> <span>
+                        Contact Us <i class="fa fa-chevron-right"></i>
+                    </span>
+                </p>
                 <h2 class="mb-0 bread">Contact Us</h2>
             </div>
         </div>
@@ -22,17 +36,18 @@
                                     <span class="fa fa-map-marker"></span>
                                 </div>
                                 <div class="text">
-                                    <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+                                    <p><span>Address: </span><br>707, Sec.2, WuFu Rd., Hsinchu, Taiwan 30012, R.O.C.</p>
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-3">
                             <div class="dbox w-100 text-center">
                                 <div class="icon d-flex align-items-center justify-content-center">
                                     <span class="fa fa-phone"></span>
                                 </div>
                                 <div class="text">
-                                    <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+                                    <p><span>Phone: </span><br><a href="tel://+03-5374281~5">03-5374281~5</a></p>
                                 </div>
                             </div>
                         </div>
@@ -42,7 +57,9 @@
                                     <span class="fa fa-paper-plane"></span>
                                 </div>
                                 <div class="text">
-                                    <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+                                    <p>
+                                        <span>Email: </span><br><a href="mailto:Uberleben@chu.edu.tw">Uberleben@chu.edu.tw</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -52,53 +69,109 @@
                                     <span class="fa fa-globe"></span>
                                 </div>
                                 <div class="text">
-                                    <p><span>Website</span> <a href="#">yoursite.com</a></p>
+                                    <p><span>Business hours: </span><br>Monday to Saturday<br>2:30 P.M. to 10:00 P.M.</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row no-gutters">
-                        <div class="col-md-7">
-                            <div class="contact-wrap w-100 p-md-5 p-4">
-                                <h3 class="mb-4">Contact Us</h3>
-                                <form method="POST" id="contactForm" name="contactForm" class="contactForm">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="label" for="name">Full Name</label>
-                                                <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                        <div class="row no-gutters">
+                            <div class="col-md-7">
+                                <div class="contact-wrap w-100 p-md-5 p-4">
+                                    <h3 class="mb-4">Contact Us</h3>
+                                    <form method="POST" id="contactForm" name="contactForm" class="contactForm">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="label" for="name">Full Name</label>
+                                                    <input type="text" class="form-control" name="name" id="name"
+                                                           placeholder="Name">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="label" for="email">Email Address</label>
+                                                    <input type="email" class="form-control" name="email" id="email"
+                                                           placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="label" for="subject">Subject</label>
+                                                    <input type="text" class="form-control" name="subject" id="subject"
+                                                           placeholder="Subject">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="label" for="#">Message</label>
+                                                    <textarea name="message" class="form-control" id="message" cols="30"
+                                                              rows="4" placeholder="Message"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input type="submit" value="Send Message" class="btn btn-primary">
+                                                    <div class="submitting"></div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="label" for="email">Email Address</label>
-                                                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label class="label" for="subject">Subject</label>
-                                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label class="label" for="#">Message</label>
-                                                <textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <input type="submit" value="Send Message" class="btn btn-primary">
-                                                <div class="submitting"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-5 order-md-first d-flex align-items-stretch">
-                            <div id="map" class="map"></div>
+                            <div class="col-md-5 order-md-first d-flex align-items-stretch">
+                                <div id="map" class="map" style="position: relative; overflow: hidden;">
+                                    @*<div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
+                                        <div class="gm-style" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;">
+                                            <div tabindex="0" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; cursor: url(" https: //maps.gstatic.com/mapfiles/openhand_8_8.cur"), default; touch-action: pan-x pan-y;">
+                                                <div style="z-index: 1; position: absolute; left: 50%; top: 50%; width: 100%; transform: translate(0px, 0px);">
+                                                    <div style="position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;">
+                                                        <div style="position: absolute; left: 0px; top: 0px; z-index: 0;">
+                                                            <div style="position: absolute; z-index: 993; transform: matrix(1, 0, 0, 1, -181, -34);">
+                                                                <div style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px;">
+                                                                    <div style="width: 256px; height: 256px;"></div>
+                                                                </div>
+
+                                                                <div style="position: absolute; left: -256px; top: 0px; width: 256px; height: 256px;">
+                                                                    <div style="width: 256px; height: 256px;"></div>
+                                                                </div>
+
+                                                                <div style="position: absolute; left: -256px; top: -256px; width: 256px; height: 256px;">
+                                                                    <div style="width: 256px; height: 256px;"></div>
+                                                                </div>
+
+                                                                <div style="position: absolute; left: 0px; top: -256px; width: 256px; height: 256px;">
+                                                                    <div style="width: 256px; height: 256px;"></div>
+                                                                </div>
+
+                                                                <div style="position: absolute; left: 256px; top: -256px; width: 256px; height: 256px;">
+                                                                    <div style="width: 256px; height: 256px;"></div>
+                                                                </div>
+
+                                                                <div style="position: absolute; left: 256px; top: 0px; width: 256px; height: 256px;">
+                                                                    <div style="width: 256px; height: 256px;"></div>
+                                                                </div>
+
+                                                                <div style="position: absolute; left: 256px; top: 256px; width: 256px; height: 256px;">
+                                                                    <div style="width: 256px; height: 256px;"></div>
+                                                                </div>
+
+                                                                <div style="position: absolute; left: 0px; top: 256px; width: 256px; height: 256px;">
+                                                                    <div style="width: 256px; height: 256px;"></div>
+                                                                </div>
+
+                                                                <div style="position: absolute; left: -256px; top: -256px; width: 256px; height: 256px;">
+                                                                    <div style="width: 256px; height: 256px;"></div>
+                                                                </div>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>*@
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -106,3 +179,195 @@
         </div>
     </div>
 </section>
+
+
+<section class="ftco-section testimony-section img" style="background-image: url(../../Assets/images/bg2.jpg);">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+                <span class="subheading">Überleben</span>
+                <h2 class="mb-3">Team Member</h2>
+            </div>
+        </div>
+        <div class="row ftco-animate">
+            <div class="col-md-12">
+                <div class="carousel-testimony owl-carousel ftco-owl">
+                    <div class="item">
+                        <div class="testimony-wrap py-5">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <span class="fa fa-quote-left"></span>
+                            </div>
+                            <div class="text">
+                                @*<p class="mb-4">
+                                    Far far away, behind the word mountains, far from the countries
+                                    Vokalia and Consonantia, there live the blind texts.
+                                </p>*@
+                                <div class="d-flex align-items-center">
+                                    <div class="user-img" style="background-image: url(../../Assets/images/p1.jpg)"></div>
+                                    <div class="pl-3">
+                                        <p class="name">陳宏輔</p>
+                                        <span class="position">Leader</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimony-wrap py-5">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <span class="fa fa-quote-left"></span>
+                            </div>
+                            <div class="text">
+                                @*<p class="mb-4">
+                                    Far far away, behind the word mountains, far from the countries
+                                    Vokalia and Consonantia, there live the blind texts.
+                                </p>*@
+                                <div class="d-flex align-items-center">
+                                    <div class="user-img" style="background-image: url(../../Assets/images/p5.jpg)"></div>
+                                    <div class="pl-3">
+                                        <p class="name">陳紹升</p>
+                                        <span class="position">Leader</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimony-wrap py-5">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <span class="fa fa-quote-left"></span>
+                            </div>
+                            <div class="text">
+                                @*<p class="mb-4">
+                                    Far far away, behind the word mountains, far from the countries
+                                    Vokalia and Consonantia, there live the blind texts.
+                                </p>*@
+                                <div class="d-flex align-items-center">
+                                    <div class="user-img" style="background-image: url(../../Assets/images/p2.jpg)"></div>
+                                    <div class="pl-3">
+                                        <p class="name">劉宇軒</p>
+                                        <span class="position">Member</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimony-wrap py-5">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <span class="fa fa-quote-left"></span>
+                            </div>
+                            <div class="text">
+                                @*<p class="mb-4">
+                                    Far far away, behind the word mountains, far from the countries
+                                    Vokalia and Consonantia, there live the blind texts.
+                                </p>*@
+                                <div class="d-flex align-items-center">
+                                    <div class="user-img" style="background-image: url(../../Assets/images/p7.jpg)"></div>
+                                    <div class="pl-3">
+                                        <p class="name">林奕亨</p>
+                                        <span class="position">Member</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimony-wrap py-5">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <span class="fa fa-quote-left"></span>
+                            </div>
+                            <div class="text">
+                                @*<p class="mb-4">
+                                    Far far away, behind the word mountains, far from the countries
+                                    Vokalia and Consonantia, there live the blind texts.
+                                </p>*@
+                                <div class="d-flex align-items-center">
+                                    <div class="user-img" style="background-image: url(../../Assets/images/p4.jpg)"></div>
+                                    <div class="pl-3">
+                                        <p class="name">巫佳欣</p>
+                                        <span class="position">Member</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimony-wrap py-5">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <span class="fa fa-quote-left"></span>
+                            </div>
+                            <div class="text">
+                                @*<p class="mb-4">
+                                    Far far away, behind the word mountains, far from the countries
+                                    Vokalia and Consonantia, there live the blind texts.
+                                </p>*@
+                                <div class="d-flex align-items-center">
+                                    <div class="user-img" style="background-image: url(../../Assets/images/p3.jpg)"></div>
+                                    <div class="pl-3">
+                                        <p class="name">傅方儀</p>
+                                        <span class="position">Member</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimony-wrap py-5">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <span class="fa fa-quote-left"></span>
+                            </div>
+                            <div class="text">
+                                @*<p class="mb-4">
+                                    Far far away, behind the word mountains, far from the countries
+                                    Vokalia and Consonantia, there live the blind texts.
+                                </p>*@
+                                <div class="d-flex align-items-center">
+                                    <div class="user-img" style="background-image: url(../../Assets/images/p6.jpg)"></div>
+                                    <div class="pl-3">
+                                        <p class="name">楊偲嘉</p>
+                                        <span class="position">Member</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section topCSS
+{
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="css/animate.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/style.css">
+}
+@section bottomJs{
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of Uluru
+            var chu = { lat: 24.759440, lng: 120.952307 };
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 14, center: chu });
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({ position: chu, map: map });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlKWP4uWjQIR3WDAWLAu6rUhBfc3_ppag&callback=initMap"
+            async defer>
+    </script>
+}

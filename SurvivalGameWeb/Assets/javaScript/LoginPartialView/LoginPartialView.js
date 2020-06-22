@@ -52,7 +52,15 @@ ModalLoginButton.onclick = function (e) {
         method: "post",
         contentType: 'application/json',
         data: JSON.stringify(ModalMemberItem),
-        success: function () {
+        success: function (data) {
+            //window.location.href = '/Home/Index';
+            if (data.status) {
+                localStorage.setItem('MemberID', data.ID);
+                localStorage.setItem('MemberName', data.Name);
+                localStorage.setItem('Authorization', data.token);
+                $('#LoginModal').modal('hide');
+                location.reload();
+            }
         }
     });
 }
