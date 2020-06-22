@@ -66,7 +66,7 @@ RegisterBtn.addEventListener("click", function (e) {
                 alert(r.ExceptionString);
             }
             else {
-
+                window.location.href = "https://localhost:44336";
             }
         }
     });
