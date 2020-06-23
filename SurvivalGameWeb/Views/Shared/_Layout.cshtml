@@ -55,7 +55,7 @@
                             <a href="@Url.Action("MemberRegister","Member")" class="mr-2">Sign Up</a>
                             <a href="#" class="Log_In">Log In</a>
                         </p>
-                        <p class="mb-0" v-if="!needLogin">
+                        <p class="mb-0" v-if="isLogin">
                             <a href="#" class="mr-1" >{{memMail}}</a>
                             <a href="#" @@click="onLogOutClick">(LogOut)</a>
                         </p>

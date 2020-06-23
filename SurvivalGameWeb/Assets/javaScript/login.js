@@ -1,7 +1,8 @@
 ﻿var member = new Vue({
     el: '#memberArea',
     data: {
-        needLogin : true,
+        needLogin: true,
+        isLogin: false,
         memMail: 'test@gmail.com'
     },
     methods: {
@@ -52,6 +53,7 @@
                 success: function (response) {
                     if (response.Status) {
                         self.needLogin = false;
+                        self.isLogin = true;
                         self.memMail = response.Name;
                         if (response.Token) {
                             localStorage.setItem('Authorization', response.Token);
