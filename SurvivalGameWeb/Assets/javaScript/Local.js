@@ -9,12 +9,13 @@ function LocalCart(el) {
         ItemCount: el.ItemCount,
         ItemImg: el.ItemImg
     }
+    ItemAddCart(list)
+    LoadCartCount();
     var items = JSON.parse(localStorage.getItem('Cart'))
     if (localStorage.getItem('Cart') == null) {
         let detail = [];
         detail.push(list)
         localStorage.setItem('Cart', JSON.stringify(detail))
-        return;
     } else {
         var result = $.map(items, function (item, index) {
             return item.ItemId;
@@ -28,8 +29,6 @@ function LocalCart(el) {
             localStorage.setItem('Cart', JSON.stringify(items))
         }
     }
-    ItemAddCart(el)
-    LoadCartCount();
     CartListDetail();
 }
 
@@ -44,7 +43,6 @@ function ItemAddCart(el) {
     ItemName.textContent = el.ItemName
     ItemPrice.textContent = `$${el.ItemPrice}`
     ItemCount.textContent = `Quantity:${el.ItemCount}`
-
     ItemImg.style.backgroundImage = `url(${el.ItemImg})`
     CartList.insertBefore(clonecontent, document.querySelector('a.dropdown-item'))
 }
@@ -54,9 +52,9 @@ function LoadCartCount() {
     if (JSON.parse(localStorage.getItem('Cart')) != null) {
         let count = JSON.parse(localStorage.getItem('Cart')).length
         CartBag.innerText = count;
-        return;
-    }
+    } else {
     CartBag.innerText = '0'
+    }
 }
 // 監聽跨頁面storage
 window.addEventListener('storage', function () {
@@ -87,10 +85,8 @@ function CartListDetail() {
         })
         RemoveLocal()
         LoadCartCount();
-        return
     }
 }
-
 function RemoveLocal() {
     let BtnRemove = document.querySelectorAll('.fa-close')
     BtnRemove.forEach(el => {
@@ -101,6 +97,8 @@ function RemoveLocal() {
                 items.splice(key, 1)
                 localStorage.setItem('Cart', JSON.stringify(items))
                 if (items.length < 1) {
+                    items.splice(key, 1)
+                    localStorage.setItem('Cart', JSON.stringify(items))
                     localStorage.clear();
                 }
                 LoadCartCount()

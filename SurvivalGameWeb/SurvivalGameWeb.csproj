@@ -242,6 +242,7 @@
     <Content Include="Assets\javaScript\LoginPartialView\LoginPartialView.js" />
     <Content Include="Assets\javaScript\main.js" />
     <Content Include="Assets\javaScript\MemberCenter\MemberCenter.js" />
+    <Content Include="Assets\javaScript\MemberLogin\FaceBook.js" />
     <Content Include="Assets\javaScript\MemberLogin\MemberLogin.js" />
     <Content Include="Assets\javaScript\MemberRegister\MemberRegistered.js" />
     <Content Include="Assets\javaScript\owl.carousel.min.js" />
