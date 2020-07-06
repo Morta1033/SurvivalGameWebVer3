@@ -28,55 +28,36 @@
 </section>
 
 <section class="ftco-section">
-    <div class="container">
+    <div class="container"id="app">
         <div class="row text-center CartTitle">
-            <div class="col-3"></div>
-            <div class="col-2">Product</div>
+            <div class="col-2"></div>
+            <div class="col-3">Product</div>
             <div class="col-2">Price</div>
             <div class="col-2">Quantity</div>
             <div class="col-2">Total</div>
             <div class="col-1"></div>
         </div>
-        <div class="row CartList">
-            <!-- <div class="CartItem d-flex my-3 text-center alert" role="alert">
-                <div class="col-2" id="CartImg"><img src="/liquorstore/images/prod-1.jpg" alt=""></div>
-                <div class="CartName col-3"> <span class="d-block">Jim Beam Kentucky Straight</span>
-                    <span>Fugiat voluptates quasi nemo, ipsa perferendis</span></div>
-                <div class="col-2">$44.99</div>
-                <div class="col-2">
-                    <div class="input-group">
-                        <input type="text" name="quantity" class="quantity form-control input-number" value="2"
-                            min="1" max="100">
-                    </div>
-                </div>
-                <div class="col-2">$89.98</div>
-                <div class="col-1"><button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true"><i class="fa fa-close"></i></span>
-                    </button></div>
-            </div> -->
-            <div class="CartItem d-flex my-3 text-center alert" role="alert">
-                <div class="col-5 col-md-2" id="CartImg"><img src="../Assets/images/prod-1.jpg" alt=""></div>
+        <div class="row CartList" >
+            <div class="CartItem d-flex m-0      text-center alert" role="alert" v-for="item in items">
+                <div class="col-5 col-md-2" id="CartImg"><img v-bind:src="item.ImgList[0]"></div>
                 <div class="col-7 col-md-10 CartContext ">
                     <div class=" col-md-3" id="CartName">
-                        <span class="d-block">Jim Beam Kentucky Straight</span>
-                        <span>Fugiat voluptates quasi nemo, ipsa perferendis</span>
+                        <span class="d-block">{{item.ClassName}}</span>
+                        <span>{{item.Name}}</span>
                     </div>
-                    <div class="col-md-2" id="CartPrice">$44.99</div>
+                    <div class="col-md-2" id="CartPrice">${{item.Price}}</div>
                     <div class="col-md-2" id="Cartquantity">
                         <div class="input-group">
-                            <input type="number" name="quantity" class="form-control input-number" value="2" min="1"
-                                   max="100" oninput="value=value.replace(/[^\d]/g,'')">
+                            <input type="number" name="quantity" class="form-control input-number" v-model.number="item.Quantity":min="item.min":max="item.InvetoryQuantity" oninput="value=value.replace(/[^\d]/g,'')">
                         </div>
                     </div>
-                    <div class="col-md-2" id="CartTotal">$89.98</div>
+                    <div class="col-md-2" id="CartTotal">${{item|subtotal}}</div>
                     <div class="col-md-1">
-                        <button type="button" class="close" data-dismiss="alert"
-                                aria-label="Close">
-                            <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                        <button type="button" class="close" v-on:click="removeItem(item)">
+                            <span><i class="fa fa-close"></i></span>
                         </button>
                     </div>
                 </div>
-
             </div>
         </div>
         <div class="row justify-content-end">
@@ -85,7 +66,7 @@
                     <h3>Cart Totals</h3>
                     <p class="d-flex">
                         <span>Subtotal</span>
-                        <span>$20.60</span>
+                        <span>${{total}}</span>
                     </p>
                     <p class="d-flex">
                         <span>Delivery</span>
@@ -93,12 +74,12 @@
                     </p>
                     <p class="d-flex">
                         <span>Discount</span>
-                        <span>$3.00</span>
+                        <span>$0.00</span>
                     </p>
                     <hr>
                     <p class="d-flex total-price">
                         <span>Total</span>
-                        <span>$17.60</span>
+                        <span>${{total}}</span>
                     </p>
                 </div>
                 <p class="text-center">
@@ -131,3 +112,6 @@
         </div>
     </div>
 </template>
+@section bottomJs{
+    <script src="~/Assets/javaScript/ShoppingCart/Cart.js"></script>
+}
