@@ -275,6 +275,7 @@
     <Content Include="Assets\css\fonts\raleway\Raleway-Bold.ttf" />
     <Content Include="Assets\css\fonts\raleway\Raleway-Regular.ttf" />
     <Content Include="Assets\css\fonts\raleway\Raleway-SemiBold.ttf" />
+    <None Include="Properties\PublishProfiles\SGWeb2020 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
