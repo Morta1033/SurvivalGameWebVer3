@@ -251,6 +251,7 @@
     <Content Include="Assets\javaScript\ProductDetails\ProductDetails.js" />
     <Content Include="Assets\javaScript\Products\Products.js" />
     <Content Include="Assets\javaScript\scrollax.min.js" />
+    <Content Include="Assets\javaScript\ShoppingCart\Cart.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
