@@ -2,7 +2,9 @@
     el: '#productsArea',
     data: {
         //pDetailRoot: 'http://survivalgameweb.azurewebsites.net/api',
-        pDetailRoot: 'https://localhost:44336/product/ProductDetails/',
+        //pDetailRoot: 'https://localhost:44336/product/ProductDetails/',
+        //pDetailRoot: 'http://survivalgameweb.azurewebsites.net/product/ProductDetails/',        
+        pDetailRoot: '/product/ProductDetails',
         perPage: 10,
         currentPage: 1,
         orderTyoe: 0,
