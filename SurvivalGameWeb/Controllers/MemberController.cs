@@ -96,6 +96,8 @@ namespace SurvivalGameWeb.Controllers
             var resultJSON = response.Content.ReadAsStringAsync().Result;
             var result = JsonConvert.DeserializeObject<APIResult>(resultJSON);
 
+            //設定cookie 未完成
+
             if(result.IsSuccess)
             {
                 JwtAuthUtil jwtAuthUtil = new JwtAuthUtil();
@@ -103,7 +105,7 @@ namespace SurvivalGameWeb.Controllers
                 return Json(new
                 {
                     status = true,
-                    ID = (string)result.Data,
+                    //ID = (string)result.Data,
                     Name = loginVM.Email
                     //token = jwtToken
                 });
@@ -118,7 +120,7 @@ namespace SurvivalGameWeb.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpGet]
         public ActionResult CheckLoginStatus()
         {
             if (Request.Headers["Authorization"] == null)
@@ -126,7 +128,7 @@ namespace SurvivalGameWeb.Controllers
                 return Json(new
                 {
                     Status = false
-                });
+                },JsonRequestBehavior.AllowGet);
             }
             string secret = "bs2020SurvivalGameProjectOneJwtAuth";//加解密的key,如果不一樣會無法成功解密
                                                                   //解密後會回傳Json格式的物件(即加密前的資料)
@@ -144,10 +146,10 @@ namespace SurvivalGameWeb.Controllers
             return Json(new
             {
                 Status = true,
-                ID = jwtObject["MemID"].ToString(),
+                //ID = jwtObject["MemID"].ToString(),
                 Name = jwtObject["Mail"].ToString(),
                 //Token = JwtAuthActionFilter.ReGenerateToken(jwtObject["Exp"].ToString(), jwtObject["MemID"].ToString() , jwtObject["Mail"].ToString())
-            });
+            }, JsonRequestBehavior.AllowGet);
         }
     }
 }
