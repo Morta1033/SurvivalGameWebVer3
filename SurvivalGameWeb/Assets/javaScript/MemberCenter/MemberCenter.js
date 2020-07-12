@@ -1,4 +1,4 @@
-let member = document.querySelector(".ModfiyLayout")
+var member = document.querySelector(".ModfiyLayout")
 member.addEventListener('click', checkchange)
 let checkclick = document.querySelector("#ModifyLabel")
 checkclick.addEventListener('click', checkchange)

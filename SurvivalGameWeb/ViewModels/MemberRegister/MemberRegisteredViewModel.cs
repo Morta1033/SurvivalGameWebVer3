@@ -53,5 +53,8 @@ namespace SurvivalGameWeb.ViewModels.MemberRegister
         [StringLength(10)]
         [RegularExpression(@"^09\d{8}$", ErrorMessage = "Please enter the 10-digit mobile phone number starting with 09")]
         public string Phone { get; set; }
+
+        [Required]
+        public string InputCode { get; set; }
     }
 }

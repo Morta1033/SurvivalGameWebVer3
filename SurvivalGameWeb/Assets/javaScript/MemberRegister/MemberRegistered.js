@@ -20,6 +20,8 @@ let rule_phone = /^09\d{8}$/;
 let inputEmail = document.getElementById("Email");
 let rule_email = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
 
+let InputCode = document.getElementById("InputCode");
+
 let NameInvalid = document.querySelector(".NameInvalid");
 let PasswordInvalid = document.querySelector(".PasswordInvalid");
 let CheckPasswordInvalid = document.querySelector(".CheckPasswordInvalid");
@@ -53,7 +55,8 @@ RegisterBtn.addEventListener("click", function (e) {
         postcode: inputPostCode.value,
         address: inputAddress.value,
         phone: inputPhone.value,
-        email: inputEmail.value
+        email: inputEmail.value,
+        InputCode: InputCode.value
     };
     console.log(JSON.stringify(MemberItem));
     $.ajax({
