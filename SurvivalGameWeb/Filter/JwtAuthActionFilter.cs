@@ -7,6 +7,7 @@ using Jose;
 using System.Text;
 using System.Web.Routing;
 using SurvivalGame.Security;
+using SurvivalGameWeb.Services;
 
 namespace SurvivalGame.Filter
 {
@@ -19,7 +20,7 @@ namespace SurvivalGame.Filter
         }
         public static string ReGenerateToken(string dateTime, string id, string Mail)
         {
-            if ((Convert.ToDateTime(dateTime) - DateTime.Now).TotalMinutes <= 15)
+            if ((Convert.ToDateTime(dateTime) - DateTime.Now).TotalMinutes <= 15)//15
             {
                 return new JwtAuthUtil().GenerateToken(id, Mail);
             }
@@ -31,8 +32,11 @@ namespace SurvivalGame.Filter
             string secret = "bs2020SurvivalGameProjectOneJwtAuth";//加解密的key,如果不一樣會無法成功解密
             var request = filterContext.RequestContext.HttpContext.Request;
             var auth = request.Cookies.Get("authentication")?.Value; //request.Headers["Authorization"];
-            if (auth == null)
+            HttpCookie cookieLogOut = request.Cookies.Get("expire-my-session-cookie");
+
+            if (auth == null || cookieLogOut != null)
             {
+                new CookieService().LogOut(filterContext.RequestContext.HttpContext ,request);
                 filterContext.Result = new RedirectToRouteResult(
                 new RouteValueDictionary
                 {

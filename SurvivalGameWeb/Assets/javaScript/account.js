@@ -59,18 +59,12 @@ function binding() {
                 $("#LoginModal").modal('show');
             },
             onLogOutClick: function () {
-                //this.isLogin = false;
-                console.log(document.cookie);
-                let cookieAry = document.cookie.split(';');
-                for (let cookie of cookieAry) {
-                    let datas = cookie.split('=');
-                    let name = datas[0];
-                    let value = datas[1];
-                    if (name == 'authentication') {
-
-                    }
-                }
+                this.isLogin = false;
+                //console.log(document.cookie);
+                document.cookie = 'expire-my-session-cookie=true; Path=/;';
+                //document.cookie = "authentication=; Path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT;";
                 //logout 清除 auth 的 cookie
+                //console.log(document.cookie);
             }
             
         }

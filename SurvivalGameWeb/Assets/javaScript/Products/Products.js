@@ -31,6 +31,7 @@
     methods: {
         pageChange: function (p) {
             console.log("current page: " + p);
+            this.currentPage = p;
             this.showItems = this.items.slice(this.perPage * (p - 1), this.perPage * p);
         },
         onOrderRuleChange: function (e) {
@@ -83,6 +84,7 @@
             e.preventDefault();
             console.log("catagory click!!", e.currentTarget.getAttribute('data-caID'));
             caID = e.currentTarget.getAttribute('data-caID');
+            caID = `${caID ? caID.trim() : ''}`;
             //if (caID) {
             //    this.items = this.originData.filter(x => x.CatagoryID == caID);
             //}
@@ -90,14 +92,16 @@
             //    this.items = this.originData;
             //}
             //let url = root + (caID ? '/' + caID : '')
-            let sendData = { caID: caID };
+            //let sendData = { caID: caID };
             let self = this;
-            window.history.pushState("change sort", "test Title",`/Product/ProductMenu${caID ? '/' + caID.trim() : ''}` );
+            //window.history.pushState("change sort", "test Title", `/Product/ProductMenu${caID ? '/' + caID.trim() : ''}`);
+            window.history.pushState("change sort", "test Title", `/Product/ProductMenu${caID ? '/' + caID.trim() : ''}`);
+            console.log('caID: ' ,caID);
             $.ajax({
-                type: 'POST',
-                url: 'https://survivalgameweb.azurewebsites.net/api/Product/GetSortableProductByCatagory/' + caID,
+                type: 'Get',
+                url: 'https://survivalgameweb.azurewebsites.net/api/sortableProduct/' + caID,
                 dataType: 'json',
-                data: sendData,
+                //data: sendData,
                 success: function (datas) {
                     if (datas.IsSuccess) {
                         console.log(datas.Data);
@@ -150,12 +154,12 @@
     },
     mounted: function () {
         let self = this;
-        let sendData = { caID : caID };
+        //let sendData = { caID : caID };
         $.ajax({
-            type: 'POST',
-            url: 'https://survivalgameweb.azurewebsites.net/api/Product/GetSortableProductByCatagory',
+            type: 'Get',
+            url: 'https://survivalgameweb.azurewebsites.net/api/sortableProduct/' + caID,
             dataType: 'json',
-            data: sendData,
+            //data: sendData,
             success: function (datas) {
                 if (datas.IsSuccess) {
                     console.log(datas.Data);
@@ -170,8 +174,8 @@
             }
         });
         $.ajax({
-            type: 'POST',
-            url: 'https://survivalgameweb.azurewebsites.net/api/Product/GetAllCatagory',
+            type: 'Get',
+            url: 'https://survivalgameweb.azurewebsites.net/api/Product/AllCatagory',
             dataType: 'json',
             success: function (datas) {
                 if (datas.IsSuccess) {
@@ -240,8 +244,8 @@
 //        mounted: function () {
 //            let self = this;
 //            $.ajax({
-//                type: 'POST',
-//                url: 'https://survivalgameweb.azurewebsites.net/api/Product/GetAllCatagory',
+//                type: 'Get',
+//                url: 'https://survivalgameweb.azurewebsites.net/api/Product/AllCatagory',
 //                dataType: 'json',
 //                success: function (datas) {
 //                    if (datas.IsSuccess) {

@@ -102,9 +102,8 @@ namespace SurvivalGameWeb.Controllers
                 string jwtToken = new JwtAuthUtil().GenerateToken((string)result.Data, loginVM.Email);
 
                 //設定cookie
-                HttpCookie Cookie = new HttpCookie("authentication", jwtToken);
-                Cookie.Expires = DateTime.Now.AddMinutes(45); //設置Cookie到期時間
-                HttpContext.Response.Cookies.Add(Cookie);
+                var cookieService = new CookieService();
+                cookieService.SetCookie(HttpContext ,Request ,jwtToken , "authentication", 45);
                 //
 
                 return Json(new
@@ -129,9 +128,11 @@ namespace SurvivalGameWeb.Controllers
         public ActionResult CheckLoginStatus()
         {
             HttpCookie cookie = Request.Cookies.Get("authentication");
+            HttpCookie cookieLogOut = Request.Cookies.Get("expire-my-session-cookie");
             string auth = cookie?.Value;
-            if (auth == null)
+            if (auth == null || cookieLogOut != null)
             {
+                new CookieService().LogOut(HttpContext ,Request);
                 return Json(new
                 {
                     Status = false
@@ -153,9 +154,8 @@ namespace SurvivalGameWeb.Controllers
             string jwtToken = JwtAuthActionFilter.ReGenerateToken(jwtObject["Exp"].ToString(), jwtObject["MemID"].ToString(), jwtObject["Mail"].ToString());
             if(jwtToken != null)
             {
-                HttpCookie Cookie = new HttpCookie("authentication", jwtToken);
-                Cookie.Expires = DateTime.Now.AddMinutes(45); //設置Cookie到期時間
-                HttpContext.Response.Cookies.Add(Cookie);
+                var cookieService = new CookieService();
+                cookieService.SetCookie(HttpContext, Request, jwtToken, "authentication", 45);
             }
             //
 
