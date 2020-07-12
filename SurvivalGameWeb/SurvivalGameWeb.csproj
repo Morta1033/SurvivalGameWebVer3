@@ -180,6 +180,7 @@
     <Content Include="Assets\images\bg_2.jpg" />
     <Content Include="Assets\images\bg_4.jpg" />
     <Content Include="Assets\images\C_1.jpg" />
+    <Content Include="Assets\images\C_BG.jpg" />
     <Content Include="Assets\images\G_1.jpg" />
     <Content Include="Assets\images\home.jpg" />
     <Content Include="Assets\images\icon-google.png" />
@@ -228,7 +229,9 @@
     <Content Include="Assets\images\prod-8.jpg" />
     <Content Include="Assets\images\prod-9.jpg" />
     <Content Include="Assets\images\santa_gun.gif" />
+    <Content Include="Assets\images\S_BG.jpg" />
     <Content Include="Assets\javaScript\bootstrap.min.js" />
+    <Content Include="Assets\javaScript\CheckOut\Check.js" />
     <Content Include="Assets\javaScript\google-map.js" />
     <Content Include="Assets\javaScript\jquery-migrate-3.0.1.min.js" />
     <Content Include="Assets\javaScript\jquery.animateNumber.min.js" />

@@ -1,11 +1,4 @@
-﻿// if (localStorage.getItem('Cart') != null) {
-//     var itemcount = JSON.parse(localStorage.getItem('Cart')).length
-//     var itendata = JSON.parse(localStorage.getItem('Cart'))
-// } else {
-//     console.log(itendata)
-//     var itemcount = 0;
-// }
-Vue.filter('subtotal', function (item) {
+﻿Vue.filter('subtotal', function (item) {
     if (item.Quantity > item.InvetoryQuantity) {
         item.Quantity = item.InvetoryQuantity
         return +parseFloat((item.Price * item.Quantity).toPrecision(12));
@@ -39,8 +32,8 @@ var app = new Vue({
     methods: {
         loadData(i) {
             $.ajax({
-                type: "post",
-                url: `https://survivalgameweb.azurewebsites.net/api/Product/GetProductDetail/${i}`,
+                type: "Get",
+                url: `https://survivalgameweb.azurewebsites.net/api/Detail/${i}`,
                 dataType: 'json',
                 success: function (datas) {
                     if (datas.IsSuccess) {
@@ -63,6 +56,24 @@ var app = new Vue({
             localStorage.setItem('Cart', JSON.stringify(cart))
             Cartlist();
         },
+        SendOrder: function (el) {
+            let detail = [];
+            let cusAccount = {
+                Account: '',
+                isValid: false
+            }
 
+            let product = {
+                ItemId: '',
+                ItemCount: '',
+            }
+            detail.push(cusAccount)
+            el.forEach(element => {
+                product.ItemCount = element.Quantity
+                product.ItemId = element.ID
+                detail.push(product)
+            });
+            console.log(detail)
+        }
     }
 })
