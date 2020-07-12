@@ -51,12 +51,12 @@
                         </p>
                     </div>
                     <div class="reg" id="memberArea">
-                        <p class="mb-0" v-if="needLogin">
-                            <a href="@Url.Action("MemberRegister","Member")" class="mr-2">Sign Up</a>
-                            <a href="#" class="Log_In">Log In</a>
+                        <p class="mb-0" v-if="!isLogin">
+                            <a href="#" class="mr-2">Sign Up</a>
+                            <a href="#" class="Log_In" @@click="loginShow">Log In</a>
                         </p>
                         <p class="mb-0" v-if="isLogin">
-                            <a href="#" class="mr-1">{{memMail}}</a>
+                            <a href="@Url.Action("MemberRegister","Member")" class="mr-1">{{memMail}}</a>
                             <a href="#" @@click="onLogOutClick">(LogOut)</a>
                         </p>
                     </div>
@@ -296,19 +296,20 @@
 
     <script>
         var checkLoginUrl = "@Url.Action("CheckLoginStatus" ,"Member")";
-        var isLogin = false;
+        //var isLogin = false;
     </script>
     <script src="~/Assets/javaScript/account.js"></script>
     <script src="~/Assets/javaScript/Local.js"></script>
+    <script src="~/Assets/javaScript/LoginPartialView/LoginPartialView.js"></script>
 
     @RenderSection("scripts", required: false)
     @RenderSection("bottomJs", required: false)
-    <script src="~/Assets/javaScript/LoginPartialView/LoginPartialView.js"></script>
+
     <script>
         $('#gotoMemberCenter').click(function (e) {
             e.preventDefault();
             console.log("member center click: ", isLogin);
-            if (!isLogin) {
+            if (!checkLoginStatus()) {
                 $('#LoginModal').modal();
             }
             else {
