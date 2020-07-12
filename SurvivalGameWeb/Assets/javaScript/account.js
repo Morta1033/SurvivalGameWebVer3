@@ -57,8 +57,12 @@ function binding() {
         methods: {
             loginShow: function () {
                 $("#LoginModal").modal('show');
+            },
+            onLogOutClick: function () {
+                this.isLogin = false;
+                //logout 清除 auth 的 cookie
             }
-            //logout 清除 auth 的 cookie
+            
         }
     });
 }

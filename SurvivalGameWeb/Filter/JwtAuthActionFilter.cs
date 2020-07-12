@@ -10,18 +10,18 @@ using SurvivalGame.Security;
 
 namespace SurvivalGame.Filter
 {
-    public class JwtAuthActionFilter :ActionFilterAttribute
+    public class JwtAuthActionFilter : ActionFilterAttribute
     {
         //驗證token時效
         public static bool IsTokenExpired(string dateTime)
         {
             return Convert.ToDateTime(dateTime) < DateTime.Now;
         }
-        public static string ReGenerateToken(string dateTime ,string id ,string Mail)
+        public static string ReGenerateToken(string dateTime, string id, string Mail)
         {
-            if( (Convert.ToDateTime(dateTime) - DateTime.Now).TotalMinutes <= 15)
+            if ((Convert.ToDateTime(dateTime) - DateTime.Now).TotalMinutes <= 15)
             {
-                return new JwtAuthUtil().GenerateToken(id , Mail);
+                return new JwtAuthUtil().GenerateToken(id, Mail);
             }
             return null;
         }
@@ -30,7 +30,8 @@ namespace SurvivalGame.Filter
         {
             string secret = "bs2020SurvivalGameProjectOneJwtAuth";//加解密的key,如果不一樣會無法成功解密
             var request = filterContext.RequestContext.HttpContext.Request;
-            if (request.Headers["Authorization"] == null)
+            var auth = request.Cookies.Get("authentication")?.Value; //request.Headers["Authorization"];
+            if (auth == null)
             {
                 filterContext.Result = new RedirectToRouteResult(
                 new RouteValueDictionary
@@ -43,8 +44,7 @@ namespace SurvivalGame.Filter
             else
             {
                 //解密後會回傳Json格式的物件(即加密前的資料)
-                var jwtObject = Jose.JWT.Decode<Dictionary<string ,Object>>(
-                request.Headers["Authorization"] ,Encoding.UTF8.GetBytes(secret) ,JwsAlgorithm.HS512);
+                var jwtObject = Jose.JWT.Decode<Dictionary<string, Object>>(auth, Encoding.UTF8.GetBytes(secret), JwsAlgorithm.HS512);
 
                 if (IsTokenExpired(jwtObject["Exp"].ToString()))
                 {

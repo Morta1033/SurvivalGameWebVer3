@@ -15,7 +15,7 @@ namespace SurvivalGame.Security
             Dictionary<string ,Object> claim = new Dictionary<string ,Object>();//payload 需透過token傳遞的資料
             claim.Add("MemID", memID);
             claim.Add("Mail", Mail);
-            claim.Add("Exp" ,DateTime.Now.AddMinutes(Convert.ToInt32("45")).ToString());//Token 時效設定100秒
+            claim.Add("Exp" ,DateTime.Now.AddMinutes(Convert.ToInt32("45")).ToString());//Token 時效設定
             var payload = claim;
             var token = Jose.JWT.Encode(payload ,Encoding.UTF8.GetBytes(secret) ,JwsAlgorithm.HS512);//產生token
             return token;

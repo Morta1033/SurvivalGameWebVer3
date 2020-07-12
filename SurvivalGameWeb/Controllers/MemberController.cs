@@ -96,12 +96,17 @@ namespace SurvivalGameWeb.Controllers
             var resultJSON = response.Content.ReadAsStringAsync().Result;
             var result = JsonConvert.DeserializeObject<APIResult>(resultJSON);
 
-            //設定cookie 未完成
-
-            if(result.IsSuccess)
+            if (result.IsSuccess)
             {
-                JwtAuthUtil jwtAuthUtil = new JwtAuthUtil();
-                string jwtToken = jwtAuthUtil.GenerateToken((string)result.Data , loginVM.Email);
+                //result.Data 為 memID
+                string jwtToken = new JwtAuthUtil().GenerateToken((string)result.Data, loginVM.Email);
+
+                //設定cookie
+                HttpCookie Cookie = new HttpCookie("authentication", jwtToken);
+                Cookie.Expires = DateTime.Now.AddMinutes(45); //設置Cookie到期時間
+                HttpContext.Response.Cookies.Add(Cookie);
+                //
+
                 return Json(new
                 {
                     status = true,
@@ -123,33 +128,68 @@ namespace SurvivalGameWeb.Controllers
         [HttpGet]
         public ActionResult CheckLoginStatus()
         {
-            if (Request.Headers["Authorization"] == null)
+            HttpCookie cookie = Request.Cookies.Get("authentication");
+            string auth = cookie?.Value;
+            if (auth == null)
             {
                 return Json(new
                 {
                     Status = false
-                },JsonRequestBehavior.AllowGet);
+                }, JsonRequestBehavior.AllowGet);
             }
             string secret = "bs2020SurvivalGameProjectOneJwtAuth";//加解密的key,如果不一樣會無法成功解密
                                                                   //解密後會回傳Json格式的物件(即加密前的資料)
-            var jwtObject = Jose.JWT.Decode<Dictionary<string, Object>>(
-            Request.Headers["Authorization"], Encoding.UTF8.GetBytes(secret), JwsAlgorithm.HS512);
+            var jwtObject = Jose.JWT.Decode<Dictionary<string, Object>>(auth, Encoding.UTF8.GetBytes(secret), JwsAlgorithm.HS512);
 
             if (JwtAuthActionFilter.IsTokenExpired(jwtObject["Exp"].ToString()))
             {
                 return Json(new
                 {
                     Status = false
-                });
+                }, JsonRequestBehavior.AllowGet);
             }
+
+            //時間較短時，重新發認證
+            string jwtToken = JwtAuthActionFilter.ReGenerateToken(jwtObject["Exp"].ToString(), jwtObject["MemID"].ToString(), jwtObject["Mail"].ToString());
+            HttpCookie Cookie = new HttpCookie("authentication", jwtToken);
+            Cookie.Expires = DateTime.Now.AddMinutes(45); //設置Cookie到期時間
+            HttpContext.Response.Cookies.Add(Cookie);
+            //
 
             return Json(new
             {
                 Status = true,
-                //ID = jwtObject["MemID"].ToString(),
                 Name = jwtObject["Mail"].ToString(),
-                //Token = JwtAuthActionFilter.ReGenerateToken(jwtObject["Exp"].ToString(), jwtObject["MemID"].ToString() , jwtObject["Mail"].ToString())
             }, JsonRequestBehavior.AllowGet);
+
+
+            //if (Request.Headers["Authorization"] == null)
+            //{
+            //    return Json(new
+            //    {
+            //        Status = false
+            //    },JsonRequestBehavior.AllowGet);
+            //}
+            //string secret = "bs2020SurvivalGameProjectOneJwtAuth";//加解密的key,如果不一樣會無法成功解密
+            //                                                      //解密後會回傳Json格式的物件(即加密前的資料)
+            //var jwtObject = Jose.JWT.Decode<Dictionary<string, Object>>(
+            //Request.Headers["Authorization"], Encoding.UTF8.GetBytes(secret), JwsAlgorithm.HS512);
+
+            //if (JwtAuthActionFilter.IsTokenExpired(jwtObject["Exp"].ToString()))
+            //{
+            //    return Json(new
+            //    {
+            //        Status = false
+            //    });
+            //}
+
+            //return Json(new
+            //{
+            //    Status = true,
+            //    //ID = jwtObject["MemID"].ToString(),
+            //    Name = jwtObject["Mail"].ToString(),
+            //    //Token = JwtAuthActionFilter.ReGenerateToken(jwtObject["Exp"].ToString(), jwtObject["MemID"].ToString() , jwtObject["Mail"].ToString())
+            //}, JsonRequestBehavior.AllowGet);
         }
     }
 }
