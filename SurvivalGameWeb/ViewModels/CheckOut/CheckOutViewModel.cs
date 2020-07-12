@@ -5,7 +5,7 @@ using System.Web;
 
 namespace SurvivalGameWeb.ViewModels.CheckOut
 {
-    public class UserCheckOutViewModel
+    public class CheckOutViewModel
     {
         public string Name { get; set; }
         public string Adress { get; set; }

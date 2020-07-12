@@ -58,22 +58,34 @@ var app = new Vue({
         },
         SendOrder: function (el) {
             let detail = [];
-            let cusAccount = {
-                Account: '',
-                isValid: false
-            }
-
             let product = {
                 ItemId: '',
                 ItemCount: '',
             }
-            detail.push(cusAccount)
             el.forEach(element => {
                 product.ItemCount = element.Quantity
                 product.ItemId = element.ID
                 detail.push(product)
             });
-            console.log(detail)
-        }
+            if (checkLoginStatus()) {
+                $.ajax({
+                    type: 'Post',
+                    url: '/Product/CheckOut',
+                    data: {
+                        JsProduct: JSON.stringify(detail)
+                    },
+                    success: function (response) {
+                        if (response == true) {
+                            alert(response);
+                        }
+                    }
+                })
+                //window.location.href = '/Product/CheckOut'
+
+            } else {
+                $("#LoginModal").modal('show');
+
+            }
+        },
     }
 })

@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
+using SurvivalGame.Filter;
 
 namespace SurvivalGameWeb.Controllers
 {
@@ -21,9 +22,10 @@ namespace SurvivalGameWeb.Controllers
         {
             return View();
         }
-
+        [JwtAuthActionFilter]
         public ActionResult CheckOut()
         {
+            
             return View();
         }
 
