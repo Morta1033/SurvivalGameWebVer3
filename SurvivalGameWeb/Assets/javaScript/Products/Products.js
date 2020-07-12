@@ -1,9 +1,6 @@
 ﻿var pagination_frank = new Vue({
     el: '#productsArea',
-    data: {
-        //pDetailRoot: 'http://survivalgameweb.azurewebsites.net/api',
-        //pDetailRoot: 'https://localhost:44336/product/ProductDetails/',
-        //pDetailRoot: 'http://survivalgameweb.azurewebsites.net/product/ProductDetails/',        
+    data: {      
         pDetailRoot: '/product/ProductDetails',
         perPage: 10,
         currentPage: 1,
@@ -61,6 +58,7 @@
                 isChange = true;
             }
             if (isChange) {
+                this.currentPage = 1;
                 this.pageChange(this.currentPage);
                 this.IsReverse = false;
                 this.typeDirSelected = this.orderDirs[0];
@@ -76,6 +74,7 @@
             }
             else if (this.IsReverse) {
                 this.items = this.items.reverse();
+                this.currentPage = 1;
                 this.pageChange(this.currentPage);
                 this.IsReverse = false;
             }
@@ -93,6 +92,7 @@
             //let url = root + (caID ? '/' + caID : '')
             let sendData = { caID: caID };
             let self = this;
+            window.history.pushState("change sort", "test Title",`/Product/ProductMenu${caID ? '/' + caID.trim() : ''}` );
             $.ajax({
                 type: 'POST',
                 url: 'https://survivalgameweb.azurewebsites.net/api/Product/GetSortableProductByCatagory/' + caID,
@@ -107,6 +107,24 @@
                         self.pageChange(1);
                         contentWayPoint();
 
+                        let i = self.orderTyoe;
+                        let key = self.orderTypes[i].Value;
+                        console.log('key:' ,key);
+                        self.items.sort(function (a, b) {
+                            if (a[key] == null && b[key] == null) {
+                                return 0;
+                            }
+                            else if (a[key] == null) {
+                                return -1;
+                            }
+                            else if (b[key] == null) {
+                                return 1;
+                            }
+        
+                            if (a[key] > b[key]) return 1;
+                            else if (b[key] > a[key]) return -1;
+                            else return 0;
+                        });
                         self.typeDirSelected = self.orderDirs[0];
                     }
                 }

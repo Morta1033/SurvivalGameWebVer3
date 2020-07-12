@@ -30,6 +30,11 @@ namespace SurvivalGameWeb.Controllers
             return View();
         }
 
+        public ActionResult MemberLogin()
+        {
+            return View();
+        }
+
         [JwtAuthActionFilter]
         public ActionResult MemberCenter()
         {
@@ -87,6 +92,7 @@ namespace SurvivalGameWeb.Controllers
             var reqJson = JsonConvert.SerializeObject(loginVM);
             var content = new StringContent(reqJson, System.Text.Encoding.UTF8, "application/json");
             var response = client.PostAsync(endpointurl, content).Result;
+
             var resultJSON = response.Content.ReadAsStringAsync().Result;
             var result = JsonConvert.DeserializeObject<APIResult>(resultJSON);
 
@@ -98,8 +104,8 @@ namespace SurvivalGameWeb.Controllers
                 {
                     status = true,
                     ID = (string)result.Data,
-                    Name = loginVM.Email ,
-                    token = jwtToken
+                    Name = loginVM.Email
+                    //token = jwtToken
                 });
             }
             else
@@ -140,7 +146,7 @@ namespace SurvivalGameWeb.Controllers
                 Status = true,
                 ID = jwtObject["MemID"].ToString(),
                 Name = jwtObject["Mail"].ToString(),
-                Token = JwtAuthActionFilter.ReGenerateToken(jwtObject["Exp"].ToString(), jwtObject["MemID"].ToString() , jwtObject["Mail"].ToString())
+                //Token = JwtAuthActionFilter.ReGenerateToken(jwtObject["Exp"].ToString(), jwtObject["MemID"].ToString() , jwtObject["Mail"].ToString())
             });
         }
     }

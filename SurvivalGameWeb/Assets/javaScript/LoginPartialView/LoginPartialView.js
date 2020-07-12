@@ -57,7 +57,7 @@ ModalLoginButton.onclick = function (e) {
             if (data.status) {
                 localStorage.setItem('MemberID', data.ID);
                 localStorage.setItem('MemberName', data.Name);
-                localStorage.setItem('Authorization', data.token);
+                //localStorage.setItem('Authorization', data.token);
                 $('#LoginModal').modal('hide');
                 location.reload();
             }
