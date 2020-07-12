@@ -59,7 +59,17 @@ function binding() {
                 $("#LoginModal").modal('show');
             },
             onLogOutClick: function () {
-                this.isLogin = false;
+                //this.isLogin = false;
+                console.log(document.cookie);
+                let cookieAry = document.cookie.split(';');
+                for (let cookie of cookieAry) {
+                    let datas = cookie.split('=');
+                    let name = datas[0];
+                    let value = datas[1];
+                    if (name == 'authentication') {
+
+                    }
+                }
                 //logout 清除 auth 的 cookie
             }
             

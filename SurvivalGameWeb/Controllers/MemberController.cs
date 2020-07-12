@@ -151,9 +151,12 @@ namespace SurvivalGameWeb.Controllers
 
             //時間較短時，重新發認證
             string jwtToken = JwtAuthActionFilter.ReGenerateToken(jwtObject["Exp"].ToString(), jwtObject["MemID"].ToString(), jwtObject["Mail"].ToString());
-            HttpCookie Cookie = new HttpCookie("authentication", jwtToken);
-            Cookie.Expires = DateTime.Now.AddMinutes(45); //設置Cookie到期時間
-            HttpContext.Response.Cookies.Add(Cookie);
+            if(jwtToken != null)
+            {
+                HttpCookie Cookie = new HttpCookie("authentication", jwtToken);
+                Cookie.Expires = DateTime.Now.AddMinutes(45); //設置Cookie到期時間
+                HttpContext.Response.Cookies.Add(Cookie);
+            }
             //
 
             return Json(new
