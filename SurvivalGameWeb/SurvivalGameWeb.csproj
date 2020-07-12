@@ -240,7 +240,7 @@
     <Content Include="Assets\javaScript\jquery.min.js" />
     <Content Include="Assets\javaScript\jquery.stellar.min.js" />
     <Content Include="Assets\javaScript\jquery.waypoints.min.js" />
-    <Content Include="Assets\javaScript\login.js" />
+    <Content Include="Assets\javaScript\account.js" />
     <Content Include="Assets\javaScript\Local.js" />
     <Content Include="Assets\javaScript\LoginPartialView\LoginPartialView.js" />
     <Content Include="Assets\javaScript\main.js" />
@@ -279,6 +279,7 @@
     <Content Include="Assets\css\fonts\raleway\Raleway-Bold.ttf" />
     <Content Include="Assets\css\fonts\raleway\Raleway-Regular.ttf" />
     <Content Include="Assets\css\fonts\raleway\Raleway-SemiBold.ttf" />
+    <None Include="Properties\PublishProfiles\SGWeb2020 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
