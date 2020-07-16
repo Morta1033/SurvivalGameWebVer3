@@ -60,7 +60,7 @@ RegisterBtn.addEventListener("click", function (e) {
         email: inputEmail.value,
         InputCode: InputCode.value
     };
-    console.log(JSON.stringify(MemberItem));
+    //console.log(JSON.stringify(MemberItem));
     $.ajax({
         url: "/Member/GetRegistered",
         method: "POST",
@@ -78,7 +78,6 @@ RegisterBtn.addEventListener("click", function (e) {
     });
     e.preventDefault();
 })
-
 
 inputName.addEventListener("keyup", function () {
     if (rule_name.test(inputName.value) === true && inputName.value != "") {
