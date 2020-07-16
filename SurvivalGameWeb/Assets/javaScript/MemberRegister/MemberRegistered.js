@@ -34,6 +34,8 @@ let EmailInvalid = document.querySelector(".EmailInvalid");
 let InvalidFeedback = document.querySelector(".billing-form").querySelectorAll(".invalid-feedback");
 let RegisterBtn = document.getElementById("RegisterBtn");
 
+let verifyResult = $("#VerifyResult");
+
 RegisterBtn.addEventListener("click", function (e) {
     for (let i = 0; i < InvalidFeedback.length; i++) {
         if (InvalidFeedback[i].getAttribute("style") != "display: none;") {
@@ -63,13 +65,14 @@ RegisterBtn.addEventListener("click", function (e) {
         url: "/Member/GetRegistered",
         method: "POST",
         contentType: 'application/json',
+        dataType: "json",
         data: JSON.stringify(MemberItem),
         success: function (r) {
-            if (!r.IsSuccess) {
-                alert(r.ExceptionString);
+            if (!r.isSuccess) {
+                alert(r.exception);
             }
             else {
-                window.location.href = "https://localhost:44336";
+                window.location.href = r.redirect;
             }
         }
     });

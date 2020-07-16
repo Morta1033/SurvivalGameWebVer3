@@ -64,54 +64,35 @@ namespace SurvivalGameWeb.Controllers
             var response = client.PostAsync(endpointurl, content).Result;
             var resultJSON = response.Content.ReadAsStringAsync().Result;
 
-
-
             string code = registeredVM.InputCode;
             TempData.Keep();
             if (code == TempData["code"].ToString())
             {
-                ViewBag.code = code;
-                ViewBag.Ans = TempData["code"];
-                ViewBag.Result = "Verify correct";
-                //return View();
-                return Json(JsonConvert.DeserializeObject<APIResult>(resultJSON));
+                var result = JsonConvert.DeserializeObject<APIResult>(resultJSON);
+                if (!result.IsSuccess)
+                {
+                    return Json(new
+                    {
+                        isSuccess = false,
+                        exception = result.ExceptionString
+                    });
+                }
 
+                return Json( new { 
+                    isSuccess = true,
+                    exception = "/Home/Index"
+                });
             }
             else
             {
-                ViewBag.code = code;
-                ViewBag.Ans = TempData["code"];
-                ViewBag.Result = "Verification error";
-                return View("~/Views/Member/MemberRegister.cshtml");
+                return Json(new { 
+                    isSuccess = false,
+                    exception = "Verification code error!!!"
+
+                });
             }
-
-
-
         }
 
-
-
-
-        //[HttpPost]
-        //public ActionResult Login()
-        //{
-        //    string code = Request.Form["code"].ToString();
-        //    if (code == TempData["code"].ToString())
-        //    {
-        //        ViewBag.code = code;
-        //        ViewBag.Ans = TempData["code"];
-        //        ViewBag.Result = "驗證正確";
-        //        return View();
-        //    }
-        //    else
-        //    {
-        //        ViewBag.code = code;
-        //        ViewBag.Ans = TempData["code"];
-        //        ViewBag.Result = "驗證錯誤";
-        //        return View();
-        //    }
-
-        //}
         private string RandomCode(int length)
         {
             string s = "0123456789zxcvbnmasdfghjklqwertyuiop";
@@ -147,7 +128,7 @@ namespace SurvivalGameWeb.Controllers
             MemoryStream ms = new MemoryStream();
             using (Bitmap map = new Bitmap(100, 40))
             {
-                //畫筆,在指定畫板畫板上畫圖
+                //畫筆，在指定畫板上畫圖
                 //g.Dispose();
                 using (Graphics g = Graphics.FromImage(map))
                 {
@@ -161,11 +142,6 @@ namespace SurvivalGameWeb.Controllers
             data = ms.GetBuffer();
             return File(data, "image/jpeg");
         }
-
-
-
-
-
 
         [HttpPost]
         public ActionResult GetLogin([Bind(Include = "Email, Password")] MemberLoginViewModel loginVM)
