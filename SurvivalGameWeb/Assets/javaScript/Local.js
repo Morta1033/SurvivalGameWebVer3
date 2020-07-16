@@ -53,7 +53,7 @@ function LoadCartCount() {
         let count = JSON.parse(localStorage.getItem('Cart')).length
         CartBag.innerText = count;
     } else {
-    CartBag.innerText = '0'
+        CartBag.innerText = '0'
     }
 }
 // 監聽跨頁面storage
@@ -89,20 +89,35 @@ function CartListDetail() {
 }
 function RemoveLocal() {
     let BtnRemove = document.querySelectorAll('.fa-close')
-    BtnRemove.forEach(el => {
+    let itemremove = document.querySelectorAll('.align-items-start h4')
+    BtnRemove.forEach((el, index) => {
         el.addEventListener('click', function (e) {
-            let key = el.getAttribute('data-key')
             if (JSON.parse(localStorage.getItem('Cart')) != null) {
                 let items = JSON.parse(localStorage.getItem('Cart'))
-                items.splice(key, 1)
+                var result = $.map(items, function (item, index) {
+                    return item.ItemName;
+                }).indexOf(itemremove[index].innerText);
+                items.splice(result, 1)
                 localStorage.setItem('Cart', JSON.stringify(items))
                 if (items.length < 1) {
-                    items.splice(key, 1)
-                    localStorage.setItem('Cart', JSON.stringify(items))
                     localStorage.clear();
                 }
                 LoadCartCount()
             }
         })
     });
+}
+
+function Cartlist() {
+    let RemoveItem = document.querySelectorAll('.dropdown-menu-right .dropdown-item:not(a)')
+    RemoveItem.forEach(element => {
+        CartList.removeChild(element)
+    });
+    if (JSON.parse(localStorage.getItem('Cart')) != null) {
+        let items = JSON.parse(localStorage.getItem('Cart'))
+        items.forEach(element => {
+            ItemAddCart(element)
+        })
+        LoadCartCount();
+    }
 }

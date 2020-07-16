@@ -139,6 +139,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\JwtAuthUtil.cs" />
     <Compile Include="Services\HashService.cs" />
+    <Compile Include="Services\CookieService.cs" />
     <Compile Include="ViewModels\APIResult.cs" />
     <Compile Include="ViewModels\MemberCenter\HistoryItems.cs" />
     <Compile Include="ViewModels\MemberCenter\MemberCenterViewModel.cs" />
@@ -237,7 +238,7 @@
     <Content Include="Assets\javaScript\jquery.min.js" />
     <Content Include="Assets\javaScript\jquery.stellar.min.js" />
     <Content Include="Assets\javaScript\jquery.waypoints.min.js" />
-    <Content Include="Assets\javaScript\login.js" />
+    <Content Include="Assets\javaScript\account.js" />
     <Content Include="Assets\javaScript\Local.js" />
     <Content Include="Assets\javaScript\LoginPartialView\LoginPartialView.js" />
     <Content Include="Assets\javaScript\main.js" />
@@ -251,6 +252,7 @@
     <Content Include="Assets\javaScript\ProductDetails\ProductDetails.js" />
     <Content Include="Assets\javaScript\Products\Products.js" />
     <Content Include="Assets\javaScript\scrollax.min.js" />
+    <Content Include="Assets\javaScript\ShoppingCart\Cart.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -275,6 +277,7 @@
     <Content Include="Assets\css\fonts\raleway\Raleway-Bold.ttf" />
     <Content Include="Assets\css\fonts\raleway\Raleway-Regular.ttf" />
     <Content Include="Assets\css\fonts\raleway\Raleway-SemiBold.ttf" />
+    <None Include="Properties\PublishProfiles\SGWeb2020 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

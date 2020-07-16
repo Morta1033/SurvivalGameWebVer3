@@ -51,12 +51,12 @@
                         </p>
                     </div>
                     <div class="reg" id="memberArea">
-                        <p class="mb-0" v-if="needLogin">
-                            <a href="@Url.Action("MemberRegister","Member")" class="mr-2">Sign Up</a>
-                            <a href="#" class="Log_In">Log In</a>
+                        <p class="mb-0" v-if="!isLogin">
+                            <a href="#" class="mr-2">Sign Up</a>
+                            <a href="#" class="Log_In" @@click="loginShow">Log In</a>
                         </p>
                         <p class="mb-0" v-if="isLogin">
-                            <a href="#" class="mr-1" >{{memMail}}</a>
+                            <a href="@Url.Action("MemberRegister","Member")" class="mr-1">{{memMail}}</a>
                             <a href="#" @@click="onLogOutClick">(LogOut)</a>
                         </p>
                     </div>
@@ -71,9 +71,9 @@
                 <a href="#" class="btn-cart dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     <span class="flaticon-shopping-bag"></span>
-                    <div class="d-flex justify-content-center align-items-center"><small>3</small></div>
+                    <div class="d-flex justify-content-center align-items-center"><small>0</small></div>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right">
+                <div class="dropdown-menu dropdown-menu-right" style="max-height:440px;overflow:auto;">
                     @*<div class="dropdown-item d-flex align-items-start" href="#">
                             <div class="img" style="background-image: url(../../Assets/images/prod-1.jpg);"></div>
                             <div class="text pl-3">
@@ -110,7 +110,7 @@
                                 </p>
                             </div>
                         </div>*@
-                    <a class="dropdown-item text-center btn-link d-block w-100" href="cart.html">
+                    <a class="dropdown-item text-center btn-link d-block w-100" href="@Url.Action("ShoppingCart","Product")">
                         View All
                         <span class="ion-ios-arrow-round-forward"></span>
                     </a>
@@ -133,9 +133,9 @@
                             <a class="dropdown-item" href="@Url.Action("ProductMenu","Product" ,new { id = "CG003"})">Accessories</a>
                             <a class="dropdown-item" href="@Url.Action("ProductMenu","Product" ,new { id = "CG004"})">Magazine</a>
                             @*<a class="dropdown-item" href="@Url.Action("ProductMenu" ,"product")">Products</a>
-                            <a class="dropdown-item" href="@Url.Action("ProductDetails" ,"product")">Single Product</a>
-                            <a class="dropdown-item" href="@Url.Action("ShoppingCart" ,"product")">Cart</a>
-                            <a class="dropdown-item" href="@Url.Action("CheckOut" ,"product")">Checkout</a>*@
+                                <a class="dropdown-item" href="@Url.Action("ProductDetails" ,"product")">Single Product</a>
+                                <a class="dropdown-item" href="@Url.Action("ShoppingCart" ,"product")">Cart</a>
+                                <a class="dropdown-item" href="@Url.Action("CheckOut" ,"product")">Checkout</a>*@
                         </div>
                     </li>
                     @*<li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>*@
@@ -163,7 +163,14 @@
                     <div class="ftco-footer-widget mb-4 ml-md-4">
                         <h2 class="ftco-heading-2">Member Center</h2>
                         <ul class="list-unstyled">
-                            <li><a href="@Url.Action("MemberCenter","Member")"><span class="fa fa-chevron-right mr-2"></span>My Account</a></li>
+                            <li>
+                                <a href="#" id="gotoMemberCenter">
+                                    <span class="fa fa-chevron-right mr-2 Log_In">
+                                        My Account
+                                    </span>
+                                </a>
+                            </li>
+                            @*@Url.Action("MemberCenter","Member")*@
                             <li><a href="@Url.Action("MemberRegister","Member")"><span class="fa fa-chevron-right mr-2"></span>Register</a></li>
                             <li><a href="##" class="Log_In"><span class="fa fa-chevron-right mr-2"></span>Log In</a></li>
                             @*<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>My Order</a></li>*@
@@ -262,7 +269,6 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    <script src="~/Assets/javaScript/Local.js"></script>
     <script src="~/Assets/javaScript/jquery.min.js"></script>
     <script src="~/Assets/javaScript/jquery-migrate-3.0.1.min.js"></script>
     <script src="~/Assets/javaScript/popper.min.js"></script>
@@ -290,12 +296,27 @@
 
     <script>
         var checkLoginUrl = "@Url.Action("CheckLoginStatus" ,"Member")";
+        //var isLogin = false;
     </script>
-    <script src="~/Assets/javaScript/login.js"></script>
+    <script src="~/Assets/javaScript/account.js"></script>
+    <script src="~/Assets/javaScript/Local.js"></script>
+    <script src="~/Assets/javaScript/LoginPartialView/LoginPartialView.js"></script>
 
     @RenderSection("scripts", required: false)
     @RenderSection("bottomJs", required: false)
-    <script src="~/Assets/javaScript/LoginPartialView/LoginPartialView.js"></script>
+
+    <script>
+        $('#gotoMemberCenter').click(function (e) {
+            e.preventDefault();
+            console.log("member center click: ", isLogin);
+            if (!checkLoginStatus()) {
+                $('#LoginModal').modal();
+            }
+            else {
+
+            }
+        });
+    </script>
 </body>
 </html>
 @section topCSS

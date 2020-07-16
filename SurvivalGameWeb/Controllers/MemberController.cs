@@ -32,7 +32,16 @@ namespace SurvivalGameWeb.Controllers
             return View();
         }
 
+<<<<<<< HEAD
         //[JwtAuthActionFilter]
+=======
+        public ActionResult MemberLogin()
+        {
+            return View();
+        }
+
+        [JwtAuthActionFilter]
+>>>>>>> 23d4502c9e3b2a1738da63a1ad5fa6045e549d4f
         public ActionResult MemberCenter()
         {
             return View();
@@ -165,19 +174,26 @@ namespace SurvivalGameWeb.Controllers
             var reqJson = JsonConvert.SerializeObject(loginVM);
             var content = new StringContent(reqJson, System.Text.Encoding.UTF8, "application/json");
             var response = client.PostAsync(endpointurl, content).Result;
+
             var resultJSON = response.Content.ReadAsStringAsync().Result;
             var result = JsonConvert.DeserializeObject<APIResult>(resultJSON);
 
-            if(result.IsSuccess)
+            if (result.IsSuccess)
             {
-                JwtAuthUtil jwtAuthUtil = new JwtAuthUtil();
-                string jwtToken = jwtAuthUtil.GenerateToken((string)result.Data , loginVM.Email);
+                //result.Data 為 memID
+                string jwtToken = new JwtAuthUtil().GenerateToken((string)result.Data, loginVM.Email);
+
+                //設定cookie
+                var cookieService = new CookieService();
+                cookieService.SetCookie(HttpContext ,Request ,jwtToken , "authentication", 45);
+                //
+
                 return Json(new
                 {
                     status = true,
-                    ID = (string)result.Data,
-                    Name = loginVM.Email ,
-                    token = jwtToken
+                    //ID = (string)result.Data,
+                    Name = loginVM.Email
+                    //token = jwtToken
                 });
             }
             else
@@ -190,36 +206,75 @@ namespace SurvivalGameWeb.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpGet]
         public ActionResult CheckLoginStatus()
         {
-            if (Request.Headers["Authorization"] == null)
+            HttpCookie cookie = Request.Cookies.Get("authentication");
+            HttpCookie cookieLogOut = Request.Cookies.Get("expire-my-session-cookie");
+            string auth = cookie?.Value;
+            if (auth == null || cookieLogOut != null)
             {
+                new CookieService().LogOut(HttpContext ,Request);
                 return Json(new
                 {
                     Status = false
-                });
+                }, JsonRequestBehavior.AllowGet);
             }
             string secret = "bs2020SurvivalGameProjectOneJwtAuth";//加解密的key,如果不一樣會無法成功解密
                                                                   //解密後會回傳Json格式的物件(即加密前的資料)
-            var jwtObject = Jose.JWT.Decode<Dictionary<string, Object>>(
-            Request.Headers["Authorization"], Encoding.UTF8.GetBytes(secret), JwsAlgorithm.HS512);
+            var jwtObject = Jose.JWT.Decode<Dictionary<string, Object>>(auth, Encoding.UTF8.GetBytes(secret), JwsAlgorithm.HS512);
 
             if (JwtAuthActionFilter.IsTokenExpired(jwtObject["Exp"].ToString()))
             {
                 return Json(new
                 {
                     Status = false
-                });
+                }, JsonRequestBehavior.AllowGet);
             }
+
+            //時間較短時，重新發認證
+            string jwtToken = JwtAuthActionFilter.ReGenerateToken(jwtObject["Exp"].ToString(), jwtObject["MemID"].ToString(), jwtObject["Mail"].ToString());
+            if(jwtToken != null)
+            {
+                var cookieService = new CookieService();
+                cookieService.SetCookie(HttpContext, Request, jwtToken, "authentication", 45);
+            }
+            //
 
             return Json(new
             {
                 Status = true,
-                ID = jwtObject["MemID"].ToString(),
                 Name = jwtObject["Mail"].ToString(),
-                Token = JwtAuthActionFilter.ReGenerateToken(jwtObject["Exp"].ToString(), jwtObject["MemID"].ToString() , jwtObject["Mail"].ToString())
-            });
+            }, JsonRequestBehavior.AllowGet);
+
+
+            //if (Request.Headers["Authorization"] == null)
+            //{
+            //    return Json(new
+            //    {
+            //        Status = false
+            //    },JsonRequestBehavior.AllowGet);
+            //}
+            //string secret = "bs2020SurvivalGameProjectOneJwtAuth";//加解密的key,如果不一樣會無法成功解密
+            //                                                      //解密後會回傳Json格式的物件(即加密前的資料)
+            //var jwtObject = Jose.JWT.Decode<Dictionary<string, Object>>(
+            //Request.Headers["Authorization"], Encoding.UTF8.GetBytes(secret), JwsAlgorithm.HS512);
+
+            //if (JwtAuthActionFilter.IsTokenExpired(jwtObject["Exp"].ToString()))
+            //{
+            //    return Json(new
+            //    {
+            //        Status = false
+            //    });
+            //}
+
+            //return Json(new
+            //{
+            //    Status = true,
+            //    //ID = jwtObject["MemID"].ToString(),
+            //    Name = jwtObject["Mail"].ToString(),
+            //    //Token = JwtAuthActionFilter.ReGenerateToken(jwtObject["Exp"].ToString(), jwtObject["MemID"].ToString() , jwtObject["Mail"].ToString())
+            //}, JsonRequestBehavior.AllowGet);
         }
     }
 }
