@@ -32,16 +32,12 @@ namespace SurvivalGameWeb.Controllers
             return View();
         }
 
-<<<<<<< HEAD
-        //[JwtAuthActionFilter]
-=======
         public ActionResult MemberLogin()
         {
             return View();
         }
 
         [JwtAuthActionFilter]
->>>>>>> 23d4502c9e3b2a1738da63a1ad5fa6045e549d4f
         public ActionResult MemberCenter()
         {
             return View();
