@@ -93,7 +93,6 @@ namespace SurvivalGameWeb.Controllers
                 return Json(new { 
                     isSuccess = false,
                     exception = "Verification code error!"
-
                 });
             }
         }

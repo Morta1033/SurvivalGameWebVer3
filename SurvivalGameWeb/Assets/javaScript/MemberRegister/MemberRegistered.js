@@ -34,8 +34,6 @@ let EmailInvalid = document.querySelector(".EmailInvalid");
 let InvalidFeedback = document.querySelector(".billing-form").querySelectorAll(".invalid-feedback");
 let RegisterBtn = document.getElementById("RegisterBtn");
 
-let verifyResult = $("#VerifyResult");
-
 RegisterBtn.addEventListener("click", function (e) {
     for (let i = 0; i < InvalidFeedback.length; i++) {
         if (InvalidFeedback[i].getAttribute("style") != "display: none;") {
