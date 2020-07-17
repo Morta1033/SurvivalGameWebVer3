@@ -82,7 +82,6 @@ namespace SurvivalGameWeb.Controllers
                         exception = result.ExceptionString
                     });
                 }
-
                 return Json( new { 
                     isSuccess = true,
                     exception = "/Home/Index"

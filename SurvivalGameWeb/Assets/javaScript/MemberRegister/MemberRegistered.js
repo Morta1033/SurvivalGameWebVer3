@@ -59,6 +59,7 @@ RegisterBtn.addEventListener("click", function (e) {
         InputCode: InputCode.value
     };
     //console.log(JSON.stringify(MemberItem));
+
     $.ajax({
         url: "/Member/GetRegistered",
         method: "POST",
