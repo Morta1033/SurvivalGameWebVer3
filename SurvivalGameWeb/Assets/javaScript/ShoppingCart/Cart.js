@@ -10,9 +10,8 @@ var app = new Vue({
     el: '#app',
     data: {
         items: [],
-        test: ''
     },
-    mounted() {
+    created: function () {
         if (localStorage.getItem('Cart') != null) {
             var itendata = JSON.parse(localStorage.getItem('Cart'))
             itendata.forEach(el => {
@@ -53,35 +52,30 @@ var app = new Vue({
                 return el.ItemId;
             }).indexOf(cartItem.ID.trim());
             cart.splice(result, 1)
-            localStorage.setItem('Cart', JSON.stringify(cart))
+            if (cart.length < 1) {
+                localStorage.removeItem('Cart')
+            } else {
+                localStorage.setItem('Cart', JSON.stringify(cart))
+            }
             Cartlist();
         },
         SendOrder: function (el) {
-            let detail = [];
-            let product = {
-                ItemId: '',
-                ItemCount: '',
+            let shopdata = {
+                total: this.total,
+                detail: []
             }
             el.forEach(element => {
+                let product = {
+                    ItemId: '',
+                    ItemCount: '',
+                }
                 product.ItemCount = element.Quantity
                 product.ItemId = element.ID
-                detail.push(product)
+                shopdata.detail.push(product)
             });
             if (checkLoginStatus()) {
-                $.ajax({
-                    type: 'Post',
-                    url: '/Product/CheckOut',
-                    data: {
-                        JsProduct: JSON.stringify(detail)
-                    },
-                    success: function (response) {
-                        if (response == true) {
-                            alert(response);
-                        }
-                    }
-                })
-                //window.location.href = '/Product/CheckOut'
-
+                localStorage.setItem('CartData', JSON.stringify(shopdata))
+                window.location.href = '/Product/CheckOut'
             } else {
                 $("#LoginModal").modal('show');
 

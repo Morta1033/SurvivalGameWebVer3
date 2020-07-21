@@ -100,7 +100,7 @@ function RemoveLocal() {
                 items.splice(result, 1)
                 localStorage.setItem('Cart', JSON.stringify(items))
                 if (items.length < 1) {
-                    localStorage.clear();
+                    localStorage.removeItem('Cart');
                 }
                 LoadCartCount()
             }

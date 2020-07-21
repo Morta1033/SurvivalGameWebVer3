@@ -7,10 +7,19 @@
         Payment: $('input[name=optradio]:checked').val(),
         Deliverymethod: $('input[name=optradio1]:checked').val()
     }
-    console.log(orderinfo)
 }
 $(document).ready(function () {
+    init()
     $('#OrederCheck').click(function (e) {
         AddOrderInfo();
     });
 });
+
+function init() {
+    if (localStorage.getItem('CartData') != null) {
+        var datatmp = JSON.parse(localStorage.getItem('CartData'))
+        console.log(datatmp)
+    }
+    $('#sub span:last').text('$' + datatmp.total)
+    $('.total-price span:last').text('$' + datatmp.total)
+}

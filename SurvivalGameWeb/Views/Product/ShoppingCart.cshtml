@@ -37,7 +37,7 @@
             <div class="col-2">Total</div>
             <div class="col-1"></div>
         </div>
-        <div class="row CartList" >
+        <div class="row CartList">
             <div class="CartItem d-flex m-0      text-center alert" role="alert" v-for="item in items">
                 <div class="col-5 col-md-2" id="CartImg"><img v-bind:src="item.ImgList[0]"></div>
                 <div class="col-7 col-md-10 CartContext ">
@@ -83,7 +83,7 @@
                     </p>
                 </div>
                 <p class="text-center">
-                    <a  class="btn btn-primary py-3 px-4" v-on:click="SendOrder(items)">
+                    <a class="btn btn-primary py-3 px-4" v-on:click="SendOrder(items)">
                         Proceed to
                         Checkout
                     </a>
